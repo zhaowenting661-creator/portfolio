@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多平台运营设计物料 — 运营设计 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #111111;
+  color: #ffffff;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ── Custom cursor ── */
+#cursor-trail {
+  position: fixed;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgb(244, 244, 244);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease, background-color .2s ease;
+  mix-blend-mode: difference;
+  will-change: left, top;
+}
+#cursor-trail.cursor-hover {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.55);
+}
+a, button { cursor: none; }
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 9999px;
+  transition: all .5s ease;
+  position: relative;
+  z-index: 50;
+}
+.nav-back:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #fff;
+}
+
+.nav-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,.4);
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 150px 60px 64px;
+  position: relative;
+}
+
+.hero-inner {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 6.5vw, 100px);
+  font-weight: 800;
+  line-height: .93;
+  letter-spacing: -.035em;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero-tagline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(16px, 1.6vw, 24px);
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .02em;
+}
+
+/* ── Preview card ── */
+.preview-section {
+  padding: 40px 60px 0;
+}
+
+.preview-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.preview-card {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000000;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.85);
+}
+
+.preview-card img,
+.preview-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Custom video player ── */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.28);
+  transition: opacity .25s ease;
+  cursor: none;
+}
+.video-play-overlay.hidden { opacity: 0; pointer-events: none; }
+
+.video-play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, background .2s ease;
+  backdrop-filter: blur(8px);
+}
+.video-play-overlay:hover .video-play-btn {
+  transform: scale(1.1);
+  background: rgba(255,255,255,.25);
+}
+.video-play-btn::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 11px 0 11px 20px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 4px;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 20px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.video-wrap:hover .video-controls,
+.video-wrap.paused .video-controls { opacity: 1; }
+
+.ctrl-toggle {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.ctrl-toggle svg { width: 18px; height: 18px; fill: #fff; }
+.ctrl-toggle .icon-pause { display: none; }
+.video-wrap.playing .ctrl-toggle .icon-play  { display: none; }
+.video-wrap.playing .ctrl-toggle .icon-pause { display: block; }
+
+.ctrl-progress {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,.25);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+.ctrl-progress-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
+  width: 0%;
+  transition: width .1s linear;
+  pointer-events: none;
+}
+.ctrl-progress:hover { height: 5px; }
+
+.ctrl-time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.7);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: .04em;
+}
+
+/* ── About section ── */
+.about-section {
+  padding: 80px 60px 100px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 120px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.about-left {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 24px;
+}
+
+.project-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.about-right {
+  padding-top: 6px;
+}
+
+.meta-list {
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.meta-item {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.meta-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 8px;
+}
+
+.meta-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* ── Stack / Gallery section ── */
+.stack-gallery-section {
+  padding: 80px 60px 120px;
+}
+
+.stack-gallery-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.stack-gallery-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.stack-left {
+  position: sticky;
+  top: 120px;
+}
+
+.stack-box {
+  border: 1px solid rgba(255,255,255,.15);
+  margin-top: 20px;
+}
+
+.stack-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  transition: background .2s ease;
+  cursor: pointer;
+}
+.stack-item:last-child { border-bottom: none; }
+.stack-item:hover { background: rgba(255,255,255,.05); }
+.stack-item.active { background: rgba(255,255,255,.08); }
+.stack-item.active .stack-name { color: #ffffff; }
+.stack-item.active .stack-num { color: rgba(255,255,255,.55); }
+
+.stack-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .04em;
+  min-width: 26px;
+}
+
+.stack-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: .01em;
+}
+
+/* ── Stack description block ── */
+.stack-desc {
+  display: none;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.stack-desc.active {
+  display: block;
+  animation: galleryFadeIn .3s ease;
+}
+
+.stack-desc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+
+.stack-feature-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+
+.stack-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stack-feature-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.stack-feature-dot {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+}
+.stack-feature-dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+}
+
+.stack-feature-body { display: flex; flex-direction: column; gap: 4px; }
+
+.stack-feature-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+
+.stack-feature-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,.55);
+  line-height: 1.7;
+}
+
+/* ── Gallery panels ── */
+.stack-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery-panel { display: none; }
+.gallery-panel.active {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: galleryFadeIn .35s ease;
+}
+
+@keyframes galleryFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-img-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+.gallery-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .7s cubic-bezier(.4, 0, .2, 1);
+}
+.gallery-img-wrap:hover img {
+  transform: scale(1.02);
+}
+
+.gallery-placeholder {
+  border-radius: 20px;
+  background: #1a1a1a;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,.2);
+  letter-spacing: .06em;
+}
+
+/* Multi-column image grids for portrait/email images */
+.gallery-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.gallery-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.gallery-grid-3 .gallery-img-wrap,
+.gallery-grid-4 .gallery-img-wrap {
+  border-radius: 12px;
+}
+
+/* 2-column portrait video grid */
+.gallery-grid-2-video {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.gallery-grid-2-video .gallery-img-wrap {
+  border-radius: 16px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+.gallery-grid-2-video .video-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.gallery-grid-2-video .video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Natural-size video: follows actual video dimensions */
+.gallery-img-wrap.natural-video {
+  aspect-ratio: unset;
+  position: relative;
+  background: #000;
+}
+.gallery-img-wrap.natural-video .video-wrap {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.gallery-img-wrap.natural-video .video-wrap video {
+  width: 100%;
+  height: auto;
+  object-fit: unset;
+  display: block;
+}
+.video-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  padding-left: 4px;
+}
+
+/* ── Footer / Next ── */
+.footer-section {
+  padding: 80px 60px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.footer-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 12px;
+}
+
+.footer-next-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  text-decoration: none;
+  transition: opacity .3s ease;
+  display: block;
+}
+.footer-next-title:hover { opacity: .6; }
+
+.footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 9999px;
+  transition: all .5s ease;
+}
+.footer-back:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ── Touch devices ── */
+@media (hover: none) {
+  body, a, button { cursor: auto !important; }
+  #cursor-trail { display: none !important; }
+}
+
+/* ── Tablet 769–1024px ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav { padding: 24px 40px; }
+  .nav-back { padding: 12px 22px; font-size: 13px; }
+  .hero { padding: 130px 40px 52px; }
+  .preview-section { padding: 28px 40px 0; }
+  .about-section { padding: 60px 40px 80px; }
+  .about-grid { gap: 72px; }
+  .project-desc { font-size: 26px; }
+  .stack-gallery-section { padding: 60px 40px 96px; }
+  .stack-gallery-grid { grid-template-columns: 260px 1fr; gap: 48px; }
+  .footer-section { padding: 64px 40px; }
+}
+
+/* ── Mobile ≤ 768px ── */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-back { padding: 10px 18px; font-size: 11px; letter-spacing: .12em; }
+  .nav-tag { font-size: 11px; letter-spacing: .1em; }
+  .hero { min-height: auto; align-items: flex-start; padding: 80px 20px 28px; }
+  .hero-eyebrow { font-size: 10px; margin-bottom: 12px; }
+  .hero-title { word-break: break-word; font-size: clamp(32px, 10vw, 64px); }
+  .hero-tagline { font-size: clamp(14px, 3.5vw, 18px); }
+  .preview-section { padding: 18px 20px 0; }
+  .preview-card { border-radius: 14px; }
+  .about-section { padding: 56px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  .about-left { position: static; }
+  .project-desc { font-size: 22px; line-height: 1.45; }
+  .meta-item { padding: 18px 0; }
+  .meta-value { font-size: 15px; }
+  .stack-gallery-section { padding: 40px 20px 72px; }
+  .stack-gallery-grid { grid-template-columns: 1fr; gap: 36px; }
+  .stack-left { position: static; }
+  .footer-section { padding: 48px 20px; flex-direction: column; align-items: flex-start; gap: 32px; }
+  .footer-next-title { font-size: clamp(24px, 7vw, 36px); }
+  .footer-back { padding: 12px 22px; font-size: 12px; }
+}
+
+/* ── Small phone ≤ 390px ── */
+@media (max-width: 390px) {
+  nav { padding: 14px 16px; }
+  .hero { padding: 80px 16px 28px; }
+  .preview-section { padding: 14px 16px 0; }
+  .about-section { padding: 48px 16px; }
+  .stack-gallery-section { padding: 32px 16px 56px; }
+  .footer-section { padding: 40px 16px; }
+}
+
+/* ── Shell Shocker Banner Demo ── */
+.ss-banner {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(98.6deg, #0e050a 2.14%, #1f0c07 34.29%, #120705 72.36%, #130704 99.22%);
+}
+.ss-banner__video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  pointer-events: none;
+}
+#ss-hammer-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  display: none;
+  font-size: 42px;
+  line-height: 1;
+  transform: translate(-18px,-22px) rotate(55deg);
+  filter: drop-shadow(0 0 7px rgba(255,210,0,.85));
+  user-select: none;
+}
+#ss-hammer-cursor.swinging { animation: ss-hammer-swing 0.60s ease-in-out 2; }
+@keyframes ss-hammer-swing {
+  0%   { transform: translate(-18px,-22px) rotate(55deg);  filter: drop-shadow(0 0 7px  rgba(255,210,0,.8)); }
+  33%  { transform: translate(-18px,-22px) rotate(102deg); filter: drop-shadow(0 0 26px rgba(255,220,0,1));  }
+  53%  { transform: translate(-18px,-22px) rotate(65deg);  filter: drop-shadow(0 0 7px  rgba(255,210,0,.8)); }
+  83%  { transform: translate(-18px,-22px) rotate(102deg); filter: drop-shadow(0 0 26px rgba(255,220,0,1));  }
+  100% { transform: translate(-18px,-22px) rotate(55deg);  filter: drop-shadow(0 0 7px  rgba(255,210,0,.8)); }
+}
+#ss-egg-hint {
+  position: absolute;
+  left: 50%; top: 210px;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  pointer-events: none;
+  z-index: 200;
+}
+.ss-egg-hint__arrow {
+  font-size: 22px; color: #FFD700; line-height: 1;
+  text-shadow: 0 0 10px rgba(255,210,0,.9), 0 0 22px rgba(255,180,0,.5);
+  animation: ss-hint-bounce 0.78s ease-in-out infinite;
+}
+.ss-egg-hint__label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  color: #FFD700; text-shadow: 0 0 8px rgba(255,210,0,.85);
+}
+@keyframes ss-hint-bounce {
+  0%, 100% { transform: translateY(0);   opacity: 1;    }
+  50%       { transform: translateY(9px); opacity: 0.55; }
+}
+.ss-categories-nav {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  height: 172px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.ss-nav-swiper { display: flex; align-items: flex-start; height: 100%; }
+.ss-nav-slide {
+  display: flex; flex-direction: column;
+  height: 100%; align-items: flex-start; justify-content: center;
+  flex-shrink: 0; width: 155px;
+}
+.ss-nav-cell {
+  display: flex; flex: 1 0 0; flex-direction: column;
+  gap: 7px; align-items: center; min-height: 1px;
+  padding: 10px 10px 0; position: relative;
+  border-radius: 24px; width: 134px;
+  text-decoration: none; color: inherit;
+}
+.ss-nav-cell--active { background: linear-gradient(to bottom, #ffd16e, rgba(255,255,255,0)); }
+.ss-nav-icon { position: relative; width: 104px; height: 88px; flex-shrink: 0; overflow: hidden; }
+.ss-nav-icon img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.ss-nav-title {
+  display: flex; flex-direction: column; align-items: center;
+  padding-bottom: 8px; flex-shrink: 0; width: 100%; position: relative;
+}
+.ss-nav-label { font-size: 13px; line-height: 18px; text-align: center; white-space: nowrap; }
+.ss-nav-label--default { font-weight: 600; color: #ffffff; }
+.ss-nav-label--active  { font-weight: 700; color: #e05e00; }
+.ss-nav-indicator {
+  position: absolute; bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 24px; height: 4px; background: #ffb061; border-radius: 2px;
+}
+</style>
+</head>
+<body>
+<!-- ── 阶梯蒙版页面转场 ── -->
+<div id="stair-overlay" aria-hidden="true"></div>
+<style>
+#stair-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden;}
+.stair-row{position:absolute;left:0;width:100%;background:#111111;transform:translateX(-100%);will-change:transform;}
+</style>
+<script>
+(function(){
+  var ROWS=8,DUR=400,STAG=55;
+  var overlay=document.getElementById('stair-overlay');
+  for(var i=0;i<ROWS;i++){var r=document.createElement('div');r.className='stair-row';r.style.top=(i*(100/ROWS))+'vh';r.style.height='calc('+(100/ROWS)+'vh + 2px)';overlay.appendChild(r);}
+  var nav=false;
+  function stairExit(href){
+    if(nav)return;nav=true;overlay.style.pointerEvents='all';
+    var rows=overlay.querySelectorAll('.stair-row');
+    rows.forEach(function(row){row.style.transition='none';row.style.transform='translateX(-100%)';});
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      rows.forEach(function(row,idx){
+        row.style.transition='transform '+DUR+'ms cubic-bezier(0.76,0,0.24,1) '+(idx*STAG)+'ms';
+        row.style.transform='translateX(0)';
+      });
+    });});
+    setTimeout(function(){
+      try{sessionStorage.setItem('stair-back','1');}catch(e){}
+      window.location.href=href;
+    },DUR+(ROWS-1)*STAG+60);
+  }
+  document.addEventListener('click',function(e){
+    if(nav){e.preventDefault();return;}
+    var a=e.target.closest('a[href]');if(!a)return;
+    var href=a.getAttribute('href');
+    if(!href||href==='#'||/^(https?:|mailto:|tel:|javascript:)/.test(href))return;
+    e.preventDefault();e.stopImmediatePropagation();
+    stairExit(href);
+  },true);
+})();
+</script>
+
+
+<div id="cursor-trail"></div>
+
+<!-- ── Navigation ── -->
+<nav>
+  <a href="transition-b-rise可.html" class="nav-back">← Back</a>
+  <span class="nav-tag">运营设计 &nbsp;·&nbsp; 2025</span>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">运营设计 &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; Graphic Design</p>
+    <h1 class="hero-title">多平台运营<br>设计物料</h1>
+    <p class="hero-tagline">节日&amp;日常运营长页&amp;Banner</p>
+  </div>
+</section>
+
+<!-- ── Shell Shocker Banner Demo ── -->
+<section class="preview-section">
+  <div class="preview-wrap">
+    <h3 class="section-label">Shell Shocker Store — Interactive Banner</h3>
+    <div class="ss-banner">
+      <video class="ss-banner__video" muted playsinline preload="auto">
+        <source src="videos/合成 1_1.mp4" type="video/mp4">
+      </video>
+      <div id="ss-egg-hint" aria-hidden="true">
+        <span class="ss-egg-hint__arrow">▼</span>
+        <span class="ss-egg-hint__label">CLICK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section class="about-section">
+  <div class="about-grid">
+
+    <div class="about-left">
+      <h3 class="section-label">About</h3>
+      <p class="project-desc">
+        多平台运营物料设计，覆盖 Newegg 节日大促长页与
+        SellingPilot 推广运营长页及 Banner，整合节日营销与
+        日常运营全场景视觉需求。
+      </p>
+    </div>
+
+    <div class="about-right">
+      <div class="meta-list">
+        <div class="meta-item">
+          <p class="meta-label">Year</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Design Type</p>
+          <p class="meta-value">运营设计</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Role</p>
+          <p class="meta-value">Graphic Design</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Tools</p>
+          <p class="meta-value">Figma &nbsp;·&nbsp; Photoshop &nbsp;·&nbsp; Illustrator</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Scope</p>
+          <p class="meta-value">节日大促 &nbsp;·&nbsp; 品牌推广 &nbsp;·&nbsp; Banner</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Stack / Gallery ── -->
+<section class="stack-gallery-section">
+  <div class="stack-gallery-wrap">
+    <div class="stack-gallery-grid">
+
+      <!-- Left: navigation directory -->
+      <div class="stack-left">
+        <h3 class="section-label">设计分类</h3>
+        <div class="stack-box">
+          <div class="stack-item active" data-panel="panel-01">
+            <span class="stack-num">01</span>
+            <span class="stack-name">Newegg 节日大促</span>
+          </div>
+          <div class="stack-item" data-panel="panel-02">
+            <span class="stack-num">02</span>
+            <span class="stack-name">Newegg 日常运营邮件</span>
+          </div>
+          <div class="stack-item" data-panel="panel-03">
+            <span class="stack-num">03</span>
+            <span class="stack-name">数字人短视频营销</span>
+          </div>
+          <div class="stack-item" data-panel="panel-04">
+            <span class="stack-num">04</span>
+            <span class="stack-name">SellingPilot Banner</span>
+          </div>
+        </div>
+
+        <!-- Description: 01 节日大促 -->
+        <div class="stack-desc active" id="desc-01">
+          <h2 class="stack-desc-title">Newegg<br>节日大促</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">Black November 阶段性倒计时促销</p>
+                <p class="stack-feature-text">围绕 Black November 节奏，设计 Early Access、Non-stop Deals、Surprise Deals、Black Friday 到 Ultimate Sale 五阶段促销邮件，以倒计时宝箱视觉强化紧迫感，驱动全周期购买转化。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">Black Friday / Dealcember 主题大促长页</p>
+                <p class="stack-feature-text">聚焦 Gaming PC、Desktop、Storage 等核心品类，搭配 Shell Shocker 闪购、以旧换新等促销模块，高密度商品陈列与多层级 CTA 设计提升点击与成单效率。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 02 日常运营邮件 -->
+        <div class="stack-desc" id="desc-02">
+          <h2 class="stack-desc-title">Newegg<br>日常运营邮件</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">周一至周末差异化主题邮件系列</p>
+                <p class="stack-feature-text">围绕 Gaming、Storage、Notebook、Desktop、Components、Home & Outdoors 等品类，设计按周分主题的运营邮件，搭配全屏 Hero Banner + 商品 Grid，视觉节奏统一且易于快速复用。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">固定模块化结构，支持高频次批量产出</p>
+                <p class="stack-feature-text">邮件采用 Hero + Most Popular 商品排行 + Shell Shocker 闪购 + 固定 Footer 的标准结构，保持品牌一致性的同时支持运营团队每日高效上线，降低重复设计成本。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 03 数字人短视频营销 -->
+        <div class="stack-desc" id="desc-03">
+          <h2 class="stack-desc-title">数字人<br>短视频营销</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">Nate — 产品解说数字人</p>
+                <p class="stack-feature-text">Nate 以真实自然的数字人形态担任产品解说角色，通过短视频生动呈现产品功能、规格与使用场景，帮助用户快速建立对产品的认知，降低购买决策门槛，驱动转化。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">Mina — Newegg 品牌形象大使</p>
+                <p class="stack-feature-text">Mina 是专为 Newegg 品牌塑造的虚拟数字人形象大使，通过品牌视频内容持续传递 Newegg 的调性与价值主张，强化用户对品牌的认知与情感连接，提升品牌影响力与长期忠诚度。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 04 SP Banner -->
+        <div class="stack-desc" id="desc-04">
+          <h2 class="stack-desc-title">SellingPilot<br>Banner 设计</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">多场景 Banner 系列，覆盖推广全链路</p>
+                <p class="stack-feature-text">涵盖一键迁移推广 Banner、新功能发布公告 Banner、品牌 Slogan Banner 及 Q4 节日营销 Banner，适配邮件 Header、站内公告、社媒推广等多种投放场景，视觉风格统一且场景感强。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">3D 插画 + 数据可视化，强化品牌科技感</p>
+                <p class="stack-feature-text">大量运用品牌蓝紫色调 3D 插画元素（AI 机器人、数据看板、购物车等），搭配 Dashboard 实拍截图增强真实感；Q4 节日 Banner 融入雪花、圣诞等季节元素，在保持品牌调性的同时快速适配节日氛围。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: switchable panels -->
+      <div class="stack-right">
+
+        <!-- 01 节日大促 — 3 images side by side -->
+        <div class="gallery-panel active" id="panel-01">
+          <div class="gallery-grid-3">
+            <div class="gallery-img-wrap">
+              <img src="运营长页/05_Promotion Email-Maunal picked email_Friday.jpg" alt="Black November 促销邮件">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="运营长页/01_Promotion Email-Maunal picked email_Monday.jpg" alt="Black Friday Desktop Deals">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="运营长页/01_Promotion Email-Maunal picked email_Monday.png" alt="Dealcember 促销邮件">
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 日常运营邮件 — 7 images in 3-column grid -->
+        <div class="gallery-panel" id="panel-02">
+          <div class="gallery-grid-3">
+            <div class="gallery-img-wrap">
+              <img src="运营长页/02_Tuesday.jpg" alt="Tuesday — Shop All Components Deals">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="运营长页/03_Wednesday.jpg" alt="Wednesday — Shop All Storage Deals">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="运营长页/04_Thursday.jpg" alt="Thursday — Shop All Notebook Deals">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="运营长页/05_Friday.jpg" alt="Friday — Tech Deals for Home">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="运营长页/06_Weekend.jpg" alt="Weekend — Gaming Deals">
+            </div>
+
+            <div class="gallery-img-wrap">
+              <img src="运营长页/4.jpg" alt="Shop All Deals — Halloween">
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 数字人短视频营销 — 2 portrait videos -->
+        <div class="gallery-panel" id="panel-03">
+          <div class="gallery-grid-2-video">
+
+            <!-- Nate Video -->
+            <div>
+              <div class="gallery-img-wrap">
+                <div class="video-wrap" id="vw-nate">
+                  <video id="vid-nate" preload="metadata" playsinline loop>
+                    <source src="videos/nate video 8.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-play-overlay" id="overlay-nate">
+                    <div class="video-play-btn"></div>
+                  </div>
+                  <div class="video-controls">
+                    <button class="ctrl-toggle" id="ctrl-nate" aria-label="play/pause">
+                      <svg viewBox="0 0 24 24" class="icon-play"><polygon points="5,3 19,12 5,21"/></svg>
+                      <svg viewBox="0 0 24 24" class="icon-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="ctrl-progress" id="prog-nate"><div class="ctrl-progress-fill" id="progfill-nate"></div></div>
+                    <span class="ctrl-time" id="time-nate">0:00</span>
+                  </div>
+                </div>
+              </div>
+              <p class="video-label">Nate — Social Content</p>
+            </div>
+
+            <!-- Mina Video -->
+            <div>
+              <div class="gallery-img-wrap">
+                <div class="video-wrap" id="vw-mina">
+                  <video id="vid-mina" preload="metadata" playsinline loop>
+                    <source src="videos/mina video 9.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-play-overlay" id="overlay-mina">
+                    <div class="video-play-btn"></div>
+                  </div>
+                  <div class="video-controls">
+                    <button class="ctrl-toggle" id="ctrl-mina" aria-label="play/pause">
+                      <svg viewBox="0 0 24 24" class="icon-play"><polygon points="5,3 19,12 5,21"/></svg>
+                      <svg viewBox="0 0 24 24" class="icon-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="ctrl-progress" id="prog-mina"><div class="ctrl-progress-fill" id="progfill-mina"></div></div>
+                    <span class="ctrl-time" id="time-mina">0:00</span>
+                  </div>
+                </div>
+              </div>
+              <p class="video-label">Mina — Video Generation</p>
+            </div>
+
+
+          </div>
+
+          <!-- 35-200-140 Product Video — natural dimensions -->
+          <div>
+            <div class="gallery-img-wrap natural-video">
+              <div class="video-wrap" id="vw-product">
+                <video id="vid-product" preload="metadata" playsinline loop>
+                  <source src="35-200-140 Video.mp4" type="video/mp4">
+                </video>
+                <div class="video-play-overlay" id="overlay-product">
+                  <div class="video-play-btn"></div>
+                </div>
+                <div class="video-controls">
+                  <button class="ctrl-toggle" id="ctrl-product" aria-label="play/pause">
+                    <svg viewBox="0 0 24 24" class="icon-play"><polygon points="5,3 19,12 5,21"/></svg>
+                    <svg viewBox="0 0 24 24" class="icon-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                  </button>
+                  <div class="ctrl-progress" id="prog-product"><div class="ctrl-progress-fill" id="progfill-product"></div></div>
+                  <span class="ctrl-time" id="time-product">0:00</span>
+                </div>
+              </div>
+            </div>
+            <p class="video-label">35-200-140 — Product Video</p>
+          </div>
+
+        </div>
+
+        <!-- 04 SP Banner — 5 images stacked -->
+        <div class="gallery-panel" id="panel-04">
+          <div class="gallery-img-wrap">
+            <img src="banner/Email Banner（英文）.png" alt="SP — Migrate to Newegg Banner">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="banner/公告 Banner（英文）.png" alt="SP — Migrate Amazon to Newegg Banner">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="banner/General Email Template EN 2.png" alt="SP — New Feature Release Banner">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="banner/General Email Template EN.png" alt="SP — Smart Tools Banner">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="banner/General Q4 Festival template CN.png" alt="SP — Q4 AI-Powered Banner">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer / Next ── -->
+<section class="footer-section">
+  <div>
+    <p class="footer-label">Next Project</p>
+    <a href="project-4.html" class="footer-next-title">IP 设计 →</a>
+  </div>
+  <a href="transition-b-rise可.html" class="footer-back">← All Works</a>
+</section>
+
+<script>
+(function () {
+  const trail = document.getElementById('cursor-trail');
+
+  document.addEventListener('mousemove', (e) => {
+    trail.style.left = e.clientX + 'px';
+    trail.style.top  = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button, .preview-card, .gallery-img-wrap, .stack-item').forEach(el => {
+    el.addEventListener('mouseenter', () => trail.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => trail.classList.remove('cursor-hover'));
+  });
+
+  document.addEventListener('mouseleave', () => { trail.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { trail.style.opacity = '1'; });
+})();
+</script>
+
+<script>
+/* ── Module nav switcher ── */
+(function () {
+  const navItems = document.querySelectorAll('.stack-item[data-panel]');
+  const panels   = document.querySelectorAll('.gallery-panel');
+  const descs    = document.querySelectorAll('.stack-desc');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      descs.forEach(d => d.classList.remove('active'));
+
+      item.classList.add('active');
+
+      const panelId = item.dataset.panel;
+      const descId  = panelId.replace('panel', 'desc');
+
+      const panel = document.getElementById(panelId);
+      const desc  = document.getElementById(descId);
+      if (panel) panel.classList.add('active');
+      if (desc)  desc.classList.add('active');
+    });
+  });
+})();
+</script>
+
+<!-- ── Digital Human Video Players ── -->
+<script>
+(function () {
+  function fmt(s) {
+    var m = Math.floor(s / 60), ss = Math.floor(s % 60);
+    return m + ':' + (ss < 10 ? '0' : '') + ss;
+  }
+  function initPlayer(vidId, wrapId, overlayId, ctrlId, progId, fillId, timeId) {
+    var vid     = document.getElementById(vidId);
+    var wrap    = document.getElementById(wrapId);
+    var overlay = document.getElementById(overlayId);
+    var ctrl    = document.getElementById(ctrlId);
+    var prog    = document.getElementById(progId);
+    var fill    = document.getElementById(fillId);
+    var time    = document.getElementById(timeId);
+    if (!vid || !wrap) return;
+
+    function setPlaying(on) {
+      if (on) { wrap.classList.add('playing'); wrap.classList.remove('paused'); }
+      else    { wrap.classList.remove('playing'); wrap.classList.add('paused'); }
+    }
+
+    overlay.addEventListener('click', function () {
+      if (vid.paused) { vid.play(); setPlaying(true); overlay.classList.add('hidden'); }
+    });
+
+    ctrl.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (vid.paused) { vid.play(); setPlaying(true); overlay.classList.add('hidden'); }
+      else            { vid.pause(); setPlaying(false); overlay.classList.remove('hidden'); }
+    });
+
+    vid.addEventListener('timeupdate', function () {
+      if (!vid.duration) return;
+      var pct = (vid.currentTime / vid.duration) * 100;
+      fill.style.width = pct + '%';
+      time.textContent = fmt(vid.currentTime);
+    });
+
+    prog.addEventListener('click', function (e) {
+      if (!vid.duration) return;
+      var r = prog.getBoundingClientRect();
+      vid.currentTime = ((e.clientX - r.left) / r.width) * vid.duration;
+    });
+
+    vid.addEventListener('ended', function () {
+      setPlaying(false);
+      overlay.classList.remove('hidden');
+    });
+  }
+
+  initPlayer('vid-nate', 'vw-nate', 'overlay-nate', 'ctrl-nate', 'prog-nate', 'progfill-nate', 'time-nate');
+  initPlayer('vid-mina', 'vw-mina', 'overlay-mina', 'ctrl-mina', 'prog-mina', 'progfill-mina', 'time-mina');
+  initPlayer('vid-product', 'vw-product', 'overlay-product', 'ctrl-product', 'prog-product', 'progfill-product', 'time-product');
+})();
+</script>
+
+<!-- ── Shell Shocker Hammer Cursor ── -->
+<div id="ss-hammer-cursor" aria-hidden="true">🔨</div>
+<script>
+(function () {
+  var ssBanner = document.querySelector('.ss-banner');
+  if (!ssBanner) return;
+  var ssVideo  = ssBanner.querySelector('video');
+  var ssHammer = document.getElementById('ss-hammer-cursor');
+  var ssHint   = document.getElementById('ss-egg-hint');
+  var trail    = document.getElementById('cursor-trail');
+  var swingTmr = null;
+  var playing  = false;
+  var nearEgg  = false;
+  var clicked  = false;
+
+  function insideEggZone(cx, cy) {
+    var r = ssBanner.getBoundingClientRect();
+    var eggX = r.left + r.width * 0.5;
+    var eggY = r.top  + r.height * 0.423;
+    var eggR = r.width * (265 / 1920);
+    var dx = cx - eggX, dy = cy - eggY;
+    return dx * dx + dy * dy < eggR * eggR;
+  }
+
+  function initVideo() {
+    ssVideo.loop = false;
+    ssVideo.currentTime = 0;
+    ssVideo.pause();
+  }
+  if (ssVideo.readyState >= 1) initVideo();
+  else ssVideo.addEventListener('loadedmetadata', initVideo, { once: true });
+
+  ssVideo.addEventListener('ended', function () {
+    playing = false; clicked = false;
+    ssVideo.currentTime = 0; ssVideo.pause();
+    ssVideo.style.transition = 'transform 0.6s ease-out';
+    ssVideo.style.transform  = '';
+    if (!nearEgg) { ssHammer.style.display = 'none'; if (trail) trail.style.opacity = '1'; }
+  });
+
+  function onEnterEgg() {
+    if (nearEgg) return; nearEgg = true;
+    ssHammer.style.display = 'block';
+    if (trail) trail.style.opacity = '0';
+    ssHammer.classList.remove('swinging');
+    if (!playing) ssHint.style.display = 'flex';
+  }
+
+  function onLeaveEgg() {
+    if (!nearEgg) return; nearEgg = false;
+    ssHint.style.display = 'none';
+    if (!playing) {
+      ssHammer.style.display = 'none';
+      if (trail) trail.style.opacity = '1';
+    }
+  }
+
+  ssBanner.addEventListener('click', function (e) {
+    if (playing || clicked) return;
+    if (!insideEggZone(e.clientX, e.clientY)) return;
+    clicked = true; ssHint.style.display = 'none';
+    ssHammer.classList.remove('swinging');
+    void ssHammer.offsetWidth;
+    ssHammer.classList.add('swinging');
+    clearTimeout(swingTmr);
+    swingTmr = setTimeout(function () {
+      playing = true;
+      ssVideo.currentTime = 0;
+      ssVideo.play().catch(function () {});
+    }, 200);
+  });
+
+  ssBanner.addEventListener('mousemove', function (e) {
+    ssHammer.style.left = e.clientX + 'px';
+    ssHammer.style.top  = e.clientY + 'px';
+    if (!playing) {
+      if (insideEggZone(e.clientX, e.clientY)) onEnterEgg();
+      else onLeaveEgg();
+    }
+    if (playing) {
+      var r  = ssBanner.getBoundingClientRect();
+      var nx = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+      var ny = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+      ssVideo.style.transition = 'transform 0.12s ease-out';
+      ssVideo.style.transform  = 'perspective(900px) rotateX(' + (-ny * 6).toFixed(2) + 'deg) rotateY(' + (nx * 8).toFixed(2) + 'deg) scale(1.09)';
+    }
+  });
+
+  ssBanner.addEventListener('mouseleave', function () {
+    onLeaveEgg();
+    if (!playing) { ssHammer.style.display = 'none'; if (trail) trail.style.opacity = '1'; }
+    ssVideo.style.transition = 'transform 0.55s ease-out';
+    ssVideo.style.transform  = '';
+  });
+}());
+</script>
+
+</body>
+</html>

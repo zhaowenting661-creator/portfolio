@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SellingPilot — B端设计 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #111111;
+  color: #ffffff;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ── Custom cursor ── */
+#cursor-trail {
+  position: fixed;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgb(244, 244, 244);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease, background-color .2s ease;
+  mix-blend-mode: difference;
+  will-change: left, top;
+}
+#cursor-trail.cursor-hover {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.55);
+}
+a, button { cursor: none; }
+
+/* ── Navigation ──
+   nav.px-[30px].md:px-[60px].py-[30px].flex.items-center.justify-between
+   .absolute.top-0.left-0.right-0.z-[100]                                   */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+
+/* a.group.inline-flex.items-center.gap-4.font-space.text-[14px].uppercase
+   .tracking-[0.15em].py-4.px-8.border.border-white/20.rounded-full
+   .hover:bg-white.hover:text-black.transition-all.duration-500           */
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;          /* py-4 px-8 */
+  border: 1px solid rgba(255,255,255,.2);   /* border-white/20 */
+  border-radius: 9999px;       /* rounded-full */
+  transition: all .5s ease;    /* duration-500 */
+  position: relative;
+  z-index: 50;
+}
+.nav-back:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #fff;
+}
+
+.nav-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,.4);
+}
+
+/* ── Hero ──
+   section.min-h-[60vh].flex.items-center.justify-center
+   .px-[30px].md:px-[60px].pt-[120px].md:pt-[150px].relative             */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 150px 60px 64px;
+  position: relative;
+}
+
+.hero-inner {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* p.font-space.text-white/40.text-[11px].uppercase.tracking-[0.2em].mb-6 */
+.hero-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+
+/* h1 – large project title */
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(64px, 8.5vw, 128px);
+  font-weight: 800;
+  line-height: .93;
+  letter-spacing: -.035em;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+/* p – tagline */
+.hero-tagline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(16px, 1.6vw, 24px);
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .02em;
+}
+
+/* ── Preview card ──
+   div.relative.h-[60vh].lg:h-[75vh].rounded-3xl.overflow-hidden
+   .bg-black.shadow-2xl                                                     */
+.preview-section {
+  padding: 40px 60px 0;
+}
+
+.preview-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.preview-card {
+  position: relative;
+  aspect-ratio: 16 / 9;       /* matches 3840×2160 source video */
+  width: 100%;
+  border-radius: 24px;        /* rounded-3xl */
+  overflow: hidden;
+  background: #000000;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.85); /* shadow-2xl */
+}
+
+.preview-card img,
+.preview-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Custom video player ── */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Center play overlay (shown when paused) */
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.28);
+  transition: opacity .25s ease;
+  cursor: none;
+}
+.video-play-overlay.hidden { opacity: 0; pointer-events: none; }
+
+.video-play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, background .2s ease;
+  backdrop-filter: blur(8px);
+}
+.video-play-overlay:hover .video-play-btn {
+  transform: scale(1.1);
+  background: rgba(255,255,255,.25);
+}
+/* Play triangle */
+.video-play-btn::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 11px 0 11px 20px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 4px;
+}
+
+/* Bottom controls bar */
+.video-controls {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 20px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.video-wrap:hover .video-controls,
+.video-wrap.paused .video-controls { opacity: 1; }
+
+/* Small play/pause toggle */
+.ctrl-toggle {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.ctrl-toggle svg { width: 18px; height: 18px; fill: #fff; }
+.ctrl-toggle .icon-pause { display: none; }
+.video-wrap.playing .ctrl-toggle .icon-play  { display: none; }
+.video-wrap.playing .ctrl-toggle .icon-pause { display: block; }
+
+/* Progress bar */
+.ctrl-progress {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,.25);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+.ctrl-progress-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
+  width: 0%;
+  transition: width .1s linear;
+  pointer-events: none;
+}
+.ctrl-progress:hover { height: 5px; }
+
+/* Time display */
+.ctrl-time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.7);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: .04em;
+}
+
+/* ── Stack / Gallery section ── */
+.stack-gallery-section {
+  padding: 80px 60px 120px;
+}
+
+.stack-gallery-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.stack-gallery-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.stack-left {
+  position: sticky;
+  top: 120px;
+}
+
+.stack-box {
+  border: 1px solid rgba(255,255,255,.15);
+  margin-top: 20px;
+}
+
+.stack-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  transition: background .2s ease;
+  cursor: pointer;
+}
+.stack-item:last-child { border-bottom: none; }
+.stack-item:hover { background: rgba(255,255,255,.05); }
+.stack-item.active { background: rgba(255,255,255,.08); }
+.stack-item.active .stack-name { color: #ffffff; }
+.stack-item.active .stack-num { color: rgba(255,255,255,.55); }
+
+.stack-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .04em;
+  min-width: 26px;
+}
+
+.stack-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: .01em;
+}
+
+.stack-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery-panel { display: none; }
+.gallery-panel.active {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: galleryFadeIn .35s ease;
+}
+
+@keyframes galleryFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-img-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+.gallery-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .7s cubic-bezier(.4, 0, .2, 1);
+}
+.gallery-img-wrap:hover img {
+  transform: scale(1.02);
+}
+
+.gallery-placeholder {
+  border-radius: 20px;
+  background: #1a1a1a;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,.2);
+  letter-spacing: .06em;
+}
+
+/* ── Stack description block (below nav list) ── */
+.stack-desc {
+  display: none;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.stack-desc.active {
+  display: block;
+  animation: galleryFadeIn .3s ease;
+}
+
+.stack-desc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+
+.stack-feature-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+
+.stack-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stack-feature-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.stack-feature-dot {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+}
+.stack-feature-dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+}
+
+.stack-feature-body { display: flex; flex-direction: column; gap: 4px; }
+
+.stack-feature-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+
+.stack-feature-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,.55);
+  line-height: 1.7;
+}
+
+/* ── About section ──
+   section.px-[30px].md:px-[60px].py-[80px].md:py-[120px]                 */
+.about-section {
+  padding: 80px 60px 100px;
+}
+
+/* div.grid.grid-cols-1.lg:grid-cols-2.gap-[60px].lg:gap-[120px]
+   .max-w-[1800px].mx-auto                                                  */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 120px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* div.lg:sticky.lg:top-[120px].lg:self-start.space-y-[40px] */
+.about-left {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+/* h3.font-space.text-white/40.uppercase.text-[11px].tracking-[0.2em].mb-6 */
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 24px;       /* mb-6 = 1.5rem = 24px */
+}
+
+/* p.project-desc.font-syne.text-white.text-[24px].md:text-[28px]
+   .lg:text-[32px].leading-[1.4].font-light                                */
+.project-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+/* Right: metadata list */
+.about-right {
+  padding-top: 6px;
+}
+
+.meta-list {
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.meta-item {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.meta-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 8px;
+}
+
+.meta-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* ── Images section ──
+   section.px-[30px].md:px-[60px].pb-[80px].md:pb-[120px]                  */
+.images-section {
+  padding: 0 60px 120px;
+}
+
+.images-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Full-width image */
+.img-full {
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+  background: #1a1a1a;
+}
+.img-full img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 2-column image grid */
+.img-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.img-card {
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #1a1a1a;
+}
+.img-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Next project / footer ── */
+.footer-section {
+  padding: 80px 60px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.footer-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 12px;
+}
+
+.footer-next-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  text-decoration: none;
+  transition: opacity .3s ease;
+  display: block;
+}
+.footer-next-title:hover { opacity: .6; }
+
+.footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 9999px;
+  transition: all .5s ease;
+}
+.footer-back:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ── Touch devices: restore native cursor ── */
+@media (hover: none) {
+  body, a, button { cursor: auto !important; }
+  #cursor-trail { display: none !important; }
+}
+
+/* ── Tablet 769–1024px ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav { padding: 24px 40px; }
+  .nav-back { padding: 12px 22px; font-size: 13px; }
+  .hero { padding: 130px 40px 52px; }
+  .preview-section { padding: 28px 40px 0; }
+  .about-section { padding: 60px 40px 80px; }
+  .stack-gallery-section { padding: 60px 40px 96px; }
+  .stack-gallery-grid { grid-template-columns: 260px 1fr; gap: 48px; }
+  .about-grid { gap: 72px; }
+  .project-desc { font-size: 26px; }
+  .images-section { padding: 0 40px 96px; }
+  .footer-section { padding: 64px 40px; }
+}
+
+/* ── Mobile ≤ 768px ── */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-back {
+    padding: 10px 18px;
+    font-size: 11px;
+    letter-spacing: .12em;
+  }
+  .nav-tag { font-size: 11px; letter-spacing: .1em; }
+
+  /* Collapse hero height — remove 60vh empty space */
+  .hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding: 80px 20px 28px;
+  }
+  .hero-eyebrow { font-size: 10px; margin-bottom: 12px; }
+  /* Title: wrap instead of overflow */
+  .hero-title {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: clamp(36px, 12vw, 72px);
+    letter-spacing: -.025em;
+  }
+  .hero-tagline { font-size: clamp(14px, 3.5vw, 18px); }
+
+  .preview-section { padding: 18px 20px 0; }
+  .preview-card { border-radius: 14px; }
+
+  .stack-gallery-section { padding: 40px 20px 72px; }
+  .stack-gallery-grid { grid-template-columns: 1fr; gap: 36px; }
+  .stack-left { position: static; }
+  .about-section { padding: 56px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  .about-left { position: static; }
+  .project-desc { font-size: 22px; line-height: 1.45; }
+  .meta-item { padding: 18px 0; }
+  .meta-value { font-size: 15px; }
+
+  .images-section { padding: 0 20px 60px; }
+  .images-wrap { gap: 14px; }
+  .img-grid-2 { grid-template-columns: 1fr; gap: 14px; }
+  .img-full  { border-radius: 14px; }
+  .img-card  { border-radius: 14px; aspect-ratio: 16/10; }
+
+  .footer-section {
+    padding: 48px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .footer-next-title { font-size: clamp(24px, 7vw, 36px); }
+  .footer-back { padding: 12px 22px; font-size: 12px; }
+}
+
+/* ── Small phone ≤ 390px ── */
+@media (max-width: 390px) {
+  nav { padding: 14px 16px; }
+  .hero { padding: 80px 16px 28px; }
+  .preview-section { padding: 14px 16px 0; }
+  .about-section { padding: 48px 16px; }
+  .project-desc { font-size: 20px; }
+  .images-section { padding: 0 16px 48px; }
+  .footer-section { padding: 40px 16px; }
+}
+</style>
+</head>
+<body>
+<!-- ── 阶梯蒙版页面转场 ── -->
+<div id="stair-overlay" aria-hidden="true"></div>
+<style>
+#stair-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden;}
+.stair-row{position:absolute;left:0;width:100%;background:#111111;transform:translateX(-100%);will-change:transform;}
+</style>
+<script>
+(function(){
+  var ROWS=8,DUR=400,STAG=55;
+  var overlay=document.getElementById('stair-overlay');
+  for(var i=0;i<ROWS;i++){var r=document.createElement('div');r.className='stair-row';r.style.top=(i*(100/ROWS))+'vh';r.style.height='calc('+(100/ROWS)+'vh + 2px)';overlay.appendChild(r);}
+  var nav=false;
+  function stairExit(href){
+    if(nav)return;nav=true;overlay.style.pointerEvents='all';
+    var rows=overlay.querySelectorAll('.stair-row');
+    rows.forEach(function(row){row.style.transition='none';row.style.transform='translateX(-100%)';});
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      rows.forEach(function(row,idx){
+        row.style.transition='transform '+DUR+'ms cubic-bezier(0.76,0,0.24,1) '+(idx*STAG)+'ms';
+        row.style.transform='translateX(0)';
+      });
+    });});
+    setTimeout(function(){
+      try{sessionStorage.setItem('stair-back','1');}catch(e){}
+      window.location.href=href;
+    },DUR+(ROWS-1)*STAG+60);
+  }
+  document.addEventListener('click',function(e){
+    if(nav){e.preventDefault();return;}
+    var a=e.target.closest('a[href]');if(!a)return;
+    var href=a.getAttribute('href');
+    if(!href||href==='#'||/^(https?:|mailto:|tel:|javascript:)/.test(href))return;
+    e.preventDefault();e.stopImmediatePropagation();
+    stairExit(href);
+  },true);
+})();
+</script>
+
+
+<div id="cursor-trail"></div>
+
+<!-- ── Navigation ── -->
+<nav>
+  <a href="transition-b-rise可.html" class="nav-back">
+    ← Back
+  </a>
+  <span class="nav-tag">B端设计 &nbsp;·&nbsp; 2025</span>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">B端设计 &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; UI/UX Design</p>
+    <h1 class="hero-title">SellingPilot</h1>
+    <p class="hero-tagline">跨境卖家一站式AI智能ERP</p>
+  </div>
+</section>
+
+<!-- ── Preview Card ── -->
+<section class="preview-section">
+  <div class="preview-wrap">
+    <div class="preview-card">
+      <div class="video-wrap paused" id="videoWrap">
+        <video id="previewVideo" src="中文.mp4" playsinline preload="metadata"></video>
+
+        <!-- Center play overlay (visible when paused) -->
+        <div class="video-play-overlay" id="playOverlay"></div>
+
+        <!-- Bottom controls -->
+        <div class="video-controls">
+          <button class="ctrl-toggle" id="ctrlToggle" aria-label="Play / Pause">
+            <!-- Play icon -->
+            <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <!-- Pause icon -->
+            <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <div class="ctrl-progress" id="ctrlProgress">
+            <div class="ctrl-progress-fill" id="progressFill"></div>
+          </div>
+          <span class="ctrl-time" id="ctrlTime">0:00 / 0:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section class="about-section">
+  <div class="about-grid">
+
+    <!-- Left: sticky description -->
+    <div class="about-left">
+      <h3 class="section-label">About</h3>
+      <p class="project-desc">
+        跨境卖家一站式 AI 智能 ERP，整合选品、库存、
+        广告与数据分析，集成 AI 辅助决策与实时数据可视化能力，
+        助力全球跨境电商卖家高效运营与业务持续增长。
+      </p>
+    </div>
+
+    <!-- Right: metadata -->
+    <div class="about-right">
+      <div class="meta-list">
+        <div class="meta-item">
+          <p class="meta-label">Year</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Design Type</p>
+          <p class="meta-value">B端设计</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Role</p>
+          <p class="meta-value">UI/UX Design</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Tools</p>
+          <p class="meta-value">Figma &nbsp;·&nbsp; Principle</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Scope</p>
+          <p class="meta-value">产品设计 &nbsp;·&nbsp; 交互设计</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Stack / Gallery ── -->
+<section class="stack-gallery-section">
+  <div class="stack-gallery-wrap">
+    <div class="stack-gallery-grid">
+
+      <!-- Left: navigation directory -->
+      <div class="stack-left">
+        <h3 class="section-label">功能模块</h3>
+        <div class="stack-box">
+          <div class="stack-item active" data-panel="panel-01">
+            <span class="stack-num">01</span>
+            <span class="stack-name">数据看板</span>
+          </div>
+          <div class="stack-item" data-panel="panel-02">
+            <span class="stack-num">02</span>
+            <span class="stack-name">价格追踪</span>
+          </div>
+          <div class="stack-item" data-panel="panel-03">
+            <span class="stack-num">03</span>
+            <span class="stack-name">AI Listing 生成</span>
+          </div>
+          <div class="stack-item" data-panel="panel-04">
+            <span class="stack-num">04</span>
+            <span class="stack-name">AI Image 生成</span>
+          </div>
+        </div>
+
+        <!-- Description: 01 数据看板 -->
+        <div class="stack-desc active" id="desc-01">
+          <h2 class="stack-desc-title">数据看板</h2>
+          <p class="stack-feature-label">特色亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <p class="stack-feature-text">自由定制「销售总览 + 待办事项」两大核心看板，按需勾选展示数据指标、屏蔽冗余信息，灵活搭配营收、订单、异常待办多维度数据，打造适配自身运营习惯的专属首页，精准抓取关键经营数据。</p>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <p class="stack-feature-text">新手指南分步引导店铺、仓库、物流、客服邮箱全项授权，提前完成渠道绑定配置，顺畅启用订单履约、库存管控、物流发货、售后客服全流程业务。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 02 价格追踪 -->
+        <div class="stack-desc" id="desc-02">
+          <h2 class="stack-desc-title">价格追踪</h2>
+          <p class="stack-feature-label">特色亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">10 大主流平台全覆盖，美加双市场实时盯价</p>
+                <p class="stack-feature-text">一站式接入 Amazon、eBay、Walmart、TikTok 等 10 大跨境平台，覆盖美国、加拿大两大核心站点；关键词快速添加监控商品，一键批量收录竞品，轻松搭建专属价格监控清单。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">多商品横向对标，可视化趋势比价</p>
+                <p class="stack-feature-text">批量勾选多款竞品开启多维对比，弹窗生成 1 周 / 1 月 / 3 月 / 1 年多周期价格走势曲线图；横向罗列现价、历史最低价，可视化拆解竞品长期定价规律。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">标签 + 价格提醒，精细化自主管理商品</p>
+                <p class="stack-feature-text">自定义产品标签分类管理，支持标记自有商品、配置价格预警提醒；搭配批量删除、数据导出功能，灵活筛选管控监控清单，为自主定价提供数据决策依据。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 03 AI Listing 生成 -->
+        <div class="stack-desc" id="desc-03">
+          <h2 class="stack-desc-title">AI Listing 生成</h2>
+          <p class="stack-feature-label">特色亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">三种创建模式，灵活适配不同编辑需求</p>
+                <p class="stack-feature-text">单个产品 Listing 生成优化，多产品批量优化，识图生成优化。3 种创作入口：从零搭建新品文案、一键优化店铺在售商品、上传产品图片智能匹配同类品并生成详情，全场景覆盖上架编辑需求。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">批量勾选货品，自定义 AI 生成参数</p>
+                <p class="stack-feature-text">批量勾选店铺多 SKU，按需选定上架渠道；精细化配置文案风格：正式 / 口语调性、精简 / 详实篇幅，滑动调节 AI 创意度，自主勾选标题、五点描述、产品详情、营销话术等生成字段，高度自定义输出内容。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">大模型驱动，批量异步生成 + 状态可视化</p>
+                <p class="stack-feature-text">依托大模型算力，支持整批货品排队异步生成内容；页面实时展示队列、生成中、成功 / 失败全流程状态，区分生成进度与平台同步进度，批量作业高效可控。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">生成内容可二次编辑，一键直推店铺后台</p>
+                <p class="stack-feature-text">AI 产出文案支持逐栏预览、手动修改、单栏重新生成；定稿内容一键保存至对应销售渠道，直同步上架至店铺，省去复制粘贴繁琐步骤，缩短新品上架周期。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 04 AI Image 生成 -->
+        <div class="stack-desc" id="desc-04">
+          <h2 class="stack-desc-title">AI Image 生成</h2>
+          <p class="stack-feature-label">特色亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">6 大 AI 绘图工具｜一站式搞定电商全品类主图场景图</p>
+                <p class="stack-feature-text">集成「文生图、场景换背景、多规格变体图、产品智能合成、单品换色、精细化图片设计」6 项核心功能，从新品创图、产品改色到场景合成一站式落地，适配 Listing 主图、A+ 素材、广告图全场景制作。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">文生图灵活自定义，海量风格 + 精细化参数调控</p>
+                <p class="stack-feature-text">输入文案 Prompt 即可一键生成配图，内置十几种艺术画风可选；自由设置图片比例、出图数量，支持负面提示词屏蔽劣质水印图，搭配 AI 优化 Prompt、图片反推关键词，零基础也能精准出图。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">可视化智能抠图合成，零 PS 基础快速换场景改配色</p>
+                <p class="stack-feature-text">产品合成：上传白底产品 + 背景图，滑动匹配融合度，AI 自动融合光影生成实景场景图；AI 一键改色：上传单品图，一键选定配色，精细调节色相 / 饱和度 / 亮度 / 对比度，批量产出多色 SKU 实拍图。无需专业修图软件，几分钟搞定多款式产品素材。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: switchable panels -->
+      <div class="stack-right">
+        <div class="gallery-panel active" id="panel-01">
+          <div class="gallery-img-wrap">
+            <img src="sp系统/01_PLAN-2 dashboard.png" alt="SellingPilot — 数据看板">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/06_Action Required Setting.png" alt="SellingPilot — Action Required Setting">
+          </div>
+        </div>
+        <div class="gallery-panel" id="panel-02">
+          <div class="gallery-img-wrap">
+            <img src="sp系统/01_Welcome 1920.jpg" alt="SellingPilot — Price Tracker 入口">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/02_Price Tracker.jpg" alt="SellingPilot — Price Tracker 列表">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/05_Grid view.jpg" alt="SellingPilot — Grid View">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/08_Compare Product.jpg" alt="SellingPilot — Compare Product">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/09_Compare Product Details.jpg" alt="SellingPilot — Compare Details">
+          </div>
+        </div>
+        <div class="gallery-panel" id="panel-03">
+          <div class="gallery-img-wrap">
+            <img src="sp系统/01_Listing Builder.png" alt="SellingPilot — Listing Builder 入口">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/02_Historical-Product Listing Builder.png" alt="SellingPilot — 历史记录">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/04_time progress.png" alt="SellingPilot — 生成进度">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/05_Generate Result.png" alt="SellingPilot — 生成结果">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/06_Result.png" alt="SellingPilot — 结果详情">
+          </div>
+        </div>
+        <div class="gallery-panel" id="panel-04">
+          <div class="gallery-img-wrap">
+            <img src="sp系统/02_Menu-Collapse.jpg" alt="SellingPilot — AI Image 菜单">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/01_Menu-Text to Image.jpg" alt="SellingPilot — 文生图">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/06_Composition.jpg" alt="SellingPilot — 产品合成">
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="sp系统/11_AI Color Change.jpg" alt="SellingPilot — AI 改色">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer / Next ── -->
+<section class="footer-section">
+  <div>
+    <p class="footer-label">Next Project</p>
+    <a href="project-2.html" class="footer-next-title">Newegg →</a>
+  </div>
+  <a href="transition-b-rise可.html" class="footer-back">← All Works</a>
+</section>
+
+<script>
+(function () {
+  const trail = document.getElementById('cursor-trail');
+
+  document.addEventListener('mousemove', (e) => {
+    trail.style.left = e.clientX + 'px';
+    trail.style.top  = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button, .preview-card, .img-full, .img-card, .gallery-img-wrap, .stack-item').forEach(el => {
+    el.addEventListener('mouseenter', () => trail.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => trail.classList.remove('cursor-hover'));
+  });
+
+  document.addEventListener('mouseleave', () => { trail.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { trail.style.opacity = '1'; });
+})();
+</script>
+
+<script>
+/* ── Module nav switcher ── */
+(function () {
+  const navItems = document.querySelectorAll('.stack-item[data-panel]');
+  const panels   = document.querySelectorAll('.gallery-panel');
+  const descs    = document.querySelectorAll('.stack-desc');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      descs.forEach(d => d.classList.remove('active'));
+
+      item.classList.add('active');
+
+      const panelId = item.dataset.panel;
+      const descId  = panelId.replace('panel', 'desc');
+
+      const panel = document.getElementById(panelId);
+      const desc  = document.getElementById(descId);
+      if (panel) panel.classList.add('active');
+      if (desc)  desc.classList.add('active');
+    });
+  });
+})();
+</script>
+
+<script>
+/* ── Custom video player ── */
+(function () {
+  const wrap      = document.getElementById('videoWrap');
+  const video     = document.getElementById('previewVideo');
+  const overlay   = document.getElementById('playOverlay');
+  const toggle    = document.getElementById('ctrlToggle');
+  const progress  = document.getElementById('ctrlProgress');
+  const fill      = document.getElementById('progressFill');
+  const timeEl    = document.getElementById('ctrlTime');
+
+  if (!video) return;
+
+  function fmt(s) {
+    const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + String(sec).padStart(2, '0');
+  }
+
+  function setPlaying(playing) {
+    wrap.classList.toggle('playing', playing);
+    wrap.classList.toggle('paused',  !playing);
+    overlay.classList.toggle('hidden', playing);
+  }
+
+  /* Click overlay or video body → play */
+  overlay.addEventListener('click', () => { video.play(); });
+
+  /* Click video while playing → pause */
+  video.addEventListener('click', () => {
+    if (!video.paused) video.pause();
+  });
+
+  /* Toggle button */
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    video.paused ? video.play() : video.pause();
+  });
+
+  video.addEventListener('play',  () => setPlaying(true));
+  video.addEventListener('pause', () => setPlaying(false));
+  video.addEventListener('ended', () => setPlaying(false));
+
+  /* Progress update */
+  video.addEventListener('timeupdate', () => {
+    if (!video.duration) return;
+    const pct = (video.currentTime / video.duration) * 100;
+    fill.style.width = pct + '%';
+    timeEl.textContent = fmt(video.currentTime) + ' / ' + fmt(video.duration);
+  });
+
+  video.addEventListener('loadedmetadata', () => {
+    timeEl.textContent = '0:00 / ' + fmt(video.duration);
+  });
+
+  /* Seek on progress bar click */
+  progress.addEventListener('click', (e) => {
+    if (!video.duration) return;
+    const rect = progress.getBoundingClientRect();
+    const pct  = (e.clientX - rect.left) / rect.width;
+    video.currentTime = pct * video.duration;
+  });
+
+  /* Drag seek */
+  let dragging = false;
+  progress.addEventListener('mousedown', () => { dragging = true; });
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging || !video.duration) return;
+    const rect = progress.getBoundingClientRect();
+    const pct  = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    video.currentTime = pct * video.duration;
+  });
+  document.addEventListener('mouseup', () => { dragging = false; });
+})();
+</script>
+</body>
+</html>

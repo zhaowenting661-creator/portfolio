@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原创AI助手形象设计 — IP设计 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: #111111;
+  color: #ffffff;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+#cursor-trail {
+  position: fixed;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgb(244, 244, 244);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease, background-color .2s ease;
+  mix-blend-mode: difference;
+  will-change: left, top;
+}
+#cursor-trail.cursor-hover {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.55);
+}
+a, button { cursor: none; }
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 9999px;
+  transition: all .5s ease;
+  position: relative; z-index: 50;
+}
+.nav-back:hover { background: #ffffff; color: #000000; border-color: #fff; }
+.nav-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,.4);
+}
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 150px 60px 64px;
+  position: relative;
+}
+.hero-inner { max-width: 1800px; width: 100%; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(48px, 6.5vw, 100px);
+  font-weight: 700;
+  line-height: .95;
+  letter-spacing: -.02em;
+  color: #fff;
+  text-transform: none;
+  margin-bottom: 28px;
+}
+.hero-tagline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(16px, 1.6vw, 24px);
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .02em;
+}
+
+.about-section { padding: 80px 60px 100px; }
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 120px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+.about-left { position: sticky; top: 120px; align-self: start; }
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 24px;
+}
+.project-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #ffffff;
+}
+.about-right { padding-top: 6px; }
+.meta-list { border-top: 1px solid rgba(255,255,255,.1); }
+.meta-item { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+.meta-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 8px;
+}
+.meta-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.stack-gallery-section { padding: 80px 60px 120px; }
+.stack-gallery-wrap { max-width: 1800px; margin: 0 auto; }
+.stack-gallery-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.stack-left { position: sticky; top: 120px; }
+.stack-box { border: 1px solid rgba(255,255,255,.15); margin-top: 20px; }
+.stack-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  transition: background .2s ease;
+  cursor: pointer;
+}
+.stack-item:last-child { border-bottom: none; }
+.stack-item:hover { background: rgba(255,255,255,.05); }
+.stack-item.active { background: rgba(255,255,255,.08); }
+.stack-item.active .stack-name { color: #ffffff; }
+.stack-item.active .stack-num { color: rgba(255,255,255,.55); }
+.stack-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .04em;
+  min-width: 26px;
+}
+.stack-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: .01em;
+}
+
+.stack-desc { display: none; margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1); }
+.stack-desc.active { display: block; animation: galleryFadeIn .3s ease; }
+.stack-desc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.stack-feature-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+.stack-feature-list { display: flex; flex-direction: column; gap: 20px; }
+.stack-feature-item { display: flex; gap: 14px; align-items: flex-start; }
+.stack-feature-dot {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 3px;
+}
+.stack-feature-dot::after {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+}
+.stack-feature-body { display: flex; flex-direction: column; gap: 4px; }
+.stack-feature-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+.stack-feature-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,.55);
+  line-height: 1.7;
+}
+
+.stack-right { display: flex; flex-direction: column; gap: 20px; }
+.gallery-panel { display: none; }
+.gallery-panel.active {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: galleryFadeIn .35s ease;
+}
+@keyframes galleryFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.gallery-img-wrap { border-radius: 20px; overflow: hidden; background: #1a1a1a; }
+.gallery-img-wrap img {
+  width: 100%; height: auto;
+  display: block;
+  transition: transform .7s cubic-bezier(.4, 0, .2, 1);
+}
+.gallery-img-wrap:hover img { transform: scale(1.02); }
+
+.gallery-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
+.gallery-grid-2 .gallery-img-wrap { border-radius: 16px; }
+
+.gallery-placeholder {
+  border-radius: 20px;
+  background: #1a1a1a;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,.2);
+  letter-spacing: .06em;
+}
+
+.footer-section {
+  padding: 80px 60px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+.footer-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 12px;
+}
+.footer-next-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  text-decoration: none;
+  transition: opacity .3s ease;
+  display: block;
+}
+.footer-next-title:hover { opacity: .6; }
+.footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 9999px;
+  transition: all .5s ease;
+}
+.footer-back:hover { background: #fff; color: #000; }
+
+@media (hover: none) {
+  body, a, button { cursor: auto !important; }
+  #cursor-trail { display: none !important; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav { padding: 24px 40px; }
+  .hero { padding: 130px 40px 52px; }
+  .about-section { padding: 60px 40px 80px; }
+  .about-grid { gap: 72px; }
+  .project-desc { font-size: 26px; }
+  .stack-gallery-section { padding: 60px 40px 96px; }
+  .stack-gallery-grid { grid-template-columns: 260px 1fr; gap: 48px; }
+  .footer-section { padding: 64px 40px; }
+}
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-back { padding: 10px 18px; font-size: 11px; letter-spacing: .12em; }
+  .hero { min-height: auto; align-items: flex-start; padding: 80px 20px 28px; }
+  .hero-title { font-size: clamp(36px, 11vw, 72px); }
+  .about-section { padding: 56px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  .about-left { position: static; }
+  .project-desc { font-size: 22px; line-height: 1.45; }
+  .meta-item { padding: 18px 0; }
+  .stack-gallery-section { padding: 40px 20px 72px; }
+  .stack-gallery-grid { grid-template-columns: 1fr; gap: 36px; }
+  .stack-left { position: static; }
+  .gallery-grid-2 { grid-template-columns: 1fr; }
+  .footer-section { padding: 48px 20px; flex-direction: column; align-items: flex-start; gap: 32px; }
+}
+
+#robot-widget {
+  position: fixed;
+  bottom: 40px;
+  right: 0;
+  z-index: 500;
+  width: 140px;
+  transform: translateX(0);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: none;
+  pointer-events: auto;
+}
+#robot-widget.hidden,
+#robot-widget.panel-hidden {
+  transform: translateX(100%) !important;
+  pointer-events: none;
+}
+#robot-widget img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#robot-avatar {
+  position: fixed;
+  left: 60px;
+  bottom: 80px;
+  z-index: 500;
+  width: 170px;
+  transform: scale(0);
+  transform-origin: bottom left;
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.3s ease;
+  cursor: none;
+  pointer-events: none;
+}
+#robot-avatar.show {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+#robot-avatar img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#robot-avatar-v2 {
+  position: fixed;
+  z-index: 500;
+  width: 170px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  cursor: none;
+}
+#robot-avatar-v2.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+#robot-avatar-v2.show.out-of-view {
+  opacity: 0;
+  pointer-events: none;
+}
+#robot-avatar-v2 .v2-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+#robot-avatar-v2 .v2-hover-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#robot-avatar-v2:hover .v2-img { opacity: 0; }
+#robot-avatar-v2:hover .v2-hover-img { opacity: 1; }
+</style>
+</head>
+<body>
+<!-- ── 阶梯蒙版页面转场 ── -->
+<div id="stair-overlay" aria-hidden="true"></div>
+<style>
+#stair-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden;}
+.stair-row{position:absolute;left:0;width:100%;background:#111111;transform:translateX(-100%);will-change:transform;}
+</style>
+<script>
+(function(){
+  var ROWS=8,DUR=400,STAG=55;
+  var overlay=document.getElementById('stair-overlay');
+  for(var i=0;i<ROWS;i++){var r=document.createElement('div');r.className='stair-row';r.style.top=(i*(100/ROWS))+'vh';r.style.height='calc('+(100/ROWS)+'vh + 2px)';overlay.appendChild(r);}
+  var nav=false;
+  function stairExit(href){
+    if(nav)return;nav=true;overlay.style.pointerEvents='all';
+    var rows=overlay.querySelectorAll('.stair-row');
+    rows.forEach(function(row){row.style.transition='none';row.style.transform='translateX(-100%)';});
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      rows.forEach(function(row,idx){
+        row.style.transition='transform '+DUR+'ms cubic-bezier(0.76,0,0.24,1) '+(idx*STAG)+'ms';
+        row.style.transform='translateX(0)';
+      });
+    });});
+    setTimeout(function(){
+      try{sessionStorage.setItem('stair-back','1');}catch(e){}
+      window.location.href=href;
+    },DUR+(ROWS-1)*STAG+60);
+  }
+  document.addEventListener('click',function(e){
+    if(nav){e.preventDefault();return;}
+    var a=e.target.closest('a[href]');if(!a)return;
+    var href=a.getAttribute('href');
+    if(!href||href==='#'||/^(https?:|mailto:|tel:|javascript:)/.test(href))return;
+    e.preventDefault();e.stopImmediatePropagation();
+    stairExit(href);
+  },true);
+})();
+</script>
+
+
+<div id="cursor-trail"></div>
+
+<nav>
+  <a href="transition-b-rise可.html" class="nav-back">← Back</a>
+  <span class="nav-tag">IP设计 &nbsp;·&nbsp; 2025</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">IP设计 &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; Character Design</p>
+    <h1 class="hero-title">原创AI助手<br>形象设计</h1>
+    <p class="hero-tagline">SellingPilot 品牌 IP 角色与衍生应用</p>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section class="about-section">
+  <div class="about-grid">
+
+    <div class="about-left">
+      <h3 class="section-label">About</h3>
+      <p class="project-desc">
+        为 SellingPilot 原创设计 AI 助手 IP 角色，
+        构建完整视觉角色体系，覆盖形象设计、
+        表情动态与多场景衍生应用。
+      </p>
+    </div>
+
+    <div class="about-right">
+      <div class="meta-list">
+        <div class="meta-item">
+          <p class="meta-label">Year</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Design Type</p>
+          <p class="meta-value">IP设计</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Role</p>
+          <p class="meta-value">Character Design</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Tools</p>
+          <p class="meta-value">Figma &nbsp;·&nbsp; Blender &nbsp;·&nbsp; Photoshop</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Scope</p>
+          <p class="meta-value">IP形象 &nbsp;·&nbsp; 角色设计 &nbsp;·&nbsp; 场景应用</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Stack / Gallery ── -->
+<section class="stack-gallery-section">
+  <div class="stack-gallery-wrap">
+    <div class="stack-gallery-grid">
+
+      <div class="stack-left">
+        <h3 class="section-label">设计分类</h3>
+        <div class="stack-box">
+          <div class="stack-item active" data-panel="panel-01">
+            <span class="stack-num">01</span>
+            <span class="stack-name">IP 角色 1.0</span>
+          </div>
+          <div class="stack-item" data-panel="panel-02">
+            <span class="stack-num">02</span>
+            <span class="stack-name">IP 角色 2.0</span>
+          </div>
+        </div>
+
+        <!-- Description: 01 V1.0 -->
+        <div class="stack-desc active" id="desc-01">
+          <h2 class="stack-desc-title">Neo Pilot<br>V 1.0</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">科技感 + 陪伴感，柔和色调塑造亲和力</p>
+                <p class="stack-feature-text">V1.0 以白色柔和配色与标志性造型细节为核心，打造兼具专业度与亲和力的品牌符号；四视角完整交付（Front / Back / Left / Right），配合像素风表情包与多动态姿态，适配多场景运营与物料落地。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">完整衍生体系，从 IP 到周边一步落地</p>
+                <p class="stack-feature-text">交付像素风表情包（6 款情绪）、场景插画（智行致远 / 星际智航）及徽章、贴纸、帆布袋、保温杯、钥匙扣五类周边设计稿，构建 IP 从视觉到实体的完整衍生链路。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 02 V2.0 -->
+        <div class="stack-desc" id="desc-02">
+          <h2 class="stack-desc-title">Neo Pilot<br>V 2.0</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">全新宇航风潮流造型，升级互动感</p>
+                <p class="stack-feature-text">2.0 告别初代基础款，专属耳机 + 麦克风加持，自带流动 buff，线条利落更具记忆点；色彩从清新白蓝进阶为梦幻紫粉渐变 + 霓虹光效，低饱和马卡龙色调搭配发光线条，品牌识别度大幅提升。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">情绪表达更丰富，场景应用更专业</p>
+                <p class="stack-feature-text">全新表情包系列捕捉「发现 Bug / 无边无际 / 好不好嘛 / 妙呀！」等真实卖家情绪场景；场景插画（携手 AI 共赢新局 / 专属对接全程护航 / 云端智助全程护航）覆盖品牌推广与运营全触点。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="stack-right">
+        <div class="gallery-panel active" id="panel-01">
+          <div class="gallery-img-wrap">
+            <img src="ip/IP1.png" alt="Neo Pilot V1.0 — IP角色形象设计">
+          </div>
+        </div>
+        <div class="gallery-panel" id="panel-02">
+          <div class="gallery-img-wrap">
+            <img src="ip/ip2.png" alt="Neo Pilot V2.0 — IP角色形象设计">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<section class="footer-section">
+  <div>
+    <p class="footer-label">Next Project</p>
+    <a href="project-5.html" class="footer-next-title">官网设计 →</a>
+  </div>
+  <a href="transition-b-rise可.html" class="footer-back">← All Works</a>
+</section>
+
+<div id="robot-widget">
+  <img src="ip-gifs/收起侧边.gif" alt="AI助手机器人">
+</div>
+
+<div id="robot-avatar-v2">
+  <img class="v2-img" src="ip-gifs/AI Assistant Default.gif" alt="AI助手2.0默认">
+  <img class="v2-hover-img" src="ip-gifs/hover&chat .gif" alt="AI助手2.0 hover">
+</div>
+
+<div id="robot-avatar">
+  <img src="ip-gifs/头像gif_.gif" alt="AI助手头像">
+</div>
+
+
+<script>
+(function () {
+  const trail = document.getElementById('cursor-trail');
+  document.addEventListener('mousemove', (e) => {
+    trail.style.left = e.clientX + 'px';
+    trail.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .gallery-img-wrap, .stack-item, #robot-widget, #robot-avatar, #robot-avatar-v2').forEach(el => {
+    el.addEventListener('mouseenter', () => trail.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => trail.classList.remove('cursor-hover'));
+  });
+  document.addEventListener('mouseleave', () => { trail.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { trail.style.opacity = '1'; });
+
+  const widget = document.getElementById('robot-widget');
+  const avatar = document.getElementById('robot-avatar');
+
+  widget.addEventListener('click', () => {
+    widget.classList.add('hidden');
+    setTimeout(() => {
+      avatar.classList.add('show');
+    }, 420);
+  });
+
+  avatar.addEventListener('click', () => {
+    avatar.classList.remove('show');
+    setTimeout(() => {
+      widget.classList.remove('hidden');
+    }, 420);
+  });
+})();
+</script>
+
+<script>
+(function () {
+  const navItems = document.querySelectorAll('.stack-item[data-panel]');
+  const panels   = document.querySelectorAll('.gallery-panel');
+  const descs    = document.querySelectorAll('.stack-desc');
+
+  const widget   = document.getElementById('robot-widget');
+  const avatar   = document.getElementById('robot-avatar');
+  const avatarV2 = document.getElementById('robot-avatar-v2');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      descs.forEach(d => d.classList.remove('active'));
+      item.classList.add('active');
+      const panelId = item.dataset.panel;
+      const descId  = panelId.replace('panel', 'desc');
+      const panel = document.getElementById(panelId);
+      const desc  = document.getElementById(descId);
+      if (panel) panel.classList.add('active');
+      if (desc)  desc.classList.add('active');
+
+      if (panelId === 'panel-01') {
+        widget.classList.remove('hidden');
+        widget.classList.remove('panel-hidden');
+        avatarV2.classList.remove('show');
+      } else {
+        avatar.classList.remove('show');
+        widget.classList.remove('hidden');
+        widget.classList.add('panel-hidden');
+        avatarV2.classList.add('show');
+        updateAvatarV2Pos();
+      }
+    });
+  });
+
+  function updateAvatarV2Pos() {
+    const panel02 = document.getElementById('panel-02');
+    if (!panel02 || !avatarV2.classList.contains('show')) return;
+
+    const r      = panel02.getBoundingClientRect();
+    const elH    = avatarV2.offsetHeight || 170;
+    const margin = 24;
+
+    // Try to sit at viewport bottom (like fixed bottom:24px)
+    const preferred = window.innerHeight - elH - margin;
+    // Clamp: no higher than panel top+margin, no lower than panel bottom-elH-margin
+    const topPx = Math.max(r.top + margin, Math.min(r.bottom - elH - margin, preferred));
+
+    // Right: margin inside panel's right edge
+    const rightPx = window.innerWidth - r.right + margin;
+
+    avatarV2.style.top    = topPx + 'px';
+    avatarV2.style.right  = rightPx + 'px';
+    avatarV2.style.bottom = 'auto';
+
+    // Hide when panel is completely out of viewport
+    const inView = r.bottom > (elH + margin) && r.top < window.innerHeight - margin;
+    avatarV2.classList.toggle('out-of-view', !inView);
+  }
+
+  window.addEventListener('scroll', updateAvatarV2Pos, { passive: true });
+  window.addEventListener('resize', updateAvatarV2Pos);
+})();
+</script>
+</body>
+</html>

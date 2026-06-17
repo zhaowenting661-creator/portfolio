@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工作经历 — 赵文婷</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      zoom: 1.25;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      cursor: none;
+    }
+
+    /* ─── SECTION ─── */
+    .experience {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 72px 160px;
+    }
+
+    .experience-title {
+      font-size: 42px;
+      font-weight: 500;
+      color: #ffffff;
+      letter-spacing: -0.025em;
+      margin-bottom: 88px;
+    }
+
+    /* ─── TIMELINE WRAPPER ─── */
+    .timeline {
+      position: relative;
+    }
+
+    /* Vertical center line — faint guide, progress fill is the main actor */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    /* ─── ENTRY ROW ─── */
+    .entry {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 72px;
+      position: relative;
+    }
+
+    /* ─── CARD ─── */
+    .entry-card {
+      flex: 1;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      padding: 30px 32px;
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .entry-left .entry-card {
+      margin-right: 0;
+    }
+
+    .entry-right .entry-card {
+      margin-left: 0;
+    }
+
+    .job-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .responsibilities {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .responsibilities li {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.58);
+      line-height: 1.7;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 9px;
+    }
+
+    .responsibilities li:last-child {
+      margin-bottom: 0;
+    }
+
+    .responsibilities li::before {
+      content: '▪';
+      position: absolute;
+      left: 0;
+      font-size: 7px;
+      top: 6px;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 1px;
+      margin-top: 18px;
+      transition: color 0.22s, border-color 0.22s;
+      letter-spacing: 0.01em;
+    }
+
+    .card-link:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ─── CENTER NODE (logo + arrow) ─── */
+    .entry-node {
+      flex: 0 0 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Left entry: arrow ◂ then logo box */
+    .entry-left .node-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* Right entry: logo box then arrow ▸ */
+    .entry-right .node-inner {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: 0;
+    }
+
+    .logo-box {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 7px;
+    }
+
+    .entry-arrow {
+      width: 0;
+      height: 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    /* Left entry: arrow points left (◂) — faces the card */
+    .entry-left .entry-arrow {
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 8px solid rgba(255, 255, 255, 0.22);
+    }
+
+    /* Right entry: arrow points right (▸) — faces the card */
+    .entry-right .entry-arrow {
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 8px solid rgba(255, 255, 255, 0.22);
+    }
+
+    /* ─── COMPANY INFO ─── */
+    .entry-company {
+      flex: 1;
+      padding-top: 0;
+    }
+
+    .entry-left .entry-company {
+      padding-left: 28px;
+    }
+
+    .entry-right .entry-company {
+      padding-right: 28px;
+      text-align: right;
+    }
+
+    .company-name {
+      font-size: 16.5px;
+      font-weight: 500;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin-bottom: 5px;
+    }
+
+    .company-date {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── HANSHIMAN NODE CENTERED ─── */
+    #entry-hanshiman .entry-card {
+      align-self: flex-start;
+    }
+
+    #entry-hanshiman .entry-node {
+      align-self: stretch;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    #entry-hanshiman .entry-company {
+      align-self: center;
+      padding-left: 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    #entry-hanshiman .entry-arrow {
+      display: none;
+    }
+
+    /* 用页面背景色遮住 logo 中心以下的线段 */
+    #entry-hanshiman::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      background: #0d0d0d;
+      top: calc(50% + 28px);
+      bottom: -80px;
+      z-index: 4;
+    }
+
+    /* ─── SCROLL PROGRESS LINE ─── */
+    .timeline-progress {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 0;
+      background: #ffffff;
+      pointer-events: none;
+      z-index: 3;
+      top: 0;
+      will-change: height;
+    }
+
+    /* ─── ANIMATION STATES ─── */
+    .anim-left {
+      opacity: 0;
+      transform: translateX(-48px);
+      transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .anim-right {
+      opacity: 0;
+      transform: translateX(48px);
+      transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .anim-fade {
+      opacity: 0;
+      transform: translateY(12px) scale(0.96);
+      transition: opacity 0.7s ease,
+                  transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .anim-in {
+      opacity: 1 !important;
+      transform: translate(0, 0) scale(1) !important;
+    }
+
+    /* ─── SPOTLIGHT ─── */
+    .spotlight-glow {
+      position: fixed;
+      pointer-events: none;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center,
+        rgba(255,255,255,0.10) 0%,
+        rgba(255,255,255,0.04) 40%,
+        transparent 80%
+      );
+      filter: blur(24px);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      z-index: 999;
+      will-change: left, top;
+    }
+
+    /* ─── SPLINE FIXED PANEL ─── */
+    .spline-fixed {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 44%;
+      height: 80vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .spline-fixed spline-viewer {
+      width: 100%;
+      height: 100%;
+      pointer-events: auto;
+    }
+
+    .spline-loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader {
+      width: 32px;
+      height: 32px;
+      border: 2px solid rgba(255,255,255,0.12);
+      border-top-color: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 800px) {
+      .spline-fixed {
+        display: none;
+      }
+
+      .experience {
+        padding: 64px 24px 100px;
+      }
+
+      .experience-title {
+        font-size: 30px;
+        margin-bottom: 56px;
+      }
+
+      .timeline::before {
+        left: 24px;
+      }
+
+      .entry {
+        flex-direction: column;
+        padding-left: 60px;
+        margin-bottom: 48px;
+      }
+
+      .entry-left,
+      .entry-right {
+        flex-direction: column;
+      }
+
+      .entry-node {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-top: 0;
+        flex-direction: column;
+        width: 48px;
+      }
+
+      .entry-left .node-inner,
+      .entry-right .node-inner {
+        flex-direction: column;
+      }
+
+      .entry-arrow {
+        display: none;
+      }
+
+      .logo-box {
+        width: 40px;
+        height: 40px;
+        font-size: 9px;
+      }
+
+      .entry-company {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        padding-top: 0;
+        margin-bottom: 16px;
+        order: -1;
+      }
+
+      .entry-card {
+        width: 100%;
+      }
+
+      .anim-left,
+      .anim-right {
+        transform: translateX(0);
+        opacity: 0;
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+    }
+    /* ─── BACK BUTTON ─── */
+  .back-btn {
+    position: fixed;
+    top: 24px;
+    left: 32px;
+    z-index: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 99px;
+    padding: 8px 18px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: color 0.22s, border-color 0.22s, background 0.22s;
+  }
+  .back-btn:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ── CROSSHAIR CURSOR ── */
+  #cursor-trail {
+    position: fixed; pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%); will-change: left, top;
+  }
+  #cursor-trail::before,
+  #cursor-trail::after {
+    content: ''; position: absolute;
+    background: rgba(255,255,255,0.75);
+    transition: width .25s ease, height .25s ease;
+  }
+  #cursor-trail::before { width: 1px; height: 18px; top: -9px; left: 0; }
+  #cursor-trail::after  { width: 18px; height: 1px; left: -9px; top: 0; }
+  #cursor-ring {
+    position: fixed; width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.5); pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: width .3s cubic-bezier(.22,1,.36,1), height .3s cubic-bezier(.22,1,.36,1), border-color .3s ease;
+    will-change: left, top;
+  }
+  #cursor-ring.cursor-hover { width: 48px; height: 48px; border-color: rgba(255,255,255,0.85); }
+  /* ── FILM GRAIN ── */
+  #film-grain {
+    position: fixed; inset: 0; z-index: 9990; pointer-events: none;
+    opacity: 0.055; mix-blend-mode: overlay;
+  }
+  /* ── VIGNETTE ── */
+  #vignette {
+    position: fixed; inset: 0; z-index: 9; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.5) 100%);
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  a, button { cursor: none !important; }
+  @media(hover:none){body,a,button{cursor:auto!important}#cursor-trail,#cursor-ring{display:none!important}}
+  /* ── 阶梯蒙版转场 ── */
+  #stair-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; overflow: hidden; }
+  .stair-row { position: absolute; left: 0; width: 100%; background: #0d0d0d; transform: translateX(-100%); will-change: transform; }
+</style>
+</head>
+<body>
+<svg id="film-grain" xmlns="http://www.w3.org/2000/svg">
+  <filter id="grain-filter" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence id="grain-turb" type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix type="saturate" values="0" in="noise" result="gray"/>
+    <feBlend in="SourceGraphic" in2="gray" mode="overlay"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+</svg>
+<div id="vignette"></div>
+<div id="cursor-trail"></div>
+<div id="cursor-ring"></div>
+
+<a class="back-btn" href="transition-b-rise可.html">← 返回</a>
+
+<!-- Spline 3D fixed panel — replace URL with your scene link -->
+<div class="spline-fixed" id="spline-panel">
+  <div class="spline-loader" id="spline-loader">
+    <span class="loader"></span>
+  </div>
+  <spline-viewer
+    url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+    loading-anim-type="none"
+  ></spline-viewer>
+</div>
+
+<section class="experience">
+  <h2 class="experience-title">工作经历.</h2>
+
+  <div class="timeline">
+    <div class="timeline-progress"></div>
+
+    <!-- ══ Entry 1: 新蛋科技 ══ card LEFT -->
+    <div class="entry entry-left">
+      <div class="entry-card anim-left">
+        <h3 class="job-title">UI 设计师</h3>
+        <ul class="responsibilities">
+          <li>独立负责跨境电商 SaaS 系统 sellingpilot 全流程设计，覆盖需求梳理、原型搭建、高保真视觉到上线落地，完成 100+ 核心页面，核心操作路径完成率提升 38%，AI 工具助力设计周期压缩 30%</li>
+          <li>主导国内+海外双版本品牌官网全案设计，负责转化路径设计、全页面视觉与响应式布局、轻量化动效制作及海外本地化无障碍适配，完成 20+ 核心页面，访问时长提升 42%，线索转化率提升 27%</li>
+          <li>负责 Newegg + sellingpilot 双平台海外全渠道营销设计，覆盖促销邮件、展会物料、品牌动效及 AI 辅助 A/B 测试，完成 50+ 套邮件、100+ 组物料、20+ 组动效，邮件点击率提升 32%，社媒曝光量提升 60%</li>
+          <li>协同设计团队负责 Newegg 平台店铺页、活动页及商品详情页体验优化，完成 30+ 核心页面，详情页停留时长提升 35%，加购率提升 22%，大促 GMV 同比提升 58%</li>
+          <li>负责 sellingpilot 品牌宣传与功能演示视频全流程制作，适配官网、展会、社媒多传播场景，产品 demo 预约率提升 40%</li>
+          <li>主导设计系统与组件库全流程搭建，搭建含 150+ 组件的 Figma 可复用组件库，引入 AI 辅助组件批量生成，设计效率提升 60%，开发还原效率提升 45%，产品视觉一致性达 100%</li>
+        </ul>
+      </div>
+
+      <div class="entry-node anim-fade">
+        <div class="node-inner">
+          <div class="entry-arrow"></div>
+          <div class="logo-box" style="background:#fff;"><img src="logos/newegg.png" alt="Newegg"></div>
+        </div>
+      </div>
+
+      <div class="entry-company anim-right">
+        <div class="company-name">新蛋科技（成都）</div>
+        <div class="company-date">2025.04 — 至今</div>
+      </div>
+    </div>
+
+    <!-- ══ Entry 2: 云和恩墨 ══ card RIGHT -->
+    <div class="entry entry-right">
+      <div class="entry-company anim-left">
+        <div class="company-name">云和恩墨（北京）</div>
+        <div class="company-date">2020.07 — 2023.08</div>
+      </div>
+
+      <div class="entry-node anim-fade">
+        <div class="node-inner">
+          <div class="logo-box" style="background:#fff;"><img src="logos/enmotech_new.png" alt="云和恩墨"></div>
+          <div class="entry-arrow"></div>
+        </div>
+      </div>
+
+      <div class="entry-card anim-right">
+        <h3 class="job-title">UI 设计师</h3>
+        <ul class="responsibilities">
+          <li>独立负责计算机数据库 B 端 SaaS 系统全产品线视觉交互设计，把控整体风格与交互体验一致性</li>
+          <li>制定 UI 视觉规范及 Web 端通用组件库、插画库与 icon 图标库</li>
+          <li>主导 puzzle-ui 扩展组件库搭建，产品还原度从 20% 提升至 100%，设计出图周期从一周缩减至 2-4 天</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══ Entry 3: 顺丰速运 ══ card LEFT -->
+    <div class="entry entry-left">
+      <div class="entry-card anim-left">
+        <h3 class="job-title">UI 设计师</h3>
+        <ul class="responsibilities">
+          <li>主导移动互联网产品 Android、iOS、微信小程序、H5 及 Web 端 UI 视觉交互设计，参与迭代设计，分析用户需求，配合团队完成产品上线前界面交互内测，提出用户体验优化方案</li>
+          <li>制定移动端及 Web 端设计规范与通用组件库，提高出图效率，配合技术开发实现设计方案成功落地；负责产品操作指引及加载等动效交互界面设计</li>
+          <li>一年内参与 36 个小程序及 App、Web 端 UI 交互设计方案，主导整体设计风格与启动图标</li>
+          <li>负责线上线下活动专题设计，主导展架、广告机、宣传长页及 banner 等全渠道物料输出</li>
+          <li>主导顺丰 × 国家珠宝检测送检小程序设计，实现线上 2 步下单，现已投入各地周大福、周生生等珠宝商门店使用</li>
+          <li>负责函证通 App 扫码巴枪操作界面设计，经 3 次迭代优化，单票件平均操作时间节约 10 秒，累计节省人力投入约 178 人/天</li>
+          <li>参与剑南春城配稽查 App 设计，接单量提升 60%；主导俏猫 App 专题活动设计，使顺丰接入的上门美业平台 PV 达 50 万，订单量提升 30%</li>
+        </ul>
+      </div>
+
+      <div class="entry-node anim-fade">
+        <div class="node-inner">
+          <div class="entry-arrow"></div>
+          <div class="logo-box" style="background:#fff;"><img src="logos/sf.png" alt="顺丰速运"></div>
+        </div>
+      </div>
+
+      <div class="entry-company anim-right">
+        <div class="company-name">顺丰速运</div>
+        <div class="company-date">2018.07 — 2020.05</div>
+      </div>
+    </div>
+
+    <!-- ══ Entry 4: 广州远信 ══ card RIGHT -->
+    <div class="entry entry-right">
+      <div class="entry-company anim-left">
+        <div class="company-name">广州远信网络科技</div>
+        <div class="company-date">2017.02 — 2018.04</div>
+      </div>
+
+      <div class="entry-node anim-fade">
+        <div class="node-inner">
+          <div class="logo-box" style="background:#fff;"><img src="logos/yuanxin.jpeg" alt="广州远信"></div>
+          <div class="entry-arrow"></div>
+        </div>
+      </div>
+
+      <div class="entry-card anim-right">
+        <h3 class="job-title">UI 设计师</h3>
+        <ul class="responsibilities">
+          <li>负责俏猫 App 产品迭代设计，日常产品优化，包括 icon、UI 页面风格设计输出与页面切图标注</li>
+          <li>参与需求分析和产品交互框架搭建，配合团队高效输出设计方案，提出用户体验优化建议</li>
+          <li>主导 App 日常专题活动设计，首页 PV 浏览量增长率达 30%，订单量提升 30%，拉新破万</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══ Entry 5: 甘肃瀚士漫 ══ card LEFT -->
+    <div class="entry entry-left" id="entry-hanshiman">
+      <div class="entry-card anim-left">
+        <h3 class="job-title">平面设计师</h3>
+        <ul class="responsibilities">
+          <li>负责微信公众号、微商城首次设计搭建及日常运营，包括平台维护、管理、互动、咨询应答</li>
+          <li>策划并执行微信线上营销活动方案，熟练制作 H5 互动页面，匹配适用营销功能插件</li>
+          <li>通过微信与客户进行有效沟通，收集用户反馈，分析行为需求，寻找销售转化机会</li>
+        </ul>
+      </div>
+
+      <div class="entry-node anim-fade">
+        <div class="node-inner">
+          <div class="entry-arrow"></div>
+          <div class="logo-box" style="background:#7c3aed;">瀚漫</div>
+        </div>
+      </div>
+
+      <div class="entry-company anim-right">
+        <div class="company-name">甘肃瀚士漫电商</div>
+        <div class="company-date">2016.02 — 2017.02</div>
+      </div>
+    </div>
+
+  </div><!-- /.timeline -->
+</section>
+
+<script>
+  (function () {
+    const entries = document.querySelectorAll('.entry');
+
+    const io = new IntersectionObserver((records) => {
+      records.forEach(rec => {
+        if (!rec.isIntersecting) return;
+
+        const el   = rec.target;
+        const isLeft = el.classList.contains('entry-left');
+
+        const card    = el.querySelector('.entry-card');
+        const node    = el.querySelector('.entry-node');
+        const company = el.querySelector('.entry-company');
+
+        /* Card slides in from its own side */
+        if (card) {
+          setTimeout(() => card.classList.add('anim-in'), 0);
+        }
+
+        /* Node pops up slightly later */
+        if (node) {
+          setTimeout(() => node.classList.add('anim-in'), 120);
+        }
+
+        /* Company info mirrors the card delay */
+        if (company) {
+          setTimeout(() => company.classList.add('anim-in'), 80);
+        }
+
+        io.unobserve(el);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    entries.forEach(e => io.observe(e));
+  })();
+
+  /* ── Crosshair Cursor + Ring ── */
+  (function(){
+    const trail=document.getElementById('cursor-trail');
+    const ring=document.getElementById('cursor-ring');
+    const zoom=()=>parseFloat(getComputedStyle(document.documentElement).zoom)||1;
+    let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+    document.addEventListener('mousemove',e=>{
+      const z=zoom();
+      mx=e.clientX/z; my=e.clientY/z;
+      trail.style.left=mx+'px'; trail.style.top=my+'px';
+    });
+    (function lerpRing(){
+      rx+=(mx-rx)*0.13; ry+=(my-ry)*0.13;
+      ring.style.left=rx+'px'; ring.style.top=ry+'px';
+      requestAnimationFrame(lerpRing);
+    })();
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{trail.classList.add('cursor-hover');ring.classList.add('cursor-hover');});
+      el.addEventListener('mouseleave',()=>{trail.classList.remove('cursor-hover');ring.classList.remove('cursor-hover');});
+    });
+    document.addEventListener('mouseleave',()=>{trail.style.opacity='0';ring.style.opacity='0';});
+    document.addEventListener('mouseenter',()=>{trail.style.opacity='1';ring.style.opacity='1';});
+  })();
+
+  /* ── Hide Spline loader once scene is ready ── */
+  const splineViewer = document.querySelector('spline-viewer');
+  const splineLoader = document.getElementById('spline-loader');
+  if (splineViewer) {
+    splineViewer.addEventListener('load', () => {
+      if (splineLoader) splineLoader.style.display = 'none';
+    });
+
+    /* Poll until shadow root has #logo, then permanently hide it */
+    const logoTimer = setInterval(() => {
+      const shadow = splineViewer.shadowRoot;
+      if (!shadow) return;
+      const logo = shadow.querySelector('#logo');
+      if (logo) {
+        logo.remove();
+        clearInterval(logoTimer);
+      }
+    }, 200);
+  }
+
+  /* ── Scroll-driven progress fill (diegovz.com style) ── */
+  (function () {
+    const progressEl = document.querySelector('.timeline-progress');
+    const timeline   = document.querySelector('.timeline');
+    let rafId = null;
+
+    const zoom = () => parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+
+    function update() {
+      const z         = zoom();
+      const tRect     = timeline.getBoundingClientRect();
+      const lastEntry = timeline.querySelector('.entry:last-child');
+      const lastRect  = lastEntry.getBoundingClientRect();
+      const vh        = window.innerHeight;
+
+      // 白线止于最后一个 logo 中心点
+      const lastLogo    = timeline.querySelector('#entry-hanshiman .logo-box');
+      const logoRect    = lastLogo.getBoundingClientRect();
+      const maxHeight   = (logoRect.top + logoRect.height / 2) - tRect.top;
+      const filled      = vh * 0.55 - tRect.top;
+      const clamped   = Math.max(0, Math.min(maxHeight, filled));
+      progressEl.style.height = (clamped / z) + 'px';
+      rafId = null;
+    }
+
+    function onScroll() {
+      if (!rafId) rafId = requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+    window.addEventListener('load', update);
+  })();
+
+  /* ── Film Grain ── */
+  (function(){
+    const turb=document.getElementById('grain-turb');
+    if(!turb)return;
+    let t=0;
+    function tick(){
+      t+=0.012;
+      const f=(0.68+Math.sin(t)*0.04).toFixed(4);
+      turb.setAttribute('baseFrequency',f+' '+f);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  /* ── Vignette on Scroll ── */
+  (function(){
+    const vig=document.getElementById('vignette');
+    if(!vig)return;
+    window.addEventListener('scroll',()=>{
+      const ratio=Math.min(window.scrollY/(window.innerHeight*0.5),1);
+      vig.style.opacity=(ratio*0.7).toFixed(3);
+    },{passive:true});
+  })();
+</script>
+
+
+<script>
+/* ══ 阶梯蒙版转场 ══ */
+(function(){
+  var ROWS=8,DURATION=400,STAGGER=55;
+  var overlay=document.createElement('div');
+  overlay.id='stair-overlay';
+  for(var i=0;i<ROWS;i++){
+    var row=document.createElement('div');
+    row.className='stair-row';
+    row.style.top=(i*(100/ROWS))+'vh';
+    row.style.height='calc('+(100/ROWS)+'vh + 2px)';
+    overlay.appendChild(row);
+  }
+  document.body.appendChild(overlay);
+
+  try{
+    if(sessionStorage.getItem('stair-back')==='1'){
+      sessionStorage.removeItem('stair-back');
+      var entryRows=overlay.querySelectorAll('.stair-row');
+      overlay.style.pointerEvents='all';
+      entryRows.forEach(function(row){row.style.transition='none';row.style.transform='translateX(0)';});
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        entryRows.forEach(function(row,idx){
+          row.style.transition='transform '+DURATION+'ms cubic-bezier(0.76,0,0.24,1) '+(idx*STAGGER)+'ms';
+          row.style.transform='translateX(100%)';
+        });
+        setTimeout(function(){overlay.style.pointerEvents='none';},DURATION+(ROWS-1)*STAGGER+100);
+      });});
+    }
+  }catch(e){}
+
+  window.stairNav=function(href){
+    var rows=overlay.querySelectorAll('.stair-row');
+    overlay.style.pointerEvents='all';
+    rows.forEach(function(row){row.style.transition='none';row.style.transform='translateX(-100%)';});
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      rows.forEach(function(row,idx){
+        row.style.transition='transform '+DURATION+'ms cubic-bezier(0.76,0,0.24,1) '+(idx*STAGGER)+'ms';
+        row.style.transform='translateX(0)';
+      });
+    });});
+    var total=DURATION+(ROWS-1)*STAGGER+60;
+    setTimeout(function(){
+      try{sessionStorage.setItem('stair-back','1');}catch(e){}
+      window.location.href=href;
+    },total);
+  };
+
+  var backBtn=document.querySelector('.back-btn');
+  if(backBtn){
+    backBtn.addEventListener('click',function(e){
+      e.preventDefault();
+      window.stairNav(backBtn.getAttribute('href'));
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

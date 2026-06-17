@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>品牌官网设计 — 网页设计 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: #111111;
+  color: #ffffff;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+#cursor-trail {
+  position: fixed;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgb(244, 244, 244);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease, background-color .2s ease;
+  mix-blend-mode: difference;
+  will-change: left, top;
+}
+#cursor-trail.cursor-hover {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.55);
+}
+a, button { cursor: none; }
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 9999px;
+  transition: all .5s ease;
+  position: relative; z-index: 50;
+}
+.nav-back:hover { background: #ffffff; color: #000000; border-color: #fff; }
+.nav-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,.4);
+}
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 150px 60px 64px;
+  position: relative;
+}
+.hero-inner { max-width: 1800px; width: 100%; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(48px, 6.5vw, 100px);
+  font-weight: 700;
+  line-height: .95;
+  letter-spacing: -.02em;
+  color: #fff;
+  margin-bottom: 28px;
+}
+.hero-tagline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(16px, 1.6vw, 24px);
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .02em;
+}
+
+.about-section { padding: 80px 60px 100px; }
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 120px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+.about-left { position: sticky; top: 120px; align-self: start; }
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 24px;
+}
+.project-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #ffffff;
+}
+.about-right { padding-top: 6px; }
+.meta-list { border-top: 1px solid rgba(255,255,255,.1); }
+.meta-item { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+.meta-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 8px;
+}
+.meta-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.stack-gallery-section { padding: 80px 60px 120px; }
+.stack-gallery-wrap { max-width: 1800px; margin: 0 auto; }
+.stack-gallery-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.stack-left { position: sticky; top: 120px; }
+.stack-box { border: 1px solid rgba(255,255,255,.15); margin-top: 20px; }
+.stack-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  transition: background .2s ease;
+  cursor: pointer;
+}
+.stack-item:last-child { border-bottom: none; }
+.stack-item:hover { background: rgba(255,255,255,.05); }
+.stack-item.active { background: rgba(255,255,255,.08); }
+.stack-item.active .stack-name { color: #ffffff; }
+.stack-item.active .stack-num { color: rgba(255,255,255,.55); }
+.stack-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .04em;
+  min-width: 26px;
+}
+.stack-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: .01em;
+}
+
+.stack-desc { display: none; margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1); }
+.stack-desc.active { display: block; animation: galleryFadeIn .3s ease; }
+.stack-desc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.stack-feature-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 20px;
+}
+.stack-feature-list { display: flex; flex-direction: column; gap: 20px; }
+.stack-feature-item { display: flex; gap: 14px; align-items: flex-start; }
+.stack-feature-dot {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 3px;
+}
+.stack-feature-dot::after {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+}
+.stack-feature-body { display: flex; flex-direction: column; gap: 4px; }
+.stack-feature-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+.stack-feature-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,.55);
+  line-height: 1.7;
+}
+
+.stack-right { display: flex; flex-direction: column; gap: 20px; }
+.gallery-panel { display: none; }
+.gallery-panel.active {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: galleryFadeIn .35s ease;
+}
+@keyframes galleryFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.gallery-img-wrap { border-radius: 20px; overflow: hidden; background: #1a1a1a; }
+.gallery-img-wrap img {
+  width: 100%; height: auto;
+  display: block;
+  transition: transform .7s cubic-bezier(.4, 0, .2, 1);
+}
+.gallery-img-wrap:hover img { transform: scale(1.02); }
+
+.gallery-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
+.gallery-grid-2 .gallery-img-wrap { border-radius: 16px; }
+.gallery-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.gallery-grid-3 .gallery-img-wrap { border-radius: 14px; }
+
+.video-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.video-wrap video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.28);
+  transition: opacity .25s ease;
+  cursor: none;
+}
+.video-play-overlay.hidden { opacity: 0; pointer-events: none; }
+.video-play-btn {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.6);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s ease, background .2s ease;
+  backdrop-filter: blur(8px);
+}
+.video-play-overlay:hover .video-play-btn {
+  transform: scale(1.1);
+  background: rgba(255,255,255,.25);
+}
+.video-play-btn::after {
+  content: '';
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 11px 0 11px 20px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 4px;
+}
+.video-controls {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 20px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.video-wrap:hover .video-controls,
+.video-wrap.paused .video-controls { opacity: 1; }
+.ctrl-toggle {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  background: none; border: none;
+  cursor: none;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+}
+.ctrl-toggle svg { width: 18px; height: 18px; fill: #fff; }
+.ctrl-toggle .icon-pause { display: none; }
+.video-wrap.playing .ctrl-toggle .icon-play  { display: none; }
+.video-wrap.playing .ctrl-toggle .icon-pause { display: block; }
+.ctrl-progress {
+  flex: 1; height: 3px;
+  background: rgba(255,255,255,.25);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+.ctrl-progress-fill {
+  height: 100%; background: #fff;
+  border-radius: 3px; width: 0%;
+  transition: width .1s linear;
+  pointer-events: none;
+}
+.ctrl-progress:hover { height: 5px; }
+.ctrl-time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.7);
+  white-space: nowrap; flex-shrink: 0;
+  letter-spacing: .04em;
+}
+
+.footer-section {
+  padding: 80px 60px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+.footer-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 12px;
+}
+.footer-next-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  text-decoration: none;
+  transition: opacity .3s ease;
+  display: block;
+}
+.footer-next-title:hover { opacity: .6; }
+.footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 9999px;
+  transition: all .5s ease;
+}
+.footer-back:hover { background: #fff; color: #000; }
+
+@media (hover: none) {
+  body, a, button { cursor: auto !important; }
+  #cursor-trail { display: none !important; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav { padding: 24px 40px; }
+  .hero { padding: 130px 40px 52px; }
+  .about-section { padding: 60px 40px 80px; }
+  .about-grid { gap: 72px; }
+  .project-desc { font-size: 26px; }
+  .stack-gallery-section { padding: 60px 40px 96px; }
+  .stack-gallery-grid { grid-template-columns: 260px 1fr; gap: 48px; }
+  .footer-section { padding: 64px 40px; }
+}
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-back { padding: 10px 18px; font-size: 11px; letter-spacing: .12em; }
+  .hero { min-height: auto; align-items: flex-start; padding: 80px 20px 28px; }
+  .hero-title { font-size: clamp(36px, 11vw, 72px); }
+  .about-section { padding: 56px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  .about-left { position: static; }
+  .project-desc { font-size: 22px; line-height: 1.45; }
+  .meta-item { padding: 18px 0; }
+  .stack-gallery-section { padding: 40px 20px 72px; }
+  .stack-gallery-grid { grid-template-columns: 1fr; gap: 36px; }
+  .stack-left { position: static; }
+  .gallery-grid-2, .gallery-grid-3 { grid-template-columns: 1fr; }
+  .footer-section { padding: 48px 20px; flex-direction: column; align-items: flex-start; gap: 32px; }
+}
+</style>
+</head>
+<body>
+<!-- ── 阶梯蒙版页面转场 ── -->
+<div id="stair-overlay" aria-hidden="true"></div>
+<style>
+#stair-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden;}
+.stair-row{position:absolute;left:0;width:100%;background:#111111;transform:translateX(-100%);will-change:transform;}
+</style>
+<script>
+(function(){
+  var ROWS=8,DUR=400,STAG=55;
+  var overlay=document.getElementById('stair-overlay');
+  for(var i=0;i<ROWS;i++){var r=document.createElement('div');r.className='stair-row';r.style.top=(i*(100/ROWS))+'vh';r.style.height='calc('+(100/ROWS)+'vh + 2px)';overlay.appendChild(r);}
+  var nav=false;
+  function stairExit(href){
+    if(nav)return;nav=true;overlay.style.pointerEvents='all';
+    var rows=overlay.querySelectorAll('.stair-row');
+    rows.forEach(function(row){row.style.transition='none';row.style.transform='translateX(-100%)';});
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      rows.forEach(function(row,idx){
+        row.style.transition='transform '+DUR+'ms cubic-bezier(0.76,0,0.24,1) '+(idx*STAG)+'ms';
+        row.style.transform='translateX(0)';
+      });
+    });});
+    setTimeout(function(){
+      try{sessionStorage.setItem('stair-back','1');}catch(e){}
+      window.location.href=href;
+    },DUR+(ROWS-1)*STAG+60);
+  }
+  document.addEventListener('click',function(e){
+    if(nav){e.preventDefault();return;}
+    var a=e.target.closest('a[href]');if(!a)return;
+    var href=a.getAttribute('href');
+    if(!href||href==='#'||/^(https?:|mailto:|tel:|javascript:)/.test(href))return;
+    e.preventDefault();e.stopImmediatePropagation();
+    stairExit(href);
+  },true);
+})();
+</script>
+
+
+<div id="cursor-trail"></div>
+
+<nav>
+  <a href="transition-b-rise可.html" class="nav-back">← Back</a>
+  <span class="nav-tag">网页设计 &nbsp;·&nbsp; 2025</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">网页设计 &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; Web Design</p>
+    <h1 class="hero-title">品牌官网<br>设计</h1>
+    <p class="hero-tagline">SellingPilot 品牌官网全链路视觉设计</p>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section class="about-section">
+  <div class="about-grid">
+
+    <div class="about-left">
+      <h3 class="section-label">About</h3>
+      <p class="project-desc">
+        SellingPilot 品牌官网全链路设计，
+        从视觉语言到交互体验，
+        传达专业可信赖的品牌形象。
+      </p>
+    </div>
+
+    <div class="about-right">
+      <div class="meta-list">
+        <div class="meta-item">
+          <p class="meta-label">Year</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Design Type</p>
+          <p class="meta-value">网页设计</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Role</p>
+          <p class="meta-value">Web Design</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Tools</p>
+          <p class="meta-value">Figma &nbsp;·&nbsp; Photoshop</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">Scope</p>
+          <p class="meta-value">官网设计 &nbsp;·&nbsp; Landing Page &nbsp;·&nbsp; UI 设计</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Stack / Gallery ── -->
+<section class="stack-gallery-section">
+  <div class="stack-gallery-wrap">
+    <div class="stack-gallery-grid">
+
+      <div class="stack-left">
+        <h3 class="section-label">设计分类</h3>
+        <div class="stack-box">
+          <div class="stack-item active" data-panel="panel-01">
+            <span class="stack-num">01</span>
+            <span class="stack-name">官网 Landing Page</span>
+          </div>
+          <div class="stack-item" data-panel="panel-02">
+            <span class="stack-num">02</span>
+            <span class="stack-name">平台合作专页</span>
+          </div>
+        </div>
+
+        <!-- Description: 01 -->
+        <div class="stack-desc active" id="desc-01">
+          <h2 class="stack-desc-title">官网<br>Landing Page</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">多平台生态矩阵，首屏直观传达覆盖广度</p>
+                <p class="stack-feature-text">首屏以 TikTok、Temu、SHEIN、WooCommerce、Best Buy、Amazon、Walmart、eBay 八大平台 Logo 阵列呈现多渠道覆盖能力；「Streamline Everything with Our Integrated Suite」作为核心 Slogan，配合平台生态展示，强化卖家对产品宽度的第一印象。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">功能模块可视化，真实 UI 替代抽象描述</p>
+                <p class="stack-feature-text">Multi-Channel Management 模块将核心操作拆解为 Product Importing、Product Management、Store Migration 三大场景，搭配 Sales Progress 数据折线图与 Batch Buy Labels 功能截图，用真实产品界面直接传递价值，大幅降低卖家理解门槛。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description: 02 -->
+        <div class="stack-desc" id="desc-02">
+          <h2 class="stack-desc-title">平台合作<br>专页</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">多平台一体化落地页，覆盖全渠道卖家</p>
+                <p class="stack-feature-text">针对 Walmart、Amazon、eBay、Newegg、Shopify、TikTok Shop、Temu、SHEIN 八大平台分别设计专属合作落地页，统一视觉规范的同时融入各平台品牌色与特性场景，精准触达不同渠道卖家群体。</p>
+              </div>
+            </div>
+            <div class="stack-feature-item">
+              <span class="stack-feature-dot"></span>
+              <div class="stack-feature-body">
+                <p class="stack-feature-subtitle">差异化场景叙事，强化平台专属价值感</p>
+                <p class="stack-feature-text">每个平台专页围绕该渠道卖家的核心痛点与 SP 解决方案展开叙事，搭配平台 Logo 联名视觉与专属功能亮点，有效提升跨渠道推广的点击转化与注册意愿。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="stack-right">
+
+        <!-- 01 官网 Landing Page -->
+        <div class="gallery-panel active" id="panel-01">
+          <div class="video-wrap paused" id="vw-site">
+            <video id="v-site" preload="metadata">
+              <source src="录屏2026-06-03 12.06.55.mov" type="video/mp4">
+            </video>
+            <div class="video-play-overlay" id="vpo-site">
+              <div class="video-play-btn"></div>
+            </div>
+            <div class="video-controls">
+              <button class="ctrl-toggle" id="vt-site" aria-label="播放/暂停">
+                <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+              <div class="ctrl-progress" id="vp-site">
+                <div class="ctrl-progress-fill" id="vpf-site"></div>
+              </div>
+              <span class="ctrl-time" id="vtime-site">0:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 平台合作专页 -->
+        <div class="gallery-panel" id="panel-02">
+          <div class="gallery-grid-2">
+            <div class="gallery-img-wrap">
+              <img src="landing page/02_SP x Walmart Landing.jpg" alt="SP x Walmart">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="landing page/03_SP x Amazon Landing.jpg" alt="SP x Amazon">
+            </div>
+          </div>
+          <div class="gallery-grid-2">
+            <div class="gallery-img-wrap">
+              <img src="landing page/04_SP x eBay.jpg" alt="SP x eBay">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="landing page/05_SP x Newegg Landing.jpg" alt="SP x Newegg">
+            </div>
+          </div>
+          <div class="gallery-grid-2">
+            <div class="gallery-img-wrap">
+              <img src="landing page/06_SP x Shopify.jpg" alt="SP x Shopify">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="landing page/07_SP x TikTok Landing.jpg" alt="SP x TikTok">
+            </div>
+          </div>
+          <div class="gallery-grid-2">
+            <div class="gallery-img-wrap">
+              <img src="landing page/08_SP x Temu.jpg" alt="SP x Temu">
+            </div>
+            <div class="gallery-img-wrap">
+              <img src="landing page/09_SP x SHEIN.jpg" alt="SP x SHEIN">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<section class="footer-section">
+  <div>
+    <p class="footer-label">Back to</p>
+    <a href="transition-b-rise可.html" class="footer-next-title">All Works →</a>
+  </div>
+  <a href="transition-b-rise可.html" class="footer-back">← All Works</a>
+</section>
+
+<script>
+(function () {
+  function fmt(s) {
+    const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  function initPlayer(videoId, wrapId, overlayId, toggleId, progressId, fillId, timeId) {
+    const v   = document.getElementById(videoId);
+    const w   = document.getElementById(wrapId);
+    const ov  = document.getElementById(overlayId);
+    const btn = document.getElementById(toggleId);
+    const bar = document.getElementById(progressId);
+    const fill= document.getElementById(fillId);
+    const tim = document.getElementById(timeId);
+    if (!v) return;
+    function play()  { v.play();  w.classList.add('playing');    w.classList.remove('paused'); ov.classList.add('hidden'); }
+    function pause() { v.pause(); w.classList.remove('playing'); w.classList.add('paused');    ov.classList.remove('hidden'); }
+    ov.addEventListener('click',  () => v.paused ? play() : pause());
+    btn.addEventListener('click', () => v.paused ? play() : pause());
+    v.addEventListener('timeupdate', () => {
+      if (!v.duration) return;
+      fill.style.width = (v.currentTime / v.duration * 100) + '%';
+      tim.textContent  = fmt(v.currentTime);
+    });
+    v.addEventListener('ended', () => { w.classList.remove('playing'); w.classList.add('paused'); ov.classList.remove('hidden'); });
+    bar.addEventListener('click', e => {
+      const r = bar.getBoundingClientRect();
+      v.currentTime = ((e.clientX - r.left) / r.width) * v.duration;
+    });
+  }
+  initPlayer('v-site','vw-site','vpo-site','vt-site','vp-site','vpf-site','vtime-site');
+})();
+</script>
+
+<script>
+(function () {
+  const trail = document.getElementById('cursor-trail');
+  document.addEventListener('mousemove', (e) => {
+    trail.style.left = e.clientX + 'px';
+    trail.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .gallery-img-wrap, .stack-item').forEach(el => {
+    el.addEventListener('mouseenter', () => trail.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => trail.classList.remove('cursor-hover'));
+  });
+  document.addEventListener('mouseleave', () => { trail.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { trail.style.opacity = '1'; });
+})();
+</script>
+
+<script>
+(function () {
+  const navItems = document.querySelectorAll('.stack-item[data-panel]');
+  const panels   = document.querySelectorAll('.gallery-panel');
+  const descs    = document.querySelectorAll('.stack-desc');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      descs.forEach(d => d.classList.remove('active'));
+      item.classList.add('active');
+      const panelId = item.dataset.panel;
+      const descId  = panelId.replace('panel', 'desc');
+      const panel = document.getElementById(panelId);
+      const desc  = document.getElementById(descId);
+      if (panel) panel.classList.add('active');
+      if (desc)  desc.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
