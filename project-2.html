@@ -1075,21 +1075,14 @@ nav {
             <!-- Nate Video -->
             <div>
               <div class="gallery-img-wrap">
-                <div class="video-wrap" id="vw-nate">
-                  <video id="vid-nate" preload="metadata" playsinline loop>
-                    <source src="videos/nate video 8.mp4" type="video/mp4">
-                  </video>
-                  <div class="video-play-overlay" id="overlay-nate">
-                    <div class="video-play-btn"></div>
-                  </div>
-                  <div class="video-controls">
-                    <button class="ctrl-toggle" id="ctrl-nate" aria-label="play/pause">
-                      <svg viewBox="0 0 24 24" class="icon-play"><polygon points="5,3 19,12 5,21"/></svg>
-                      <svg viewBox="0 0 24 24" class="icon-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-                    </button>
-                    <div class="ctrl-progress" id="prog-nate"><div class="ctrl-progress-fill" id="progfill-nate"></div></div>
-                    <span class="ctrl-time" id="time-nate">0:00</span>
-                  </div>
+                <div style="position:relative;width:100%;aspect-ratio:9/16;background:#000;border-radius:inherit;overflow:hidden;">
+                  <iframe
+                    src="//player.bilibili.com/player.html?bvid=BV197jc6qEmd&autoplay=0&high_quality=1"
+                    style="width:100%;height:100%;border:none;"
+                    scrolling="no" frameborder="no"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="true">
+                  </iframe>
                 </div>
               </div>
               <p class="video-label">Nate — Social Content</p>
