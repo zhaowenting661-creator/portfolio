@@ -792,13 +792,24 @@ nav {
 <section class="preview-section">
   <div class="preview-wrap">
     <div class="preview-card">
-      <iframe
-        src="//player.bilibili.com/player.html?bvid=BV1HnjF62Eih&autoplay=0&high_quality=1"
-        style="width:100%;height:100%;border:none;"
-        scrolling="no" frameborder="no"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen="true">
-      </iframe>
+      <div class="video-wrap paused" id="videoWrap">
+        <video id="previewVideo" preload="metadata" playsinline>
+          <source src="https://sellingpilot-video.oss-cn-shanghai.aliyuncs.com/sellingpilot.mp4" type="video/mp4">
+        </video>
+        <div class="video-play-overlay" id="playOverlay">
+          <div class="video-play-btn"></div>
+        </div>
+        <div class="video-controls">
+          <button class="ctrl-toggle" id="ctrlToggle">
+            <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <div class="ctrl-progress" id="ctrlProgress">
+            <div class="ctrl-progress-fill" id="progressFill"></div>
+          </div>
+          <span class="ctrl-time" id="ctrlTime">0:00 / 0:00</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
