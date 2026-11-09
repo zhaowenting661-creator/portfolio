@@ -1021,6 +1021,7 @@ nav{pointer-events:none}nav a,nav button{pointer-events:auto}
       <div class="video-wrap paused" id="videoWrap">
         <video id="previewVideo" preload="metadata" playsinline>
           <source src="https://sellingpilot-video.oss-cn-shanghai.aliyuncs.com/sellingpilot.mp4" type="video/mp4">
+          <source src="resource/imgs/sellingpilot/sellingpilot.mp4" type="video/mp4">
         </video>
         <div class="video-play-overlay" id="playOverlay" role="button" tabindex="0" aria-label="播放 SellingPilot 视频">
           <div class="video-play-btn"></div>
@@ -1088,7 +1089,7 @@ nav{pointer-events:none}nav a,nav button{pointer-events:auto}
     }
   });
   video.addEventListener('error', showPlaybackError);
-  video.querySelector('source').addEventListener('error', showPlaybackError);
+  video.querySelector('source:last-of-type').addEventListener('error', showPlaybackError);
 
   /* Click video while playing → pause */
   video.addEventListener('click', () => {

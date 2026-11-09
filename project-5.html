@@ -611,6 +611,7 @@ nav {
           <div class="video-wrap paused" id="vw-site">
             <video id="v-site" preload="metadata" playsinline>
               <source src="https://landingpage-video.oss-cn-beijing.aliyuncs.com/landing%20page.mov" type="video/mp4">
+              <source src="resource/imgs/landing-pages/landing page.mov" type="video/mp4">
             </video>
             <div class="video-play-overlay" id="vpo-site">
               <div class="video-play-btn"></div>
@@ -701,16 +702,25 @@ nav {
     const fill= document.getElementById(fillId);
     const tim = document.getElementById(timeId);
     if (!v) return;
-    function play()  { v.play();  w.classList.add('playing');    w.classList.remove('paused'); ov.classList.add('hidden'); }
-    function pause() { v.pause(); w.classList.remove('playing'); w.classList.add('paused');    ov.classList.remove('hidden'); }
-    ov.addEventListener('click',  () => v.paused ? play() : pause());
-    btn.addEventListener('click', () => v.paused ? play() : pause());
+    function setPlaying(playing) {
+      w.classList.toggle('playing', playing);
+      w.classList.toggle('paused', !playing);
+      ov.classList.toggle('hidden', playing);
+    }
+    function toggle() {
+      if (v.paused) v.play().catch(() => setPlaying(false));
+      else v.pause();
+    }
+    ov.addEventListener('click', toggle);
+    btn.addEventListener('click', toggle);
+    v.addEventListener('playing', () => setPlaying(true));
+    v.addEventListener('pause', () => setPlaying(false));
     v.addEventListener('timeupdate', () => {
       if (!v.duration) return;
       fill.style.width = (v.currentTime / v.duration * 100) + '%';
       tim.textContent  = fmt(v.currentTime);
     });
-    v.addEventListener('ended', () => { w.classList.remove('playing'); w.classList.add('paused'); ov.classList.remove('hidden'); });
+    v.addEventListener('ended', () => setPlaying(false));
     bar.addEventListener('click', e => {
       const r = bar.getBoundingClientRect();
       v.currentTime = ((e.clientX - r.left) / r.width) * v.duration;
