@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Number/Blue&amp;Purple04</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+        <linearGradient x1="100%" y1="106.355287%" x2="-133.70769%" y2="-101.508824%" id="linearGradient-3">
+            <stop stop-color="#2F70C8" offset="0%"></stop>
+            <stop stop-color="#8C72F6" offset="38.3389084%"></stop>
+            <stop stop-color="#B3A0FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="0_Icon/Number/Blue&amp;Purple04" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M10,1 C14.9705627,1 19,5.02943725 19,10 C19,14.9705627 14.9705627,19 10,19 C5.02943725,19 1,14.9705627 1,10 C1,5.02943725 5.02943725,1 10,1 Z" id="形状结合" stroke="#C9C3FF" fill="url(#linearGradient-3)" fill-rule="nonzero" mask="url(#mask-2)"></path>
+        <path d="M6.517,12.438 L6.517,11.228 L10.114,6.08 L11.907,6.08 L11.907,11.096 L12.875,11.096 L12.875,12.438 L11.907,12.438 L11.907,14 L10.367,14 L10.367,12.438 L6.517,12.438 Z M10.466,7.73 L8.211,11.096 L10.466,11.096 L10.466,7.73 Z" id="形状" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+    </g>
+</svg>

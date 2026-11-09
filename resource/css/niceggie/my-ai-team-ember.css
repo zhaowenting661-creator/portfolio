@@ -1,0 +1,11 @@
+/* Animated ASCII ember backdrop, restricted to the page's first screen. */
+body.page-my-ai-team{position:relative;background:#100f14}
+.page-my-ai-team .page::before{content:none}
+.team-ember-background{position:absolute;z-index:0;left:0;top:0;width:100%;height:var(--ember-source-height,522px);overflow:hidden;pointer-events:none;background:linear-gradient(#0a0a0a 75%,#100f14);isolation:isolate}
+.team-ember-background canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+.team-ember-background .team-ember-field{left:50%;right:auto;width:var(--ember-source-width,1520px);max-width:100%;transform:translateX(-50%);opacity:.88;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.team-ember-background::before{content:'';position:absolute;bottom:-65px;left:50%;transform:translateX(-50%);width:var(--ember-source-width,1520px);max-width:100%;height:160px;background:radial-gradient(ellipse at center,rgba(225,104,222,.16),rgba(103,39,255,.09) 45%,transparent 72%);pointer-events:none}
+.team-ember-background::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 530px 240px at 50% 30%,rgba(10,10,10,.48),transparent 100%);pointer-events:none}
+.team-ember-sparks{z-index:1}
+@media(max-width:700px){.team-ember-background::after{background:linear-gradient(rgba(10,10,10,.15),transparent)}}
+@media(prefers-reduced-motion:reduce){.team-ember-field{opacity:.75}}

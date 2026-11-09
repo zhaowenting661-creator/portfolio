@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Special/Complete-Purple</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+        <linearGradient x1="100%" y1="106.355287%" x2="-133.70769%" y2="-101.508824%" id="linearGradient-3">
+            <stop stop-color="#2F70C8" offset="0%"></stop>
+            <stop stop-color="#8C72F6" offset="38.3389084%"></stop>
+            <stop stop-color="#B3A0FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="0_Icon/Special/Complete-Purple" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M10,1 C5.02890647,1 1,5.02890647 1,10 C1,14.9710935 5.02890647,19 10,19 C14.9710935,19 19,14.9710935 19,10 C19,5.02890647 14.9710935,1 10,1 Z" id="形状-path" fill="url(#linearGradient-3)" fill-rule="nonzero" mask="url(#mask-2)"></path>
+        <path d="M10,0 C15.5234047,0 20,4.47659525 20,10 C20,15.5234047 15.5234047,20 10,20 C4.47659525,20 0,15.5234047 0,10 C0,4.47659525 4.47659525,0 10,0 Z M10,1.1023622 C5.08541308,1.1023622 1.1023622,5.08541308 1.1023622,10 C1.1023622,14.9145869 5.08541309,18.8976378 10,18.8976378 C14.9145869,18.8976378 18.8976378,14.9145869 18.8976378,10 C18.8976378,5.08541309 14.9145869,1.1023622 10,1.1023622 Z" id="形状-path" fill="#C9C3FF" fill-rule="nonzero" opacity="0.707217262" mask="url(#mask-2)"></path>
+        <path d="M13.8772317,8.52008936 L9.59151743,12.8058031 C9.40736614,12.9899549 9.16964279,13.0803571 8.92857143,13.0803571 C8.68750007,13.0803571 8.44843764,12.9893194 8.26529029,12.8062057 L6.12243311,10.6633486 C5.75714281,10.2970539 5.75714281,9.70274586 6.12243311,9.33645114 C6.48872784,8.97015643 7.08303588,8.97015643 7.44933057,9.33645114 L8.92857143,10.8169641 L12.5513397,7.19419686 C12.9176344,6.82790211 13.5119424,6.82790211 13.8782372,7.19419686 C14.2421879,7.559152 14.2421879,8.15513371 13.8772317,8.52008936 Z" id="形状-path" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+    </g>
+</svg>

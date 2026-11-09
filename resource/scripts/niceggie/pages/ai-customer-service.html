@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niceggie — AI Customer Service</title>
+  <link rel="stylesheet" href="../../../css/niceggie/basic.css" />
+  <link rel="stylesheet" href="../../../css/niceggie/ai-customer-service.css" />
+  <link rel="stylesheet" href="../../../css/niceggie/ai-customer-service-figma.css" />
+  <link rel="stylesheet" href="../../../css/niceggie/ai-cs-horizon.css" />
+  <link rel="stylesheet" href="../../../css/niceggie/ai-cs-ticket-scroll.css" />
+  <link rel="stylesheet" href="../../../css/niceggie/ai-cs-hero-effects.css" />
+  <link rel="stylesheet" href="../../../css/niceggie/ai-cs-specter-orb.css" />
+  <link rel="stylesheet" href="../../../css/niceggie/ai-cs-arrow-reveal.css" />
+  <script defer src="../../../scripts/niceggie/vendor/gsap-3.13.0.min.js"></script>
+  <script defer src="../../../scripts/niceggie/vendor/ScrollTrigger-3.13.0.min.js"></script>
+  <script defer src="../../../scripts/niceggie/ai-cs-scroll-motion.js?v=20261105-robot-autoplay"></script>
+</head>
+<body class="page-ai-cs">
+
+<img class="hero-video-bg" src="../../../imgs/niceggie/ai-cs-hero-bg.jpg" alt="" />
+<video class="ai-cs-side-mist" src="../../../imgs/niceggie/bg.webm" autoplay muted loop playsinline aria-hidden="true"></video>
+
+<script src="../../../scripts/niceggie/nav.js"></script>
+
+<!-- Page -->
+<div class="page">
+
+  <div class="content">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-title">
+        <div class="hero-h1">
+          <div class="line1">Buyers keep pinging you?</div>
+          <div class="line2">AI drafts pro replies in seconds</div>
+        </div>
+        <p class="hero-subtitle">
+          Works on Amazon, TikTok Shop, Walmart, eBay, Newegg, and other major marketplaces, plus Gmail and Outlook mail clients. AI reads buyer tone and intent, then drafts replies from your product knowledge base—auto-answer common presales questions, policy-safe suggestions for disputes, and 15+ localized languages so you focus on decisions that matter.
+        </p>
+      </div>
+      <div class="hero-cta-wrap" style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+        <button class="btn-hero" onclick="document.querySelector(&quot;.char-card&quot;).scrollIntoView({behavior:&quot;smooth&quot;,block:&quot;center&quot;})">See how they work →</button>
+        <div class="hero-note">
+          <span class="dot"></span>
+          <span>Extension in development · 200+ sellers on the waitlist · limited spots</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Characteristics -->
+    <section class="section">
+      <div class="char-card">
+        <img class="char-header" src="../../../imgs/niceggie/ai-cs-header-bot.png" alt="" />
+        <img class="glow-orb" src="../../../imgs/niceggie/ai-cs-glow-orb.svg" alt="" />
+        <div class="char-left">
+          <div>
+            <div class="char-title">AI Customer Service</div>
+            <div class="char-subtitle-row">
+              <span class="dot"></span>
+              <span>5 major marketplaces + email · beta</span>
+            </div>
+          </div>
+          <div class="char-footer">
+            <p>Chrome extension · in beta · built for cross-border sellers</p>
+          </div>
+        </div>
+        <div class="char-divider"></div>
+        <div class="char-list">
+          <div class="char-point">
+            <img src="../../../imgs/niceggie/icon-check-circle.svg" alt="" />
+            <p>Detect buyer mood and intent, match the right reply strategy</p>
+          </div>
+          <div class="char-point">
+            <img src="../../../imgs/niceggie/icon-check-circle.svg" alt="" />
+            <p>Draft replies from your knowledge base, tailored to your store</p>
+          </div>
+          <div class="char-point">
+            <img src="../../../imgs/niceggie/icon-check-circle.svg" alt="" />
+            <p>Auto-answer common presales questions, fewer manual replies</p>
+          </div>
+          <div class="char-point">
+            <img src="../../../imgs/niceggie/icon-check-circle.svg" alt="" />
+            <p>Editable drafts—you review and approve before sending</p>
+          </div>
+          <div class="char-point">
+            <img src="../../../imgs/niceggie/icon-check-circle.svg" alt="" />
+            <p>Multi-account support with history synced in the cloud</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Integrations -->
+    <section class="section">
+      <div class="section-title">
+        <h2>We integrate with the platforms <span style="color:#7c5fd6;">you use</span></h2>
+        <p>No API authorization or store linking—the Chrome extension runs directly in your browser</p>
+      </div>
+
+      <div class="stats_logo_box">
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Marketplaces supported</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Support scenarios</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Localized reply languages</div>
+          </div>
+        </div>
+        <div class="stats-connector">
+          <img class="connector-bg" src="../../../imgs/niceggie/center.svg" alt="" />
+          <img class="connector-icon" src="../../../imgs/niceggie/link.svg" alt="" />
+        </div>
+        <div class="partner-logos">
+          <span class="newegg-logo"><img src="../../../imgs/niceggie/newegg.svg" alt="Newegg" /></span>
+          <img src="../../../imgs/niceggie/amazon.svg" alt="Amazon" />
+          <img src="../../../imgs/niceggie/shopify.svg" alt="Shopify" />
+          <img src="../../../imgs/niceggie/tiktok.svg" alt="TikTok" />
+          <img src="../../../imgs/niceggie/ebay.svg" alt="eBay" />
+          <img src="../../../imgs/niceggie/walmart.svg" alt="Walmart" />
+          <img src="../../../imgs/niceggie/bestbuy.svg" alt="Best Buy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Pain points -->
+    <section class="section section-lg">
+      <div class="section-title">
+        <h2>Stop wasting <span style="color:#7c5fd6;">hours on helpdesk</span> every day</h2>
+        <p>70% of cross-border support messages are repeat scenarios—AI can handle them for you</p>
+      </div>
+
+      <div class="trio-cards">
+        <div class="trio-card">
+          <img class="trio-icon" src="../../../imgs/niceggie/icon-cart.svg" alt="" />
+          <h3>Presales questions pile up</h3>
+          <p>Sizing, shipping times, discounts—AI detects presales intent, uses your product docs for reply suggestions, and can auto-answer FAQs so you step in less often.</p>
+          <div class="v-divider"></div>
+        </div>
+        <div class="trio-card">
+          <img class="trio-icon" src="../../../imgs/niceggie/icon-shield-plus.svg" alt="" />
+          <h3>Post-sales disputes need speed and accuracy</h3>
+          <p>Returns, quality issues, A-to-Z claims—AI reads buyer mood and drafts policy-safe replies for your review before send, lowering account risk from wording mistakes.</p>
+          <div class="v-divider"></div>
+        </div>
+        <div class="trio-card">
+          <img class="trio-icon" src="../../../imgs/niceggie/icon-globe-translate.svg" alt="" />
+          <h3>Foreign-language buyers, no more tab-hopping translators</h3>
+          <p>Messages translate in real time; replies switch to the buyer's language across 15+ locales—English, Japanese, French, German, Spanish, Portuguese, and more—with phrasing that beats raw machine translation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: More than a reply bot -->
+    <section class="section section-reply-brain">
+      <div class="blob-section">
+        <div class="ai-cs-horizon" aria-hidden="true"><canvas data-ai-horizon></canvas></div>
+        <div class="section-title">
+          <h2>More than a reply bot—your <span style="color:#7c5fd6;">end-to-end helpdesk brain</span></h2>
+          <p>From reading buyer mood to pulling your knowledge base to drafting compliant replies—AI works at every step.</p>
+        </div>
+
+        <div class="trio-cards" style="margin-top:64px;">
+          <div class="trio-card">
+            <img class="trio-icon" src="../../../imgs/niceggie/icon-lightbulb-2.svg" alt="" />
+            <h3>Mood &amp; intent recognition</h3>
+            <p>Reads emotional tone (anxious, upset, general inquiry) and message intent so you prioritize high-risk tickets and reply with context.</p>
+            <div class="v-divider"></div>
+          </div>
+          <div class="trio-card">
+            <img class="trio-icon" src="../../../imgs/niceggie/icon-book.svg" alt="" />
+            <h3>Knowledge base</h3>
+            <p>Upload product specs, FAQs, and return policies—AI pulls the right content first so replies match how your store actually operates.</p>
+            <div class="v-divider"></div>
+          </div>
+          <div class="trio-card">
+            <img class="trio-icon" src="../../../imgs/niceggie/icon-translate-polish.png" alt="" />
+            <h3>Translation &amp; polish</h3>
+            <p>Auto-translate and draft in 15+ languages—including US/UK English, French, German, Spanish, Italian, Japanese, Malay, Vietnamese, Thai, Indonesian, Portuguese, Russian, and Simplified/Traditional Chinese—with phrasing that beats raw machine translation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Ticket types -->
+    <section class="section section-lg">
+      <p class="ticket-title">COVERS 20+ TICKET TYPES</p>
+      <div class="ticket-box" style="margin-top:44px;">
+        <div class="ticket-list">
+          <div class="ticket-pill"><span class="dot"></span><span>Return requests</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Quality complaints</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Where is my order</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Usage questions</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Positive feedback</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Refund disputes</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>A-to-Z claims</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Product inquiries</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Negative reviews</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Exchange requests</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Lost packages</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Invoice requests</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Missing parts</span></div>
+          <div class="ticket-pill"><span class="dot"></span><span>Safety complaints</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Six capabilities -->
+    <section class="section section-lg">
+      <div class="section-title">
+        <h2>Six capabilities for every step of your <span style="color:#7c5fd6;">helpdesk workflow</span></h2>
+        <p>From reading intent to sending replies—no more jumping between tools</p>
+      </div>
+
+      <div class="capability-grid" style="margin-top:36px;">
+
+        <div class="capability-card">
+          <img class="card-visual" src="../../../imgs/niceggie/cap-card-mood.jpg" alt="" />
+          <div class="cap-info">
+            <h3>Mood &amp; intent recognition</h3>
+            <p>Reads emotional tone and message intent together—returns, shipping pings, presales—and helps you prioritize high-risk tickets.</p>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <img class="card-visual" src="../../../imgs/niceggie/cap-card-kb.jpg" alt="" />
+          <div class="cap-info">
+            <h3>Personalized knowledge base</h3>
+            <p>Upload product specs, FAQs, and store policies—AI pulls the right content so replies sound like your brand.</p>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <img class="card-visual" src="../../../imgs/niceggie/cap-card-drafting.jpg" alt="" />
+          <div class="cap-info">
+            <h3>Context-aware reply drafting</h3>
+            <p>Drafts from the full thread plus your knowledge base—coherent replies, not one-off answers to isolated messages.</p>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <img class="card-visual" src="../../../imgs/niceggie/cap-card-logistics.jpg" alt="" />
+          <div class="cap-info">
+            <h3>Auto logistics lookup</h3>
+            <p>When buyers ask where their order is, AI pulls tracking status into the draft so you skip manual carrier checks.</p>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <img class="card-visual" src="../../../imgs/niceggie/cap-card-multilingual.png" alt="" />
+          <div class="cap-info">
+            <h3>Multilingual translation</h3>
+            <p>Auto-detect buyer language and translate across 15 languages, including English, Japanese, French, German, Spanish, and other major markets.</p>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <img class="card-visual" src="../../../imgs/niceggie/cap-card-polish.jpg" alt="" />
+          <div class="cap-info">
+            <h3>AI polish</h3>
+            <p>Refine wording and tone so replies sound more professional and on-brand, without stiff, robotic phrasing.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 7: Metrics -->
+    <section class="section section-lg">
+      <div class="section-title">
+        <h2>Two hours a day—<span style="color:#7c5fd6;">lost to repeat helpdesk work</span></h2>
+        <p>The numbers tell the story of cross-border seller support efficiency</p>
+      </div>
+
+      <div class="metric-row" style="margin-top:64px;">
+        <div class="metric-item">
+          <div class="metric-num">2.3h</div>
+          <h3>Average daily time sellers spend on replies</h3>
+          <p>Over 70% are repeat scenarios—returns, shipping pings, presales quotes—ideal for AI assistance</p>
+          <div class="v-divider"></div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">24h</div>
+          <h3>The reply window buyers expect</h3>
+          <p>Professional replies within 24 hours correlate with better reviews and repeat purchases</p>
+          <div class="v-divider"></div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">~70%</div>
+          <h3>Tickets that fit repeatable templates</h3>
+          <p>With AI assist, handle time often drops from ~10 minutes to 2–3 per message—hours back every day</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Apply steps -->
+    <section class="section section-lg">
+      <div class="section-title">
+        <h2>Apply now — <span style="color:#7c5fd6;">be first when we launch</span></h2>
+        <p>Extension in development · Limited spots · Early applicants get priority access</p>
+        <div class="hero-note" style="margin-top:8px;">
+          <span class="dot"></span>
+          <span>In development...</span>
+        </div>
+      </div>
+
+      <div class="apply-steps-wrap" style="margin-top:64px;">
+        <img class="apply-arrow arrow-1" src="../../../imgs/niceggie/icon-arrow-dashed.png" alt="" />
+        <img class="apply-arrow arrow-2" src="../../../imgs/niceggie/icon-arrow-dashed.png" alt="" />
+        <div class="apply-steps">
+          <div class="step-card">
+            <div class="step-num-badge">1</div>
+            <div class="step-body">
+              <h3>Submit your application</h3>
+              <p>Click "Apply for beta access", enter your email and use case — takes under a minute.</p>
+              <div class="tag-pill tag-green"><span class="dot"></span><span>Available now</span></div>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num-badge">2</div>
+            <div class="step-body">
+              <h3>Wait for launch email</h3>
+              <p>We'll email you as soon as the extension ships. Early beta users unlock all features at no cost.</p>
+              <div class="tag-pill tag-green"><span class="dot"></span><span>Email notification</span></div>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num-badge">3</div>
+            <div class="step-body">
+              <h3>Install and start using</h3>
+              <p>After launch, install the Chrome extension in one click, open buyer messages on Amazon, TikTok Shop, and more.</p>
+              <div class="tag-pill tag-orange"><span class="dot"></span><span>Opening soon</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section section-lg">
+      <div class="final-cta">
+        <div class="ai-cs-specter-orb" aria-hidden="true"><canvas data-ai-specter-orb></canvas></div>
+        <div class="final-cta-inner">
+          <div>
+            <p class="final-title">One less reply, one more minute back</p>
+            <p class="final-subtitle">Apply for closed beta now—we'll email you at launch. Early users unlock all features free.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <button class="btn-hero">Apply for closed beta→</button>
+            <p class="final-note">Plugin in development · launching soon · $0 · cancel anytime</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /content -->
+
+</div><!-- /page -->
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Niceggie. All rights reserved.</p>
+  <p>Help Center &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Service &nbsp;|&nbsp; Cookie Policy &nbsp;|&nbsp; Copyright Policy &nbsp;|&nbsp; support@niceggie.com &nbsp;|&nbsp; Feedback</p>
+</footer>
+
+<script src="../../../scripts/niceggie/ai-cs-horizon.js"></script>
+<script src="../../../scripts/niceggie/ai-cs-ticket-scroll.js"></script>
+<script src="../../../scripts/niceggie/ai-cs-hero-effects.js"></script>
+<script src="../../../scripts/niceggie/ai-cs-counters.js"></script>
+<script src="../../../scripts/niceggie/ai-cs-specter-orb.js"></script>
+<script src="../../../scripts/niceggie/ai-cs-arrow-reveal.js"></script>
+<script src="../../../scripts/niceggie/niceggie-demo-bridge.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/logo/Facebook</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="19.8142415" height="19.8142415"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#18ADFE" offset="0%"></stop>
+            <stop stop-color="#0062E0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Icon/logo/Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="facebook2" mask="url(#mask-2)" fill="url(#linearGradient-3)" fill-rule="nonzero">
+            <g transform="translate(1, 1)" id="路径">
+                <path d="M15.0001875,0 L2.9998125,0 C1.34325,0 -2.79776202e-16,1.34325 -2.79776202e-16,3.000375 L-2.79776202e-16,14.999625 C-2.79776202e-16,16.65675 1.3426875,18 2.9998125,18 L9,18 L9,10.125 L6.75,10.125 L6.75,7.875 L9,7.875 L9,6.1875 C9,4.6344375 10.2594375,3.375 11.8125,3.375 L14.625,3.375 L14.625,5.625 L11.8125,5.625 C11.502,5.625 11.25,5.877 11.25,6.1875 L11.25,7.875 L14.34375,7.875 L13.78125,10.125 L11.25,10.125 L11.25,18 L15.0001875,18 C16.65675,18 18,16.65675 18,14.999625 L18,3.000375 C18,1.34325 16.6573125,0 15.0001875,0 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

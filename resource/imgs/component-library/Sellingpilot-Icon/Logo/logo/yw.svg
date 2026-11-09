@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/logo/yw</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="19.8142415" height="19.8142415"></rect>
+        <linearGradient x1="28.4180139%" y1="99.8558385%" x2="54.304385%" y2="40.0528592%" id="linearGradient-3">
+            <stop stop-color="#AACD06" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#AACD06" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="79.4435694%" y1="-7.5889859%" x2="33.0155857%" y2="83.2437878%" id="linearGradient-4">
+            <stop stop-color="#0061B1" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#0061B1" offset="69%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="0_Icon/logo/yw" stroke="none" fill="none">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="_图层_1" stroke-width="1" fill-rule="evenodd" mask="url(#mask-2)">
+            <polygon id="路径" fill="#AACD06" fill-rule="nonzero" points="0 3.99617956 3.21680146 9.04297994 6.05538041 3.99617956"></polygon>
+            <polygon id="路径" fill="url(#linearGradient-3)" fill-rule="nonzero" points="10.0095247 4.09933142 14.0477185 4.09933142 4.64946244 20 0.79846972 20"></polygon>
+            <polygon id="路径" fill="url(#linearGradient-4)" fill-rule="nonzero" points="16.6876351 0 19.935 0 12.9856391 11.3772684 9.97896129 11.3772684"></polygon>
+        </g>
+    </g>
+</svg>

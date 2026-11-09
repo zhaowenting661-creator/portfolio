@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Center — Niceggie</title>
+  <link rel="stylesheet" href="../../../css/niceggie/basic.css">
+  <link rel="stylesheet" href="../../../css/niceggie/free-tools.css">
+  <link rel="stylesheet" href="../../../css/niceggie/news.css" />
+  <script defer src="../../../scripts/niceggie/vendor/gsap-3.13.0.min.js"></script>
+  <script defer src="../../../scripts/niceggie/vendor/ScrollTrigger-3.13.0.min.js"></script>
+  <script defer src="../../../scripts/niceggie/catalog-scroll-motion.js?v=20261104-105910"></script>
+  <link rel="stylesheet" href="../../../css/niceggie/news-sidebar-figma.css?v=20261103-172902" />
+</head>
+<body>
+
+<video class="hero-video-bg" src="../../../imgs/niceggie/bg.webm" autoplay muted loop playsinline></video>
+
+<script src="../../../scripts/niceggie/nav.js"></script>
+
+<div class="page">
+
+  <!-- Hero -->
+  <section class="nc-hero">
+    <h1 class="nc-hero-title">News Center</h1>
+    <p class="nc-hero-subtitle">Real-time tracking of cross-border policies, supply chain risks, platform dynamics, and industry trends, with daily curated insights to enhance decision-making certainty.</p>
+  </section>
+
+  <!-- Main body -->
+  <div class="nc-body">
+
+    <!-- Controls: tabs (left) + search (right) -->
+    <div class="nc-controls">
+      <div class="category-tabs" id="newsTabs">
+        <div class="tab-active" data-filter="all"><span>All</span></div>
+        <div class="tab-inactive" data-filter="industry-news"><span>Industry News</span></div>
+        <div class="tab-inactive" data-filter="platform-policy"><span>Platform Policy</span></div>
+        <div class="tab-inactive" data-filter="market-trends"><span>Market Trends</span></div>
+        <div class="tab-inactive" data-filter="compliance"><span>Compliance</span></div>
+        <div class="tab-inactive" data-filter="amazon-policy"><span>Amazon Policy</span></div>
+        <div class="tab-inactive" data-filter="ai-automation"><span>AI &amp; Automation</span></div>
+      </div>
+      <div class="nc-search">
+        <div class="search-bar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
+            <circle cx="11" cy="11" r="7" stroke="rgba(203,187,255,0.6)" stroke-width="1.5"/>
+            <path d="M16.5 16.5L21 21" stroke="rgba(203,187,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="search-placeholder">Search news / platform / category</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content grid -->
+    <div class="nc-grid">
+
+      <!-- Left: news list -->
+      <div class="nc-list" id="newsCards">
+
+        <!-- Card 1 — Walmart (expanded by default) -->
+        <article class="nc-card" data-category="industry-news">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-1.png" alt="Walmart Summer Sales Event">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-finance">Finance</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">Walmart Launches Summer Sales Event to <em>Compete with Amazon's Prime Day</em></h2>
+              <p class="nc-card-desc">In response to Amazon moving Prime Day to early June, Walmart has announced a week-long sales event. This event will occur online and integrate offline store resources, aiming to capture more traffic through omnichannel advantages.</p>
+            </div>
+            <button class="nc-expand-btn open" aria-expanded="true" aria-label="Collapse">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <!-- Expanded detail -->
+          <div class="nc-card-detail open">
+            <div class="nc-detail-left">
+              <div>
+                <div class="nc-detail-label">Source</div>
+                <div class="nc-source-name">Seekingalpha</div>
+                <a href="#" class="nc-source-link">Read original ↗</a>
+              </div>
+              <div>
+                <div class="nc-detail-label">Related Tags</div>
+                <div class="nc-related-tags-list">
+                  <span class="nc-hashtag">#Rules</span>
+                  <span class="nc-hashtag">#Walmart</span>
+                  <span class="nc-hashtag">#Prime Day</span>
+                </div>
+              </div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>Walmart's summer sales event (Walmart Deals) is scheduled from June 22 to June 28</li>
+                  <li><span class="nc-key-num">2</span>The event covers online, mobile, and offline stores</li>
+                  <li><span class="nc-key-num">3</span>Walmart+ members enjoy 24-hour early access to deals</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head">
+                  <img src="../../../imgs/niceggie/lightbulb.png" alt="">
+                  <span>What it means for cross-border sellers</span>
+                </div>
+                <p>Sellers on the Walmart platform should prepare inventory in advance and participate in event applications to leverage platform traffic peaks for increased sales. Additionally, monitor price strategy differences between Amazon's promotional period to maximize profits.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 — TikTok LDR -->
+        <article class="nc-card" data-category="platform-policy">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-2.png" alt="TikTok Shop LDR Policy">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-text">Text Tools</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">TikTok Shop Updates <em>Late Dispatch Rate (LDR) Policy</em> with Stricter Standards</h2>
+              <p class="nc-card-desc">TikTok Shop has tightened its logistics assessment criteria. From June 15, the calculation of the Late Dispatch Rate (LDR) will include not only shipped orders that exceed time limits but also overdue orders that have not been shipped. This will directly affect sellers' shop health scores,...</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div>
+                <div class="nc-detail-label">Source</div>
+                <div class="nc-source-name">TikTok Seller Center</div>
+                <a href="#" class="nc-source-link">Read original ↗</a>
+              </div>
+              <div>
+                <div class="nc-detail-label">Related Tags</div>
+                <div class="nc-related-tags-list">
+                  <span class="nc-hashtag">#TikTok</span>
+                  <span class="nc-hashtag">#LDR</span>
+                  <span class="nc-hashtag">#Logistics</span>
+                </div>
+              </div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>New LDR calculation includes overdue unshipped orders starting June 15</li>
+                  <li><span class="nc-key-num">2</span>Sellers with LDR above threshold face shop health score deductions</li>
+                  <li><span class="nc-key-num">3</span>Review fulfillment workflows before the deadline to avoid penalties</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head">
+                  <img src="../../../imgs/niceggie/lightbulb.png" alt="">
+                  <span>What it means for cross-border sellers</span>
+                </div>
+                <p>Sellers should audit their current dispatch workflows immediately. Ensuring orders are marked as shipped within required timeframes is critical to maintaining healthy shop scores and avoiding future restrictions.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 — Amazon FTC -->
+        <article class="nc-card" data-category="compliance">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-3.png" alt="Amazon FTC Penalties">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-compliance">Compliance</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">Amazon Faces Potential <em>FTC Penalties Due to Advertising Disclosure Issues</em></h2>
+              <p class="nc-card-desc">Amazon is under scrutiny from the FTC focusing on the transparency of its advertising business. If the lawsuit is successful, Amazon may face billions in civil penalties. This reflects heightened regulatory concerns over compliance in e-commerce platform advertising, which could lead...</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div>
+                <div class="nc-detail-label">Source</div>
+                <div class="nc-source-name">Reuters</div>
+                <a href="#" class="nc-source-link">Read original ↗</a>
+              </div>
+              <div>
+                <div class="nc-detail-label">Related Tags</div>
+                <div class="nc-related-tags-list">
+                  <span class="nc-hashtag">#Amazon</span>
+                  <span class="nc-hashtag">#FTC</span>
+                  <span class="nc-hashtag">#Compliance</span>
+                </div>
+              </div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>FTC investigation focuses on transparency of Amazon's advertising disclosures</li>
+                  <li><span class="nc-key-num">2</span>Potential civil penalties could reach billions of dollars</li>
+                  <li><span class="nc-key-num">3</span>Outcome may reshape ad compliance requirements for all marketplace sellers</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head">
+                  <img src="../../../imgs/niceggie/lightbulb.png" alt="">
+                  <span>What it means for cross-border sellers</span>
+                </div>
+                <p>Sellers running sponsored ads on Amazon should ensure all promotional claims and pricing disclosures meet current FTC guidelines. Proactively review ad copy and promotional messaging to mitigate future compliance risk.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 — Amazon LTL Shipping -->
+        <article class="nc-card" data-category="industry-news">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-4.png" alt="Amazon LTL Shipping">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-logistics">Logistics</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">Amazon Expands <em>Less-than-Truckload Shipping Services</em> to All Businesses</h2>
+              <p class="nc-card-desc">Amazon has announced that its less-than-truckload (LTL) shipping services are now available to all businesses, no longer limited to Amazon platform sellers. This move represents Amazon's effort to further commercialize its logistics infrastructure, providing shared truck space transport...</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">Amazon Logistics Blog</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#Amazon</span><span class="nc-hashtag">#LTL</span><span class="nc-hashtag">#Shipping</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>LTL service now open to non-Amazon sellers and businesses</li>
+                  <li><span class="nc-key-num">2</span>Competitive rates aimed at challenging UPS and FedEx B2B freight</li>
+                  <li><span class="nc-key-num">3</span>Available for domestic US shipments initially, with expansion planned</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>Cross-border sellers importing to US warehouses can now leverage Amazon's LTL network for cost-effective domestic distribution, potentially reducing last-mile costs and improving delivery speed.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 — Etsy -->
+        <article class="nc-card" data-category="amazon-policy">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-5.png" alt="Etsy Reverse Marketing">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-listing">Listing</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">Etsy Launches <em>Reverse Marketing Campaign</em> to Capture Traffic Ahead of Prime Day</h2>
+              <p class="nc-card-desc">In anticipation of Amazon's Prime Day, Etsy launched a marketing campaign titled 'Shop Other Jeffs', encouraging consumers to support independent artisans instead of shopping on large platforms, aiming to attract traffic during the promotion period through emotional resonance....</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">Etsy Newsroom</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#Etsy</span><span class="nc-hashtag">#PrimeDay</span><span class="nc-hashtag">#Marketing</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>Etsy's 'Shop Other Jeffs' campaign targets Prime Day traffic window</li>
+                  <li><span class="nc-key-num">2</span>Emotional resonance positioning differentiates from price-driven promotions</li>
+                  <li><span class="nc-key-num">3</span>Handmade and artisan categories see higher seasonal conversion during campaigns</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>Sellers on multi-platform strategies should monitor traffic cannibalization during Prime Day. Consider running complementary brand-story campaigns on alternative channels to capture buyers resistant to mass-market promotions.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 — PingPong -->
+        <article class="nc-card" data-category="market-trends">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-6.png" alt="PingPong Walmart Mexico">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-ops">Operations</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">PingPong Supports <em>Walmart Mexico Payment Solutions</em> for Latin America Expansion</h2>
+              <p class="nc-card-desc">PingPong has officially launched payment services for Walmart Mexico, offering T+1 rapid payment and local currency settlement, aimed at addressing pain points such as long payment cycles and high currency exchange losses faced by cross-border sellers in the Latin American market....</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">PingPong Press</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#Payments</span><span class="nc-hashtag">#LATAM</span><span class="nc-hashtag">#Walmart</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>T+1 settlement reduces payment cycle from weeks to next business day</li>
+                  <li><span class="nc-key-num">2</span>Local currency support eliminates forced USD conversion losses</li>
+                  <li><span class="nc-key-num">3</span>Walmart Mexico now a viable channel for LATAM expansion strategies</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>Sellers targeting the Latin American market should evaluate Walmart Mexico as a strategic entry point. PingPong's payment infrastructure removes two of the biggest friction points — slow settlements and FX losses.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 7 — Russian Baby Goods -->
+        <article class="nc-card" data-category="market-trends">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-7.png" alt="Russian Baby Goods E-commerce">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-ops">Operations</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">Study: 81% of Russian Parents Purchase <em>Baby Goods via E-commerce</em></h2>
+              <p class="nc-card-desc">According to RWB Research, Russian e-commerce platforms have become the main channels for purchasing baby products, with penetration rates skyrocketing from 31% a few years ago to 81%, indicating strong demand for online baby product consumption in the Russian market.</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">RWB Research</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#Russia</span><span class="nc-hashtag">#BabyGoods</span><span class="nc-hashtag">#MarketData</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>E-commerce penetration for baby products rose from 31% to 81%</li>
+                  <li><span class="nc-key-num">2</span>Ozon and Wildberries dominate the baby category in Russia</li>
+                  <li><span class="nc-key-num">3</span>Cross-border sellers face localization requirements for Russian market entry</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>Baby product sellers should evaluate Russian marketplaces as growth opportunities. Rapid digital adoption signals a maturing e-commerce buyer base with increasing expectations for product quality and delivery speed.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 8 — JD.com AI -->
+        <article class="nc-card" data-category="ai-automation">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-1.png" alt="JD.com AI Payment">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-ops">Operations</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">JD.com Releases <em>Autonomous Payment Agreement for AI Agents</em></h2>
+              <p class="nc-card-desc">JD.com has released the country's first Autonomous Payment Agreement for AI agents, aiming to standardize the payment behavior of AI agents in shopping scenarios, ensuring transactions are secure, transparent, and traceable, thus promoting the application of AI in e-commerce payments.</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">JD.com Newsroom</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#JDcom</span><span class="nc-hashtag">#AI</span><span class="nc-hashtag">#Payments</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>First industry standard for AI agent payment behavior in China</li>
+                  <li><span class="nc-key-num">2</span>Framework covers authorization, transaction limits, and audit trails</li>
+                  <li><span class="nc-key-num">3</span>Signals upcoming regulation of AI-driven purchasing across platforms</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>As AI purchasing agents become mainstream, sellers should ensure their product data is machine-readable and optimization-friendly. Structured listings and clear pricing will be increasingly important for AI-driven discovery.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 9 — TikTok Live Auction -->
+        <article class="nc-card" data-category="platform-policy">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-2.png" alt="TikTok Live Auction">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-ops">Operations</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">TikTok Shop US Launches <em>Live Auction</em>, Major Platform Promotions Intensifying</h2>
+              <p class="nc-card-desc">TikTok Shop US is set to launch a mid-year promotion including a new live auction feature aimed at enhancing conversion through interactive gameplay. Amazon and Walmart have also scheduled major promotions, marking the peak of mid-year sales in global e-commerce. Sellers need to...</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">TikTok Business</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#TikTok</span><span class="nc-hashtag">#LiveAuction</span><span class="nc-hashtag">#Sales</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>Live auction format drives urgency and higher average order values</li>
+                  <li><span class="nc-key-num">2</span>Mid-year promotion window aligns with Amazon Prime Day and Walmart+ events</li>
+                  <li><span class="nc-key-num">3</span>Sellers who master live commerce see 2-3x higher conversion vs static listings</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>Sellers with TikTok Shop presence should pilot the live auction format before full launch. Prepare bid-friendly SKUs with clear value propositions and train hosts on engagement techniques ahead of the mid-year event window.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 10 — Amazon FTC Ad Lawsuit -->
+        <article class="nc-card" data-category="compliance">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-3.png" alt="Amazon FTC Ad Lawsuit">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-ops">Operations</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">Amazon Faces Potential FTC Ad Lawsuit <em>That Could Result in Billions in Penalties</em></h2>
+              <p class="nc-card-desc">Amazon is facing a potential lawsuit from the FTC over allegations of misleading advertisers and pricing issues in its advertising business. The investigation targets its $68.6 billion annual revenue advertising department. If the lawsuit is successful or a settlement is reached, Amazon may...</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">Bloomberg</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#Amazon</span><span class="nc-hashtag">#FTC</span><span class="nc-hashtag">#Advertising</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>FTC targets Amazon's $68.6B advertising revenue division for misleading practices</li>
+                  <li><span class="nc-key-num">2</span>Settlement could force changes to sponsored ad disclosure requirements</li>
+                  <li><span class="nc-key-num">3</span>Platform-wide policy shifts likely if FTC wins or settles</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>Sellers should prepare for potential changes to Amazon's ad auction and disclosure mechanics. Diversifying ad spend across platforms reduces exposure to single-platform regulatory disruption.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 11 — TikTok LDR Rules -->
+        <article class="nc-card" data-category="platform-policy">
+          <div class="nc-card-inner">
+            <div class="nc-card-thumb">
+              <img src="../../../imgs/niceggie/news-4.png" alt="TikTok LDR Calculation">
+            </div>
+            <div class="nc-card-body">
+              <div class="nc-card-meta">
+                <span class="card-tag-ft tag-ops">Operations</span>
+                <span class="nc-trending" aria-label="Trending score: 90"><img src="../../../imgs/niceggie/news-fire.svg" alt="" width="24" height="24"><span class="nc-trending-score">90</span></span>
+                <span class="nc-time">3 hours ago</span>
+              </div>
+              <h2 class="nc-card-title">TikTok Shop Updates <em>Late Delivery Rate (LDR) Calculation Rules</em></h2>
+              <p class="nc-card-desc">TikTok Shop updated its Late Delivery Rate (LDR) calculation rules on June 15. The new rules not only account for overdue shipments but also include 'overdue unshipped' orders. This adjustment significantly raises the expectations for seller fulfillment speed. Store health scores will...</p>
+            </div>
+            <button class="nc-expand-btn" aria-expanded="false" aria-label="Expand">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="nc-card-detail">
+            <div class="nc-detail-left">
+              <div><div class="nc-detail-label">Source</div><div class="nc-source-name">TikTok Seller Center</div><a href="#" class="nc-source-link">Read original ↗</a></div>
+              <div><div class="nc-detail-label">Related Tags</div><div class="nc-related-tags-list"><span class="nc-hashtag">#TikTok</span><span class="nc-hashtag">#LDR</span><span class="nc-hashtag">#Fulfillment</span></div></div>
+            </div>
+            <div class="nc-detail-right">
+              <div>
+                <div class="nc-key-label">KEY DECISION POINTS</div>
+                <ul class="nc-key-list">
+                  <li><span class="nc-key-num">1</span>'Overdue unshipped' orders now counted in LDR metric from June 15</li>
+                  <li><span class="nc-key-num">2</span>Store health score penalties apply immediately upon threshold breach</li>
+                  <li><span class="nc-key-num">3</span>Sellers have 7 days after notification to appeal disputed calculations</li>
+                </ul>
+              </div>
+              <div class="nc-insight">
+                <div class="nc-insight-head"><img src="../../../imgs/niceggie/lightbulb.png" alt=""><span>What it means for cross-border sellers</span></div>
+                <p>Implement daily fulfillment dashboards to catch unshipped orders before they become violations. Automating order status updates between your WMS and TikTok Seller Center is now a compliance requirement, not a nice-to-have.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /nc-list -->
+
+      <!-- Right sidebar -->
+      <aside class="nc-sidebar">
+
+        <!-- Cross-border Flash -->
+        <div class="nc-flash">
+          <div class="nc-flash-title">
+            <div class="nc-flash-icon" aria-hidden="true"></div>
+            <span class="nc-flash-title-text">Cross-border Flash</span>
+          </div>
+          <div class="nc-flash-list">
+            <div class="nc-flash-item">
+              <span class="nc-flash-dot"></span>
+              <span class="nc-flash-text">Amazon Faces Potential FTC Ad...</span>
+              <span class="nc-flash-time">18 hours ago</span>
+            </div>
+            <div class="nc-flash-item">
+              <span class="nc-flash-dot"></span>
+              <span class="nc-flash-text">Amazon Faces Potential FTC Ad...</span>
+              <span class="nc-flash-time">18 hours ago</span>
+            </div>
+            <div class="nc-flash-item">
+              <span class="nc-flash-dot"></span>
+              <span class="nc-flash-text">Amazon Faces Potential FTC Ad...</span>
+              <span class="nc-flash-time">18 hours ago</span>
+            </div>
+            <div class="nc-flash-item">
+              <span class="nc-flash-dot"></span>
+              <span class="nc-flash-text">Amazon Faces Potential FTC Ad...</span>
+              <span class="nc-flash-time">18 hours ago</span>
+            </div>
+            <div class="nc-flash-item">
+              <span class="nc-flash-dot"></span>
+              <span class="nc-flash-text">Amazon Faces Potential FTC Ad...</span>
+              <span class="nc-flash-time">18 hours ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subscribe card -->
+        <div class="nc-subscribe">
+          <div class="nc-subscribe-art" aria-hidden="true">
+            <span class="nc-art-glow2"></span><span class="nc-art-glow1"></span>
+            <span class="nc-art-dots3"></span><span class="nc-art-dots"></span>
+            <span class="nc-art-sparkles"></span><span class="nc-art-streak"></span>
+            <span class="nc-art-grid"></span><span class="nc-art-sparkles2"></span><span class="nc-art-point"></span>
+          </div>
+          <div class="nc-subscribe-inner">
+            <span class="card-tag-ft tag-finance">Finance</span>
+            <div class="nc-subscribe-copy"><h3 class="nc-subscribe-title">Subscribe to curated <em>news</em>, tailored to you</h3>
+            <p class="nc-subscribe-desc">Join 1,240+ cross-border operators and get AI‑picked insights every week.</p></div>
+            <ul class="nc-subscribe-features">
+              <li>
+                <span class="nc-check"><img src="../../../imgs/niceggie/news-sidebar/checkmark.svg" alt="" width="12" height="9" />
+                </span>
+                3–5 key news picks every day
+              </li>
+              <li>
+                <span class="nc-check"><img src="../../../imgs/niceggie/news-sidebar/checkmark.svg" alt="" width="12" height="9" />
+                </span>
+                Customize by category, market, and topic
+              </li>
+              <li>
+                <span class="nc-check"><img src="../../../imgs/niceggie/news-sidebar/checkmark.svg" alt="" width="12" height="9" />
+                </span>
+                Early access to deep-dive reports
+              </li>
+              <li>
+                <span class="nc-check"><img src="../../../imgs/niceggie/news-sidebar/checkmark.svg" alt="" width="12" height="9" />
+                </span>
+                Join the analyst community for private discussions
+              </li>
+            </ul>
+            <input class="nc-email-input" aria-label="Work email" type="email" placeholder="Enter your work email">
+            <div class="nc-subscribe-action"><button class="nc-subscribe-btn">Subscribe free →</button>
+            <p class="nc-subscribe-fine">No spam • Unsubscribe anytime</p></div>
+          </div>
+        </div>
+
+      </aside><!-- /nc-sidebar -->
+
+    </div><!-- /nc-grid -->
+
+  </div><!-- /nc-body -->
+
+</div><!-- /page -->
+
+<!-- Footer -->
+<footer>
+  <span class="footer-copy">© 2026 Niceggie. All rights reserved.</span>
+  <span class="footer-links">Help Center &nbsp;&nbsp;|&nbsp;&nbsp; Privacy Policy &nbsp;&nbsp;|&nbsp;&nbsp; Terms of Service &nbsp;&nbsp;|&nbsp;&nbsp; Cookie Policy &nbsp;&nbsp;|&nbsp;&nbsp; Copyright Policy &nbsp;&nbsp;|&nbsp;&nbsp; support@niceggie.com &nbsp;&nbsp;|&nbsp;&nbsp; Feedback</span>
+</footer>
+
+<!-- Include tags.js utility -->
+<script src="../../../scripts/niceggie/tags.js"></script>
+
+<script src="../../../scripts/niceggie/news-interactions.js"></script>
+
+<script src="../../../scripts/niceggie/niceggie-demo-bridge.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Special/Order Count</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/Special/Order-Count" stroke="none" fill="none">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="编组" stroke-width="1" fill-rule="evenodd" mask="url(#mask-2)">
+            <g transform="translate(2, 1.0533)" fill-rule="nonzero">
+                <path d="M16,16.3202744 C16,17.2188833 15.6045896,17.9466822 15.1163788,17.9466822 L0.883621233,17.9466822 C0.395410415,17.9466822 0,17.2188833 0,16.3202744 L-2.22044605e-16,2.94869537 C-2.22044605e-16,1.84412587 0.8954305,0.948695369 2,0.948695369 C2.00067071,0.948695369 2.00134141,0.948695706 2.00201212,0.948696381 L13.9917494,0.960758759 C15.0949329,0.961868626 15.9888893,1.85603776 15.9897367,2.95922145 L16,16.3202744 L16,16.3202744 Z" id="路径" fill="#FFE4C0"></path>
+                <rect id="矩形" fill="#F66300" x="4.625" y="0" width="6.75" height="3" rx="1"></rect>
+                <rect id="矩形" fill="#F66300" x="2.7" y="5.94668224" width="11" height="2.04651163" rx="0.800000012"></rect>
+                <rect id="矩形" fill="#F66300" x="2.7" y="9.92342643" width="5" height="2.04651163" rx="0.800000012"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

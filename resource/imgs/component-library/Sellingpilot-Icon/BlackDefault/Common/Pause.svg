@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Common/Pause</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/Common/Pause" stroke="none" fill="none">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M4.2,2 L5.8,2 C6.4627417,2 7,2.5372583 7,3.2 L7,16.8 C7,17.4627417 6.4627417,18 5.8,18 L4.2,18 C3.5372583,18 3,17.4627417 3,16.8 L3,3.2 C3,2.5372583 3.5372583,2 4.2,2 Z M14.2,2 L15.8,2 C16.4627417,2 17,2.5372583 17,3.2 L17,16.8 C17,17.4627417 16.4627417,18 15.8,18 L14.2,18 C13.5372583,18 13,17.4627417 13,16.8 L13,3.2 C13,2.5372583 13.5372583,2 14.2,2 Z" id="形状结合" fill="#212121" fill-rule="evenodd" mask="url(#mask-2)"></path>
+    </g>
+</svg>

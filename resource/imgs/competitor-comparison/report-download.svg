@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>B53BAEB4-D837-44A7-909D-C1F2BA4F25D2</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="16"></rect>
+        <rect id="path-3" x="0" y="0" width="16" height="16"></rect>
+        <rect id="path-5" x="0" y="0" width="16" height="16"></rect>
+    </defs>
+    <g id="Depth-Analysis-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01_Depth-Analysis-button" transform="translate(-1836, -703)">
+            <g id="编组-18" transform="translate(708, 678)">
+                <g id="0_Icon/Common/Expand" transform="translate(1128, 25)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="蒙版"></g>
+                    <g id="Download" stroke-width="1" fill-rule="evenodd" mask="url(#mask-2)">
+                        <g id="形状结合-Clipped">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <g id="path-1"></g>
+                            <path d="M13.6,10.08 C14.0418278,10.08 14.4,10.4381722 14.4,10.88 L14.4,14.08 C14.4,14.5218278 14.0418278,14.88 13.6,14.88 L13.5864,14.8792 L2.4137292,14.8798846 C2.40916202,14.88 2.40458551,14.88 2.4,14.88 C1.9581722,14.88 1.6,14.5218278 1.6,14.08 L1.6,10.88 C1.6,10.4381722 1.9581722,10.08 2.4,10.08 C2.8418278,10.08 3.2,10.4381722 3.2,10.88 L3.1992,13.2792 L12.8,13.2792 L12.8,10.88 C12.8,10.4381722 13.1581722,10.08 13.6,10.08 Z" id="形状结合" fill="#505050" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                        </g>
+                        <g id="形状结合-Clipped">
+                            <mask id="mask-6" fill="white">
+                                <use xlink:href="#path-5"></use>
+                            </mask>
+                            <g id="path-1"></g>
+                            <path d="M8.63915512,1.55439106 L12.1047617,4.89589998 C12.4450897,5.22402318 12.4450897,5.75290594 12.104731,6.08123393 C11.7612006,6.41262154 11.2024102,6.41256665 10.859815,6.08244815 L9.16998296,4.41650939 L8.89765424,4.14803126 L8.89765424,10.785656 C8.89765424,11.2465419 8.50333528,11.62672 8.01935496,11.62672 C7.53457823,11.62672 7.14105563,11.2478548 7.14105563,10.785656 L7.14105563,4.1539331 L6.87000274,4.41526555 L5.18025497,6.04442842 C5.01505694,6.20711292 4.79489392,6.29332654 4.55835727,6.29332654 C4.32413786,6.29332654 4.10317887,6.20667993 3.93524598,6.04487267 C3.59491801,5.71674947 3.59491801,5.18786671 3.93524598,4.85956833 L7.3959909,1.52293136 C7.74349182,1.18935902 8.29931504,1.19885216 8.63915512,1.55439106 Z" id="形状结合" fill="#505050" fill-rule="nonzero" mask="url(#mask-6)" transform="translate(8.02, 6.4534) scale(-1, 1) rotate(-180) translate(-8.02, -6.4534)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

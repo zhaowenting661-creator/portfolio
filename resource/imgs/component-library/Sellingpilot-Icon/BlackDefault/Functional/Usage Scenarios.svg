@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Functional/Usage Scenarios</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Icon/Functional/Usage-Scenarios" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M16,3 L4,3 C2.89531231,3 2,3.89531231 2,5 L2,15 C2,16.1046877 2.89531231,17 4,17 L16,17 C17.1046877,17 18,16.1046877 18,15 L18,5 C18,3.89531231 17.1031246,3 16,3 Z M5.99999905,6.625 C5.99999905,6.83125019 5.83124971,7 5.62499952,7 L4.37499952,7 C4.1681242,7 3.99999905,6.83125019 3.99999905,6.625 L3.99999905,5.375 C3.99999905,5.16874981 4.1681242,5 4.37499952,5 L5.62499952,5 C5.83124971,5 5.99999905,5.16874981 5.99999905,5.375 L5.99999905,6.625 Z M16,6.625 C16,6.83125019 15.8312502,7 15.625,7 L7.375,7 C7.16874981,7 7,6.83125019 7,6.625 L7,5.375 C7,5.16874981 7.16874981,5 7.375,5 L15.625,5 C15.8312502,5 16,5.16874981 16,5.375 L16,6.625 Z" id="形状" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+    </g>
+</svg>

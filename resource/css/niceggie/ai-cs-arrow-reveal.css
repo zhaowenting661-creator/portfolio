@@ -1,0 +1,29 @@
+/* Page-local reveal keeps the original dashed arrow artwork and transforms. */
+@property --ai-arrow-reveal {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+.page-ai-cs .apply-arrow.ai-arrow-pending {
+  opacity: 0;
+  --ai-arrow-reveal: 0%;
+  -webkit-mask-image: linear-gradient(to right,#000 calc(var(--ai-arrow-reveal) - 18%),transparent var(--ai-arrow-reveal));
+  mask-image: linear-gradient(to right,#000 calc(var(--ai-arrow-reveal) - 18%),transparent var(--ai-arrow-reveal));
+}
+.page-ai-cs .apply-arrow.ai-arrow-pending.ai-arrow-visible {
+  animation: ai-arrow-flow-in 1600ms cubic-bezier(.22,.61,.36,1) both;
+}
+.page-ai-cs .apply-arrow.arrow-2.ai-arrow-visible { animation-delay: 180ms; }
+@keyframes ai-arrow-flow-in {
+  0% { --ai-arrow-reveal: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  100% { --ai-arrow-reveal: 120%; opacity: 1; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .page-ai-cs .apply-arrow.ai-arrow-pending {
+    opacity: 1;
+    mask-image: none;
+    -webkit-mask-image: none;
+    animation: none;
+  }
+}

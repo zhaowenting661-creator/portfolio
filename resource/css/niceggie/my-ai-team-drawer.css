@@ -1,0 +1,54 @@
+/* Figma 80:1737 right activity rail, adapted to the 0.7375-scale demo. */
+#team-demo{--demo-drawer-width:351.05px}
+#team-demo .demo-main{transition:margin-right .22s ease;min-width:0}
+#team-demo.demo-drawer-open .demo-main{margin-right:var(--demo-drawer-width)}
+#team-demo .demo-drawer{position:absolute;z-index:20;right:12px;top:62px;bottom:12px;width:var(--demo-drawer-width);background:rgba(16,15,20,.96);border-left:1px solid rgba(255,255,255,.16);color:#fff;text-align:left;overflow:auto;overscroll-behavior:contain;padding:14.75px 11.8px 24px;font:10.325px/14.75px 'Open Sans',sans-serif;scrollbar-width:thin;scrollbar-color:#473554 transparent;animation:demo-drawer-in .22s ease-out}
+#team-demo .demo-drawer[hidden],#team-demo .demo-drawer-backdrop[hidden]{display:none!important}
+#team-demo .demo-drawer-close{position:absolute;z-index:3;right:4px;top:0;width:18px;height:18px;border:0;background:transparent;color:#bcd5fa;font-size:17px;line-height:18px;padding:0}
+#team-demo .drawer-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8.85px;margin:0 0 30px}
+#team-demo .drawer-stat{min-width:0;padding:8.85px 0;border:1px solid rgba(255,255,255,.16);border-radius:8.85px;background:linear-gradient(transparent,rgba(33,33,33,.75));color:#bcd5fa;text-align:center}
+#team-demo .drawer-stat>strong{display:block;font:800 23.6px/32.45px Montserrat,sans-serif;margin-bottom:2.95px;color:#8c72f6}
+#team-demo .drawer-stat:nth-child(2)>strong{color:#f06c00}
+#team-demo .drawer-stat:nth-child(3)>strong{color:#02b345}
+#team-demo .drawer-stat-label{display:flex;gap:2.95px;align-items:center;justify-content:center;white-space:nowrap;font-size:8.85px;font-weight:700;line-height:11.8px}
+#team-demo .drawer-svg{position:relative;display:inline-block;width:11.8px;height:11.8px;flex:0 0 11.8px;vertical-align:middle}
+#team-demo .drawer-svg>img{position:absolute;left:0;top:0;display:block;width:auto;height:auto;max-width:none;transform:scale(.7375);transform-origin:0 0;border-radius:0}
+#team-demo .drawer-section{position:relative;margin-bottom:20.65px}
+#team-demo .drawer-section-title{display:flex;gap:8.85px;align-items:center;width:100%;padding:0;margin:0 0 18px;border:0;background:none;text-align:left;color:#fff;line-height:16.225px;font-size:11.8px;font-weight:700}
+#team-demo .drawer-count{font-size:8.85px;line-height:11.8px;border-radius:100px;background:rgba(255,255,255,.1);padding:1.475px 5.9px;color:#f06c00}
+#team-demo .drawer-review-section .drawer-count{color:#02b345}
+#team-demo .drawer-group-arrow{margin-left:auto;display:grid;place-items:center;width:17.7px;height:17.7px;border:1px solid rgba(255,255,255,.05);border-radius:50%;background:rgba(255,255,255,.05)}
+#team-demo .drawer-section-title[aria-expanded=false] .drawer-group-arrow{transform:rotate(-90deg)}
+#team-demo .drawer-group[hidden]{display:none}
+#team-demo .drawer-group{position:relative;padding-left:20.65px}
+#team-demo .drawer-timeline{position:absolute;left:2.95px;top:-22.86px;pointer-events:none;transform:scale(.7375);transform-origin:0 0;max-width:none;width:auto;height:auto;border-radius:0}
+#team-demo .drawer-card{position:relative;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:11.8px;border-radius:11.8px;box-shadow:-1.475px 0 #f06c00;margin-bottom:11.8px}
+#team-demo .drawer-review-section .drawer-card{box-shadow:-1.475px 0 #02b345}
+#team-demo .drawer-card-person{display:flex;gap:11.8px;align-items:flex-start;min-width:0}
+#team-demo .drawer-card-avatar{position:relative;flex:0 0 29.5px;width:29.5px;height:29.5px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#5f3ecd,#7c5fd6);border:.3px solid #d4c8ff}
+#team-demo .drawer-card-avatar>img{position:absolute;left:-2.58px;bottom:-5.9px;width:34.66px;height:34.66px;object-fit:cover;border-radius:0}
+#team-demo .drawer-card-content{min-width:0;flex:1}
+#team-demo .drawer-card-author{display:flex;align-items:center;gap:5.9px;position:relative;margin:0 0 8.85px;min-height:16.225px;font-size:11.8px;line-height:16.225px;font-weight:700;white-space:nowrap}
+#team-demo .drawer-card-author small{font-size:8.85px;line-height:11.8px;font-weight:400;color:rgba(188,213,250,.5)}
+#team-demo .drawer-card-author .drawer-more{margin-left:auto;border:0;padding:0;background:none;width:11.8px;height:11.8px}
+#team-demo .drawer-review-section .drawer-card-author{gap:3px;font-size:11px}
+#team-demo .drawer-review-section .drawer-card-author small{font-size:8px}
+#team-demo .drawer-card p{margin:0;font-size:10.325px;line-height:14.75px;color:#fff;overflow-wrap:anywhere}
+#team-demo .drawer-card p strong{font-weight:700;color:#e85500}
+#team-demo .drawer-card ul{margin:8.85px 0 0;padding-left:15.49px;color:#bcd5fa;display:flex;flex-direction:column;gap:5.9px;font-size:10.325px;line-height:14.75px}
+#team-demo .drawer-actions{display:flex;gap:8.85px;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:8.85px;margin-top:8.85px}
+#team-demo .drawer-actions button{display:flex;align-items:center;justify-content:center;gap:5.9px;padding:0 10px;height:23.6px;border:1px solid rgba(255,255,255,.05);border-radius:100px;background:rgba(255,255,255,.05);font-size:8.85px;font-weight:700;line-height:11.8px;color:#bcd5fa;white-space:nowrap}
+#team-demo .drawer-actions .drawer-primary{color:#d4c8ff;border-color:rgba(124,90,213,.8);background:rgba(124,90,213,.1)}
+#team-demo .drawer-actions button[aria-pressed=true]{background:#43316a;border-color:#bfa3f2;color:#fff}
+#team-demo .drawer-detail{margin-top:10px;padding:10px;border:1px solid #4b3b66;border-radius:8px;background:#14101d;color:#cbbbff;font-size:10px;line-height:15px}
+#team-demo .drawer-detail[hidden]{display:none}
+#team-demo .drawer-live-status{margin-top:7px;font-size:9px;line-height:13px;color:#cbbbff;min-height:0}
+#team-demo .drawer-live-status:empty{display:none}
+#team-demo .demo-drawer-backdrop{display:none}
+@keyframes demo-drawer-in{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+@media(max-width:1000px){
+ #team-demo.demo-drawer-open .demo-main{margin-right:0}
+ #team-demo .demo-drawer{width:min(351.05px,calc(100% - 28px));background:#14101d;box-shadow:-15px 0 40px #0007}
+ #team-demo .demo-drawer-backdrop{display:block;position:absolute;z-index:19;inset:62px 12px 12px;border:0;background:#0008;border-radius:0 0 12px 12px}
+}
+@media(prefers-reduced-motion:reduce){#team-demo .demo-main{transition:none}#team-demo .demo-drawer{animation:none}}

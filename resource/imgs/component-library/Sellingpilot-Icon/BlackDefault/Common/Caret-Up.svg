@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Common/Caret-Up</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="16"></rect>
+    </defs>
+    <g id="Icon/Common/Caret-Up" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M11.5296876,7.27968764 L8.55078125,10.2796876 C8.38437486,10.4273436 8.19218743,10.5 8,10.5 C7.80781257,10.5 7.61609364,10.4267578 7.46960926,10.2802734 L4.49070287,7.28027344 C4.25525928,7.06640625 4.1910311,6.74296868 4.30714035,6.46406257 C4.4232496,6.18515646 4.69695258,6 4.99999964,6 L10.978906,6 C11.2821873,6 11.5559372,6.18236732 11.672187,6.46289062 C11.7884368,6.74341393 11.7453119,7.06640625 11.5296873,7.27968764 L11.5296876,7.27968764 Z" id="路径" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(7.993, 8.25) scale(1, -1) translate(-7.993, -8.25)"></path>
+    </g>
+</svg>

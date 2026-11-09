@@ -1,0 +1,541 @@
+/* ── News Center page ─────────────────────────────────── */
+
+    /* Hero */
+    .nc-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 60px 0 48px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .nc-hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 56px;
+      line-height: 1.15;
+      background: linear-gradient(91.73deg, #ffffff 13.11%, #cbbfff 33.77%, #7c5fd6 50.15%, #cbbfff 64.97%, #ffffff 87.19%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nc-hero-subtitle {
+      font-size: 16px;
+      line-height: 24px;
+      color: #bcd5fa;
+      max-width: 680px;
+    }
+
+    /* Body wrapper */
+    .nc-body {
+      position: relative;
+      z-index: 2;
+      width: 1440px;
+      margin: 0 auto;
+      padding: 0 0 100px;
+    }
+
+    /* Controls row: tabs (left) + search (right) */
+    .nc-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 20px;
+    }
+    .nc-controls .category-tabs {
+      flex-shrink: 0;
+      margin-bottom: 0;
+    }
+    /* News search bar — reuses .search-bar from free-tools.css */
+    .nc-search {
+      width: 396px;
+      flex-shrink: 0;
+    }
+    .nc-search .search-bar {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    /* Content grid */
+    .nc-grid {
+      display: grid;
+      grid-template-columns: 1fr 396px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ── News card list ─────────────────────────────────── */
+    .nc-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .nc-card {
+      background: linear-gradient(159.82deg, rgba(37,39,77,0.9) 0%, rgba(32,32,60,0.9) 100%);
+      border: 1px solid rgba(75,83,139,0.4);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .nc-card-inner {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      position: relative;
+      min-height: 240px;
+    }
+
+    .nc-card-thumb {
+      width: 294px;
+      min-height: 240px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 12px 0 0 12px;
+    }
+    .nc-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .nc-card:hover .nc-card-thumb img { transform: scale(1.04); }
+
+    .nc-card-body {
+      flex: 1;
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .nc-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Figma 257:933: original flame asset with a 37 × 20 gradient plate. */
+    .nc-trending {
+      position: relative;
+      display: inline-block;
+      width: 53px;
+      height: 24px;
+      flex: 0 0 53px;
+      vertical-align: middle;
+    }
+    .nc-trending::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      width: 37px;
+      height: 20px;
+      border-radius: 4px;
+      background: linear-gradient(to right, #c21a00, #ff6f22);
+      box-shadow: 0 7.5px 7.5px rgba(155,48,13,0.2);
+    }
+    .nc-trending img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+    .nc-trending-score {
+      position: absolute;
+      left: 24px;
+      top: 3px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 20px;
+      color: #fef9d7;
+      text-shadow: 0 1.25px 2.5px rgba(159,55,0,0.3);
+    }
+
+    .nc-time {
+      font-size: 13px;
+      color: rgba(188,213,250,0.6);
+    }
+
+    .nc-card-title {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 30px;
+      color: #f5f9ff;
+      margin: 0;
+    }
+    .nc-card-title em {
+      font-style: normal;
+      background: linear-gradient(90deg, #7c5fd6 0%, #a28ce8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nc-card-desc {
+      font-size: 14px;
+      line-height: 20px;
+      color: #cbbbff;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Expand button */
+    .nc-expand-btn {
+      position: absolute;
+      top: 20px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      background: rgba(124,95,214,0.12);
+      border: 1px solid rgba(124,95,214,0.35);
+      border-radius: 6px;
+      color: #7c5fd6;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.25s;
+      flex-shrink: 0;
+    }
+    .nc-expand-btn:hover { background: rgba(124,95,214,0.25); }
+    .nc-expand-btn.open { transform: rotate(180deg); }
+
+    /* ── Expanded detail section ──────────────────────────── */
+    .nc-card-detail {
+      display: none;
+      border-top: 1px solid rgba(75,83,139,0.3);
+      padding: 24px 0 32px 294px; /* align with card body */
+    }
+    .nc-card-detail.open { display: flex; gap: 0; }
+
+    .nc-detail-left {
+      width: 264px;
+      flex-shrink: 0;
+      padding: 0 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .nc-detail-label {
+      font-size: 12px;
+      color: rgba(188,213,250,0.5);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .nc-source-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f5f9ff;
+    }
+    .nc-source-link {
+      font-size: 13px;
+      color: #7c5fd6;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .nc-source-link:hover { text-decoration: underline; }
+    .nc-related-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .nc-hashtag {
+      height: 24px;
+      padding: 0 8px;
+      background: rgba(95,62,205,0.12);
+      border: 1px solid rgba(95,62,205,0.4);
+      border-radius: 6px;
+      font-size: 13px;
+      color: #cbbbff;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nc-detail-right {
+      flex: 1;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      border-left: 1px solid rgba(75,83,139,0.3);
+    }
+    .nc-key-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(188,213,250,0.55);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .nc-key-list { display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; }
+    .nc-key-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #f5f9ff;
+      line-height: 20px;
+    }
+    .nc-key-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(95,62,205,0.2);
+      border: 1px solid rgba(95,62,205,0.45);
+      font-size: 12px;
+      font-weight: 700;
+      color: #cbbbff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0;
+    }
+
+    .nc-insight {
+      background: rgba(16,15,20,0.5);
+      border: 1px solid rgba(75,83,139,0.3);
+      border-radius: 10px;
+      padding: 16px 16px 20px;
+    }
+    .nc-insight-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #bcd5fa;
+      margin-bottom: 12px;
+    }
+    .nc-insight-head img { width: 14px; height: 14px; }
+    .nc-insight p {
+      font-size: 14px;
+      line-height: 20px;
+      color: #cbbbff;
+    }
+
+    /* ── Right sidebar ───────────────────────────────────── */
+    .nc-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: sticky;
+      top: 100px;
+    }
+
+    /* Cross-border Flash panel */
+    .nc-flash {
+      background: linear-gradient(159.82deg, rgba(37,39,77,0.9) 0%, rgba(32,32,60,0.9) 100%);
+      border: 1px solid rgba(75,83,139,0.4);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .nc-flash-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #f5f9ff;
+      margin-bottom: 20px;
+    }
+    .nc-flash-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #5f3ecd 0%, #7c5fd6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .nc-flash-list { display: flex; flex-direction: column; }
+    .nc-flash-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(75,83,139,0.2);
+      cursor: pointer;
+    }
+    .nc-flash-item:last-child { border-bottom: none; }
+    .nc-flash-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7c5fd6;
+      flex-shrink: 0;
+    }
+    .nc-flash-text {
+      flex: 1;
+      font-size: 13px;
+      color: #f5f9ff;
+      line-height: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nc-flash-item:hover .nc-flash-text { color: #cbbbff; }
+    .nc-flash-time {
+      font-size: 12px;
+      color: rgba(188,213,250,0.45);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* Subscribe card */
+    .nc-subscribe {
+      background: linear-gradient(159.82deg, rgba(37,39,77,0.95) 0%, rgba(32,32,60,0.95) 100%);
+      border: 1px solid rgba(75,83,139,0.4);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Glow decorations */
+    .nc-subscribe::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      bottom: -80px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(95,62,205,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .nc-subscribe::after {
+      content: '';
+      position: absolute;
+      right: 20px;
+      bottom: 0px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,95,214,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .nc-subscribe-inner { position: relative; z-index: 1; }
+    .nc-subscribe-title {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 30px;
+      color: #f5f9ff;
+      margin: 16px 0 10px;
+    }
+    .nc-subscribe-title em {
+      font-style: normal;
+      background: linear-gradient(90deg, #7c5fd6 0%, #a28ce8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nc-subscribe-desc {
+      font-size: 14px;
+      line-height: 20px;
+      color: #cbbbff;
+      margin-bottom: 20px;
+    }
+    .nc-subscribe-features {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .nc-subscribe-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #f5f9ff;
+      line-height: 20px;
+    }
+    .nc-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(37,136,46,0.2);
+      border: 1px solid rgba(37,136,46,0.5);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nc-check svg { width: 10px; height: 10px; }
+    .nc-email-input {
+      width: 100%;
+      height: 44px;
+      background: rgba(16,15,20,0.6);
+      border: 1px solid rgba(75,83,139,0.5);
+      border-radius: 8px;
+      padding: 0 12px;
+      font-size: 14px;
+      color: #f5f9ff;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .nc-email-input::placeholder { color: rgba(188,213,250,0.4); }
+    .nc-email-input:focus { border-color: rgba(124,95,214,0.7); }
+    .nc-subscribe-btn {
+      width: 100%;
+      height: 44px;
+      background: linear-gradient(163.62deg, #5f3ecd 0.27%, #7c5fd6 100%);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: opacity 0.2s;
+    }
+    .nc-subscribe-btn:hover { opacity: 0.9; }
+    .nc-subscribe-fine {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(188,213,250,0.45);
+    }
+
+    /* ── Category tabs: news variant ────────────────────── */
+    /* Inherits .category-tabs, .tab-active, .tab-inactive from free-tools.css */
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 1500px) {
+      .nc-body { width: 100%; padding: 0 20px 100px; }
+    }
+    @media (max-width: 1280px) {
+      .nc-grid { grid-template-columns: 1fr; }
+      .nc-sidebar { position: static; }
+      .nc-card-detail { padding-left: 0; }
+      .nc-detail-left { padding-left: 16px; }
+    }
+    @media (max-width: 900px) {
+      .nc-controls { flex-direction: column; align-items: stretch; }
+      .nc-search { width: 100%; }
+      .nc-card-inner { flex-direction: column; }
+      .nc-card-thumb { width: 100%; min-height: 200px; }
+      .nc-card-detail { padding-left: 0; }
+      .nc-hero-title { font-size: 36px; }
+    }
+    @media (max-width: 600px) {
+      .nc-hero-title { font-size: 28px; }
+      .nc-card-title { font-size: 18px; }
+    }

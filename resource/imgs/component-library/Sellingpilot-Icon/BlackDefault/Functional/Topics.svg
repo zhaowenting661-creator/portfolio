@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Functional/Topics</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Icon/Functional/Topics" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M16,11.9724836 C16,15.3099832 13.3093748,18.0006084 10,18.0006084 C6.69062519,18.0006084 4,15.3090457 4,12.0006084 C4,10.1671714 4.86937523,8.66310835 5.70531273,7.80998326 C6.17312527,7.29123307 7,7.61935807 7,8.29748345 L7,10.9693584 C7,12.0684204 7.87406301,12.9849834 8.97375059,12.9987335 C10.0906253,13.0162334 11,12.1131086 11,11.0006084 C11,8.25060845 5.52812529,7.9968586 9.37031317,2.33810807 C9.79218817,1.72185803 10.7500005,2.00154591 10.7500005,2.74529553 C10.7218757,5.96935845 16,6.67873383 16,11.9724836 L16,11.9724836 Z" id="路径" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>EF8E5F6F-1712-49F6-95B1-4B52E18CBFD7</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+        <linearGradient x1="13.1865672%" y1="50%" x2="171.132406%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#7251FA" offset="0%"></stop>
+            <stop stop-color="#2171DB" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Depth-Analysis-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01_Depth-Analysis-button" transform="translate(-724, -701)">
+            <g id="Button/L/Block/1st/Text" transform="translate(708, 695)">
+                <g id="0_Icon/Special/AI-Refine" transform="translate(16, 6)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="蒙版"></g>
+                    <path d="M14.7279221,12.7279221 L15.6928446,14.7629995 L17.7279221,15.7279221 L15.6928446,16.6928446 L14.7279221,18.7279221 L13.7629995,16.6928446 L11.7279221,15.7279221 L13.7629995,14.7629995 L14.7279221,12.7279221 Z M14.3782176,2.43939889 C14.9638423,1.85352337 15.9138431,1.85352337 16.4994678,2.43946087 L17.5594696,3.50008595 C18.1469702,4.08602345 18.1469702,5.0353986 17.5594696,5.62196076 L5.62091011,17.5605212 C5.03528494,18.1463376 4.08528465,18.1463376 3.49965948,17.5603992 L2.43934673,16.4994613 C1.85353083,15.9135238 1.85353083,14.9638358 2.43946833,14.3782111 Z M15.4397816,3.85227311 L12.1460318,7.14602292 L12.8532195,7.85321057 L16.1479067,4.55946076 L15.4397816,3.85227311 Z M5.72792206,0.727922061 L6.69284463,2.76299949 L8.72792206,3.72792206 L6.69284463,4.69284463 L5.72792206,6.72792206 L4.76299949,4.69284463 L2.72792206,3.72792206 L4.76299949,2.76299949 L5.72792206,0.727922061 Z" id="形状结合" fill="url(#linearGradient-3)" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

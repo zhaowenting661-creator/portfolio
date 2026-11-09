@@ -1,0 +1,118 @@
+/* Independent recreation from Neon Reveal reference and user-supplied settings.
+   All selectors are page-specific; shared navigation is used unchanged. */
+@property --free-neon-half {
+  syntax:'<percentage>';
+  initial-value:0%;
+  inherits:false;
+}
+@property --free-neon-depth {
+  syntax:'<number>';
+  initial-value:0;
+  inherits:false;
+}
+@property --free-neon-ambient {
+  syntax:'<number>';
+  initial-value:0;
+  inherits:false;
+}
+.page-free-tools-neon .free-neon-scene {
+  --tube-color:#ff2f61;
+  --light-color:#cd70e9;
+  --lamp-x:50vw;
+  --lamp-y:116px;
+  --lamp-width:min(1224px,calc(100vw - 80px));
+  position:absolute;inset:0 0 auto;height:1138px;
+  overflow:hidden;pointer-events:none;z-index:0;
+  background:linear-gradient(#0a0a0a 0%,#0a0a0a 55%,#100f14 100%);
+  opacity:var(--neon-visibility,1);
+  transition:opacity 120ms linear;
+}
+.page-free-tools-neon .free-neon-scene::before {
+  content:'';position:absolute;
+  left:-10vw;
+  top:calc(var(--nav-top,48px) - 110px);
+  width:120vw;
+  height:calc(var(--nav-height,68px) + 300px);
+  background:
+    /* Cool reflected light stays at the perimeter of the warm lamp. */
+    radial-gradient(ellipse 32% 95% at 92% 62%,rgba(91,77,240,.22),rgba(114,64,225,.10) 52%,transparent 100%),
+    radial-gradient(ellipse 46% 85% at 15% 45%,rgba(255,153,89,.32),rgba(246,127,105,.15) 48%,transparent 100%),
+    radial-gradient(ellipse 46% 85% at 85% 45%,rgba(135,91,246,.36),rgba(111,65,215,.17) 48%,transparent 100%),
+    radial-gradient(ellipse 55% 65% at 50% 40%,rgba(223,142,174,.12),transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 25%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.3) 76%,transparent 100%);
+  filter:blur(34px);
+  animation:free-neon-illuminate 700ms ease-out 2800ms both;
+}
+.page-free-tools-neon nav {
+  background:linear-gradient(110deg,rgba(255,172,110,calc(.055 * var(--neon-visibility,1) * var(--free-neon-ambient))),rgba(145,80,208,calc(.065 * var(--neon-visibility,1) * var(--free-neon-ambient)))),rgba(16,15,20,.85);
+  animation:free-neon-nav-light 700ms ease-out 2800ms both;
+}
+.page-free-tools-neon .free-neon-spill {
+  /* Overlap the upper atmosphere instead of starting at a horizontal cut. */
+  position:absolute;left:-5vw;top:calc(var(--lamp-y) - 140px);
+  width:110vw;height:790px;
+  transform-origin:50% 140px;
+  background:
+    radial-gradient(ellipse 32% 64% at 5% 290px,rgba(83,71,226,.26),rgba(100,51,203,.12) 48%,transparent 100%),
+    radial-gradient(ellipse 38% 70% at 95% 270px,rgba(91,78,242,.29),rgba(114,57,220,.13) 50%,transparent 100%),
+    /* Warm peach/orange nearest the tube, then rose before the violet spill. */
+    radial-gradient(ellipse 72% 25% at 50% 114px,rgba(255,211,179,.98) 0%,rgba(255,183,143,.9) 22%,rgba(248,151,178,.64) 53%,rgba(226,112,196,.25) 78%,transparent 100%),
+    radial-gradient(ellipse 82% 82% at 50% 140px,rgba(221,113,229,.68),rgba(177,64,218,.48) 28%,rgba(106,34,194,.26) 55%,rgba(65,24,136,.09) 78%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.12) 30px,rgba(0,0,0,.5) 75px,rgba(0,0,0,.88) 115px,#000 150px);
+  filter:blur(26px);
+  background-repeat:no-repeat;
+  --free-neon-depth:0;
+  transform:scaleX(var(--free-neon-depth)) scaleY(var(--free-neon-depth));
+  animation:free-neon-spread 700ms cubic-bezier(.215,.61,.355,1) 2800ms both;
+}
+.page-free-tools-neon .free-neon-tube {
+  --tube-color:#ff2f61;--light-color:#cd70e9;
+  position:absolute;left:max(5%,24px);right:max(5%,24px);top:calc(100% - 74.5px);
+  height:151px;pointer-events:none;
+  filter:opacity(var(--neon-visibility,1));
+  --free-neon-half:0%;
+  mask-image:linear-gradient(to right,transparent calc(50% - var(--free-neon-half) - 2%),#000 calc(50% - var(--free-neon-half)),#000 calc(50% + var(--free-neon-half)),transparent calc(50% + var(--free-neon-half) + 2%));
+  animation:free-neon-open 2500ms cubic-bezier(.215,.61,.355,1) 300ms both;
+}
+.page-free-tools-neon .free-neon-rail {
+  position:absolute;left:max(5%,24px);right:max(5%,24px);top:100%;height:1px;
+  background:rgba(245,187,210,.12);pointer-events:none;
+  opacity:var(--neon-visibility,1);
+}
+.page-free-tools-neon .free-neon-tube::before {
+  content:'';position:absolute;left:0;right:0;top:75px;height:1px;
+  border-radius:0;background:#fff6fa;
+  box-shadow:0 0 2px .3px #fff,0 0 6px 1px var(--tube-color),0 0 12px 2px var(--light-color),0 6px 28px 4px rgba(255,47,97,.35);
+}
+.page-free-tools-neon .free-neon-tube::after {
+  content:'';position:absolute;inset:72px -1px;
+  border-radius:inherit;background:var(--tube-color);filter:blur(12px);opacity:.35;
+  animation:free-neon-hum 5.8s ease-in-out 2800ms infinite;
+}
+@keyframes free-neon-open {
+  0%{--free-neon-half:0%;opacity:0;}
+  3%{opacity:.65;}
+  5%{opacity:.95;}
+  7%{opacity:.72;}
+  12%{opacity:1;}
+  100%{--free-neon-half:48%;opacity:1;}
+}
+@keyframes free-neon-spread {
+  0%{--free-neon-depth:0;opacity:0;}
+  6%{opacity:.65;}
+  100%{--free-neon-depth:1;opacity:1;}
+}
+@keyframes free-neon-hum {
+  0%,100%{opacity:.32}24%{opacity:.42}25%{opacity:.35}26%{opacity:.41}65%{opacity:.3}
+}
+@keyframes free-neon-illuminate { from{opacity:0} to{opacity:1} }
+@keyframes free-neon-nav-light { from{--free-neon-ambient:0} to{--free-neon-ambient:1} }
+@media(max-width:1439px){
+ .page-free-tools-neon .free-neon-scene{height:900px;}
+}
+@media(prefers-reduced-motion:reduce){
+ .page-free-tools-neon .free-neon-scene::before,.page-free-tools-neon nav{animation:none;opacity:1;--free-neon-ambient:1;}
+ .page-free-tools-neon .free-neon-tube,.page-free-tools-neon .free-neon-spill,.page-free-tools-neon .free-neon-tube::after{animation:none;}
+ .page-free-tools-neon .free-neon-tube,.page-free-tools-neon .free-neon-spill{--free-neon-half:48%;}
+ .page-free-tools-neon .free-neon-spill{--free-neon-depth:1;}
+}

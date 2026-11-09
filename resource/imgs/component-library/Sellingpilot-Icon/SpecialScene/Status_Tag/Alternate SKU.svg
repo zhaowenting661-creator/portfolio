@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Tag/Alternate SKU</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+        <rect id="path-3" x="4.44444444" y="0" width="7.11111111" height="4.45863537"></rect>
+        <rect id="path-4" x="0.888888889" y="9.80899781" width="4.44444444" height="3.56690829"></rect>
+        <rect id="path-5" x="10.6666667" y="9.80899781" width="4.44444444" height="3.56690829"></rect>
+    </defs>
+    <g id="0_Icon/Tag/Alternate-SKU" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <rect id="矩形" stroke="#47984E" fill="#ECF5ED" mask="url(#mask-2)" x="0.5" y="0.5" width="19" height="19" rx="2"></rect>
+        <g id="组织1" mask="url(#mask-2)">
+            <g transform="translate(2, 3)">
+                <polygon id="路径" stroke="none" fill="#47984E" fill-rule="nonzero" points="8.79911111 5.35036244 8.79994839 6.86618341 13.6001548 6.86618341 13.6 9.54235051 12.1393542 9.52271975 12.1425058 8.1928586 3.91984954 8.1928586 3.91896065 9.58182801 2.39911111 9.58182801 2.39984517 6.86592774 7.20005161 6.86592774 7.2 5.35036244"></polygon>
+                <g id="矩形" stroke="none" fill="none" fill-rule="evenodd">
+                    <use fill="#D8D8D8" xlink:href="#path-3"></use>
+                    <use fill="#BBDBC0" xlink:href="#path-3"></use>
+                </g>
+                <g id="矩形" stroke="none" fill="none" fill-rule="evenodd">
+                    <use fill="#D8D8D8" xlink:href="#path-4"></use>
+                    <use fill="#BBDBC0" xlink:href="#path-4"></use>
+                </g>
+                <g id="矩形" stroke="none" fill="none" fill-rule="evenodd">
+                    <use fill="#D8D8D8" xlink:href="#path-5"></use>
+                    <use fill="#BBDBC0" xlink:href="#path-5"></use>
+                </g>
+                <path d="M11.5555556,0 C12.0464753,-1.11022302e-16 12.4444444,0.397969111 12.4444444,0.888888889 L12.4444444,4.46147355 C12.4444444,4.95239333 12.0464753,5.35036244 11.5555556,5.35036244 L4.44444444,5.35036244 C3.95352467,5.35036244 3.55555556,4.95239333 3.55555556,4.46147355 L3.55555556,0.888888889 C3.55555556,0.397969111 3.95352467,1.11022302e-16 4.44444444,0 L11.5555556,0 Z M8.88888889,1.07007249 L4.44444444,1.07007249 L4.44444444,4.28028995 L8.88888889,4.28028995 L8.88888889,1.07007249 Z" id="形状结合" stroke="none" fill="#47984E" fill-rule="evenodd"></path>
+                <rect id="矩形" stroke="#47984E" stroke-width="1.06666667" fill="none" x="0.533333333" y="10.074698" width="5.15555556" height="3.3919687" rx="0.888888889"></rect>
+                <rect id="矩形" stroke="#47984E" stroke-width="1.06666667" fill="none" x="10.3111111" y="10.074698" width="5.15555556" height="3.3919687" rx="0.888888889"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

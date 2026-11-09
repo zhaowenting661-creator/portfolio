@@ -1,0 +1,13 @@
+/* Shared progressive enhancement: typography and original line gradients stay intact. */
+.elastic-title-line { overflow: visible; }
+/* Gradient ink is painted on the moving letters only. A clipped gradient on
+   their ancestor also paints resting glyph silhouettes in Chromium. */
+.elastic-title-line[data-elastic-title="true"] {
+  background-image: none!important;
+  -webkit-background-clip: border-box!important;
+  background-clip: border-box!important;
+}
+.elastic-title-word { display: inline-flex; white-space: nowrap; vertical-align: baseline; }
+.elastic-title-letter { display: inline-block; position: relative; transform-origin: 50% 80%; backface-visibility: hidden; }
+.elastic-title-sr { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip-path: inset(50%)!important; white-space: nowrap!important; border: 0!important; }
+@media (prefers-reduced-motion: reduce) { .elastic-title-letter { transform: none!important; } }

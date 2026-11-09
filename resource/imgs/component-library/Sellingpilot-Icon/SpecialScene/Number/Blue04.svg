@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Number/Blue04</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/Number/Blue04" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="编组" mask="url(#mask-2)" fill-rule="nonzero">
+            <g transform="translate(1, 1)">
+                <path d="M9,0 C13.9705627,0 18,4.02943725 18,9 C18,13.9705627 13.9705627,18 9,18 C4.02943725,18 0,13.9705627 0,9 C0,4.02943725 4.02943725,0 9,0 Z" id="形状结合" stroke="#BCD5FA" stroke-width="1" fill="#1061CD"></path>
+                <path d="M5.517,11.438 L5.517,10.228 L9.114,5.08 L10.907,5.08 L10.907,10.096 L11.875,10.096 L11.875,11.438 L10.907,11.438 L10.907,13 L9.367,13 L9.367,11.438 L5.517,11.438 Z M9.466,6.73 L7.211,10.096 L9.466,10.096 L9.466,6.73 Z" id="形状" stroke="none" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -792,6 +792,13 @@ nav {
   transform: translateX(-50%);
   width: 24px; height: 4px; background: #ffb061; border-radius: 2px;
 }
+
+/* Three portrait films, full frame at every breakpoint. */
+.gallery-grid-3-video{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gallery-grid-3-video>div{min-width:0}
+.gallery-grid-3-video .video-wrap video{object-fit:contain}
+@media(max-width:1100px){.gallery-grid-3-video{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.gallery-grid-3-video{grid-template-columns:1fr;gap:28px}}
 </style>
 </head>
 <body>
@@ -838,7 +845,7 @@ nav {
 
 <!-- ── Navigation ── -->
 <nav>
-  <a href="transition-b-rise可.html" class="nav-back">← Back</a>
+  <a href="index.html" class="nav-back">← Back</a>
   <span class="nav-tag">运营设计 &nbsp;·&nbsp; 2025</span>
 </nav>
 
@@ -857,7 +864,7 @@ nav {
     <h3 class="section-label">Shell Shocker Store — Interactive Banner</h3>
     <div class="ss-banner">
       <video class="ss-banner__video" muted playsinline preload="auto">
-        <source src="videos/合成 1_1.mp4" type="video/mp4">
+        <source src="resource/imgs/operations/videos/合成 1_1.mp4" type="video/mp4">
       </video>
       <div id="ss-egg-hint" aria-hidden="true">
         <span class="ss-egg-hint__arrow">▼</span>
@@ -896,7 +903,7 @@ nav {
         </div>
         <div class="meta-item">
           <p class="meta-label">Tools</p>
-          <p class="meta-value">Figma &nbsp;·&nbsp; Photoshop &nbsp;·&nbsp; Illustrator</p>
+          <p class="meta-value">Figma &nbsp;·&nbsp; Photoshop &nbsp;·&nbsp; Illustrator &nbsp;·&nbsp; Runway &nbsp;·&nbsp; Lovart &nbsp;·&nbsp; Gemini</p>
         </div>
         <div class="meta-item">
           <p class="meta-label">Scope</p>
@@ -1032,13 +1039,13 @@ nav {
         <div class="gallery-panel active" id="panel-01">
           <div class="gallery-grid-3">
             <div class="gallery-img-wrap">
-              <img src="运营长页/05_Promotion Email-Maunal picked email_Friday.jpg" alt="Black November 促销邮件">
+              <img src="resource/imgs/operations/long-pages/05_Promotion Email-Maunal picked email_Friday.jpg" alt="Black November 促销邮件">
             </div>
             <div class="gallery-img-wrap">
-              <img src="运营长页/01_Promotion Email-Maunal picked email_Monday.jpg" alt="Black Friday Desktop Deals">
+              <img src="resource/imgs/operations/long-pages/01_Promotion Email-Maunal picked email_Monday.jpg" alt="Black Friday Desktop Deals">
             </div>
             <div class="gallery-img-wrap">
-              <img src="运营长页/01_Promotion Email-Maunal picked email_Monday.png" alt="Dealcember 促销邮件">
+              <img src="resource/imgs/operations/long-pages/01_Promotion Email-Maunal picked email_Monday.png" alt="Dealcember 促销邮件">
             </div>
           </div>
         </div>
@@ -1047,42 +1054,49 @@ nav {
         <div class="gallery-panel" id="panel-02">
           <div class="gallery-grid-3">
             <div class="gallery-img-wrap">
-              <img src="运营长页/02_Tuesday.jpg" alt="Tuesday — Shop All Components Deals">
+              <img src="resource/imgs/operations/long-pages/02_Tuesday.jpg" alt="Tuesday — Shop All Components Deals">
             </div>
             <div class="gallery-img-wrap">
-              <img src="运营长页/03_Wednesday.jpg" alt="Wednesday — Shop All Storage Deals">
+              <img src="resource/imgs/operations/long-pages/03_Wednesday.jpg" alt="Wednesday — Shop All Storage Deals">
             </div>
             <div class="gallery-img-wrap">
-              <img src="运营长页/04_Thursday.jpg" alt="Thursday — Shop All Notebook Deals">
+              <img src="resource/imgs/operations/long-pages/04_Thursday.jpg" alt="Thursday — Shop All Notebook Deals">
             </div>
             <div class="gallery-img-wrap">
-              <img src="运营长页/05_Friday.jpg" alt="Friday — Tech Deals for Home">
+              <img src="resource/imgs/operations/long-pages/05_Friday.jpg" alt="Friday — Tech Deals for Home">
             </div>
             <div class="gallery-img-wrap">
-              <img src="运营长页/06_Weekend.jpg" alt="Weekend — Gaming Deals">
+              <img src="resource/imgs/operations/long-pages/06_Weekend.jpg" alt="Weekend — Gaming Deals">
             </div>
 
             <div class="gallery-img-wrap">
-              <img src="运营长页/4.jpg" alt="Shop All Deals — Halloween">
+              <img src="resource/imgs/operations/long-pages/4.jpg" alt="Shop All Deals — Halloween">
             </div>
           </div>
         </div>
 
-        <!-- 03 数字人短视频营销 — 2 portrait videos -->
+        <!-- 03 数字人短视频营销 — 3 portrait videos -->
         <div class="gallery-panel" id="panel-03">
-          <div class="gallery-grid-2-video">
+          <div class="gallery-grid-2-video gallery-grid-3-video">
 
             <!-- Nate Video -->
             <div>
               <div class="gallery-img-wrap">
-                <div style="position:relative;width:100%;aspect-ratio:9/16;background:#000;border-radius:inherit;overflow:hidden;">
-                  <iframe
-                    src="//player.bilibili.com/player.html?bvid=BV197jc6qEmd&autoplay=0&high_quality=1"
-                    style="width:100%;height:100%;border:none;"
-                    scrolling="no" frameborder="no"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen="true">
-                  </iframe>
+                <div class="video-wrap" id="vw-nate">
+                  <video id="vid-nate" preload="metadata" playsinline loop>
+                    <source src="resource/imgs/operations/videos/nate video 8.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-play-overlay" id="overlay-nate">
+                    <div class="video-play-btn"></div>
+                  </div>
+                  <div class="video-controls">
+                    <button class="ctrl-toggle" id="ctrl-nate" aria-label="play/pause">
+                      <svg viewBox="0 0 24 24" class="icon-play"><polygon points="5,3 19,12 5,21"/></svg>
+                      <svg viewBox="0 0 24 24" class="icon-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="ctrl-progress" id="prog-nate"><div class="ctrl-progress-fill" id="progfill-nate"></div></div>
+                    <span class="ctrl-time" id="time-nate">0:00</span>
+                  </div>
                 </div>
               </div>
               <p class="video-label">Nate — Social Content</p>
@@ -1093,7 +1107,7 @@ nav {
               <div class="gallery-img-wrap">
                 <div class="video-wrap" id="vw-mina">
                   <video id="vid-mina" preload="metadata" playsinline loop>
-                    <source src="videos/mina video 9.mp4" type="video/mp4">
+                    <source src="resource/imgs/operations/videos/mina video 9.mp4" type="video/mp4">
                   </video>
                   <div class="video-play-overlay" id="overlay-mina">
                     <div class="video-play-btn"></div>
@@ -1110,6 +1124,29 @@ nav {
               </div>
               <p class="video-label">Mina — Video Generation</p>
             </div>
+            <!-- Factory Link Video -->
+            <div>
+              <div class="gallery-img-wrap">
+                <div class="video-wrap" id="vw-factory">
+                  <video id="vid-factory" preload="metadata" playsinline loop>
+                    <source src="resource/imgs/operations/videos/Factory Link video.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-play-overlay" id="overlay-factory">
+                    <div class="video-play-btn"></div>
+                  </div>
+                  <div class="video-controls">
+                    <button class="ctrl-toggle" id="ctrl-factory" aria-label="play/pause">
+                      <svg viewBox="0 0 24 24" class="icon-play"><polygon points="5,3 19,12 5,21"/></svg>
+                      <svg viewBox="0 0 24 24" class="icon-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="ctrl-progress" id="prog-factory"><div class="ctrl-progress-fill" id="progfill-factory"></div></div>
+                    <span class="ctrl-time" id="time-factory">0:00</span>
+                  </div>
+                </div>
+              </div>
+              <p class="video-label">Factory Link — 工厂视频</p>
+            </div>
+
 
 
           </div>
@@ -1119,7 +1156,7 @@ nav {
             <div class="gallery-img-wrap natural-video">
               <div class="video-wrap" id="vw-product">
                 <video id="vid-product" preload="metadata" playsinline loop>
-                  <source src="35-200-140 Video.mp4" type="video/mp4">
+                  <source src="resource/imgs/operations/35-200-140 Video.mp4" type="video/mp4">
                 </video>
                 <div class="video-play-overlay" id="overlay-product">
                   <div class="video-play-btn"></div>
@@ -1142,19 +1179,19 @@ nav {
         <!-- 04 SP Banner — 5 images stacked -->
         <div class="gallery-panel" id="panel-04">
           <div class="gallery-img-wrap">
-            <img src="banner/Email Banner（英文）.png" alt="SP — Migrate to Newegg Banner">
+            <img src="resource/imgs/operations/banners/Email Banner（英文）.png" alt="SP — Migrate to Newegg Banner">
           </div>
           <div class="gallery-img-wrap">
-            <img src="banner/公告 Banner（英文）.png" alt="SP — Migrate Amazon to Newegg Banner">
+            <img src="resource/imgs/operations/banners/公告 Banner（英文）.png" alt="SP — Migrate Amazon to Newegg Banner">
           </div>
           <div class="gallery-img-wrap">
-            <img src="banner/General Email Template EN 2.png" alt="SP — New Feature Release Banner">
+            <img src="resource/imgs/operations/banners/General Email Template EN 2.png" alt="SP — New Feature Release Banner">
           </div>
           <div class="gallery-img-wrap">
-            <img src="banner/General Email Template EN.png" alt="SP — Smart Tools Banner">
+            <img src="resource/imgs/operations/banners/General Email Template EN.png" alt="SP — Smart Tools Banner">
           </div>
           <div class="gallery-img-wrap">
-            <img src="banner/General Q4 Festival template CN.png" alt="SP — Q4 AI-Powered Banner">
+            <img src="resource/imgs/operations/banners/General Q4 Festival template CN.png" alt="SP — Q4 AI-Powered Banner">
           </div>
         </div>
 
@@ -1170,7 +1207,7 @@ nav {
     <p class="footer-label">Next Project</p>
     <a href="project-4.html" class="footer-next-title">IP 设计 →</a>
   </div>
-  <a href="transition-b-rise可.html" class="footer-back">← All Works</a>
+  <a href="index.html#works" class="footer-back">← All Works</a>
 </section>
 
 <script>
@@ -1272,6 +1309,7 @@ nav {
 
   initPlayer('vid-nate', 'vw-nate', 'overlay-nate', 'ctrl-nate', 'prog-nate', 'progfill-nate', 'time-nate');
   initPlayer('vid-mina', 'vw-mina', 'overlay-mina', 'ctrl-mina', 'prog-mina', 'progfill-mina', 'time-mina');
+  initPlayer('vid-factory', 'vw-factory', 'overlay-factory', 'ctrl-factory', 'prog-factory', 'progfill-factory', 'time-factory');
   initPlayer('vid-product', 'vw-product', 'overlay-product', 'ctrl-product', 'prog-product', 'progfill-product', 'time-product');
 })();
 </script>

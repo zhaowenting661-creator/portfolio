@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Common/Remove</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/Common/Remove" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="编组" mask="url(#mask-2)" fill="#000000">
+            <g transform="translate(1, 1)">
+                <path d="M9,0 C13.9701279,0 18,4.02987206 18,9 C18,13.9701279 13.9701279,18 9,18 C4.02987206,18 0,13.9701279 0,9 C0,4.02987206 4.02987206,0 9,0 Z M9,1.46938776 C4.84139251,1.46938776 1.46938776,4.84139251 1.46938776,9 C1.46938776,13.1586075 4.84139251,16.5306122 9,16.5306122 C13.1586075,16.5306122 16.5306122,13.1586075 16.5306122,9 C16.5306122,4.84139251 13.1586075,1.46938776 9,1.46938776 Z" id="形状结合" fill-rule="nonzero"></path>
+                <rect id="矩形" fill-rule="evenodd" x="4.04081633" y="8.26530612" width="9.91836735" height="1.65306122" rx="0.826530612"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

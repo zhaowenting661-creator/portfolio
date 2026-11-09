@@ -1,0 +1,24 @@
+.stack-gallery-grid>.stack-right{min-width:0}
+#panel-03{min-width:0}
+.niceggie-category{width:100%;background:transparent;border:0;text-align:left}
+.niceggie-category:focus-visible,.niceggie-demo-toggle:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+.niceggie-demo-shell{width:100%;border:1px solid #333;border-radius:20px;overflow:hidden;background:#191919;isolation:isolate}
+@media(min-width:769px){#panel-03>.niceggie-demo-shell:not(.niceggie-demo-expanded){width:90%;align-self:center}}
+.niceggie-demo-bar{min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 14px;background:#191919;color:#ccc}
+.niceggie-demo-bar h3{font:500 13px/1.5 'Space Grotesk',sans-serif;margin:0}
+.niceggie-demo-toggle{flex-shrink:0;border:1px solid #555;border-radius:999px;background:transparent;color:#fff;font:500 13px/1.4 'Space Grotesk',sans-serif;padding:7px 13px;cursor:pointer;transition:background .2s}
+.niceggie-demo-toggle:hover{background:#333}
+.niceggie-demo-viewport{width:100%;aspect-ratio:16/9;background:#0e0c18;overflow:hidden}
+.niceggie-demo-viewport iframe{display:block;width:1920px;height:1080px;max-width:none;border:0;background:#0e0c18;transform:scale(var(--niceggie-demo-scale,1));transform-origin:top left}
+.niceggie-demo-shell.niceggie-demo-expanded{position:fixed;left:12px;right:12px;top:12px;bottom:12px;width:auto;height:auto;max-height:none;display:flex;flex-direction:column;z-index:10002;border-radius:12px;box-shadow:0 20px 90px #0008}
+.niceggie-demo-expanded .niceggie-demo-bar{flex-shrink:0}
+.niceggie-demo-expanded .niceggie-demo-viewport{flex:1;min-height:0;aspect-ratio:auto}
+.niceggie-demo-expanded iframe{height:var(--niceggie-demo-expanded-height,1080px)}
+#niceggie-demo-backdrop{position:fixed;inset:0;background:#000c;z-index:10001;cursor:pointer}
+#niceggie-demo-backdrop[hidden]{display:none}
+body.niceggie-demo-is-expanded{overflow:hidden}
+body.niceggie-demo-is-expanded .gallery-panel.active{animation:none;transform:none}
+body.niceggie-demo-is-expanded #cursor-trail{visibility:hidden!important}
+.niceggie-demo-expanded,.niceggie-demo-expanded *{cursor:auto!important}
+.niceggie-demo-expanded button{cursor:pointer!important}
+@media(max-width:768px){.niceggie-demo-bar{padding:10px;gap:8px}.niceggie-demo-bar h3{font-size:11px}.niceggie-demo-toggle{font-size:11px;padding:8px 10px}}

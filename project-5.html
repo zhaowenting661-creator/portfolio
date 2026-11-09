@@ -432,6 +432,7 @@ nav {
   .footer-section { padding: 48px 20px; flex-direction: column; align-items: flex-start; gap: 32px; }
 }
 </style>
+<link rel="stylesheet" href="resource/css/niceggie/niceggie-demo-embed.css">
 </head>
 <body>
 <!-- ── 阶梯蒙版页面转场 ── -->
@@ -513,11 +514,11 @@ nav {
         </div>
         <div class="meta-item">
           <p class="meta-label">Role</p>
-          <p class="meta-value">Web Design</p>
+          <p class="meta-value">Web Design &nbsp;·&nbsp; Vibe Coding</p>
         </div>
         <div class="meta-item">
           <p class="meta-label">Tools</p>
-          <p class="meta-value">Figma &nbsp;·&nbsp; Photoshop</p>
+          <p class="meta-value">Gemini &nbsp;·&nbsp; Figma &nbsp;·&nbsp; Sketch &nbsp;·&nbsp; Codex &nbsp;·&nbsp; Grok Bot</p>
         </div>
         <div class="meta-item">
           <p class="meta-label">Scope</p>
@@ -541,8 +542,12 @@ nav {
             <span class="stack-num">01</span>
             <span class="stack-name">官网 Landing Page</span>
           </div>
-          <div class="stack-item" data-panel="panel-02">
+          <button class="stack-item niceggie-category" id="niceggie-category" type="button" data-panel="panel-03" aria-controls="panel-03">
             <span class="stack-num">02</span>
+            <span class="stack-name">Niceggie Landing Page</span>
+          </button>
+          <div class="stack-item" data-panel="panel-02">
+            <span class="stack-num">03</span>
             <span class="stack-name">平台合作专页</span>
           </div>
         </div>
@@ -591,6 +596,15 @@ nav {
           </div>
         </div>
 
+        <div class="stack-desc" id="desc-03">
+          <h2 class="stack-desc-title">Niceggie<br>Landing Page</h2>
+          <p class="stack-feature-label">设计亮点</p>
+          <div class="stack-feature-list">
+            <div class="stack-feature-item"><span class="stack-feature-dot"></span><div class="stack-feature-body"><p class="stack-feature-subtitle">面向跨境卖家的 AI 品牌官网</p><p class="stack-feature-text">以统一的视觉语言串联品牌首页、AI 客服、AI 团队、免费工具及资讯，清晰呈现产品能力与使用场景。</p></div></div>
+            <div class="stack-feature-item"><span class="stack-feature-dot"></span><div class="stack-feature-body"><p class="stack-feature-subtitle">Web Design · Vibe Coding</p><p class="stack-feature-text">将页面设计落地为可交互的网站。右侧可体验 Niceggie 首页，也可放大演示查看完整布局与交互细节。</p></div></div>
+          </div>
+        </div>
+
       </div>
 
       <div class="stack-right">
@@ -599,7 +613,7 @@ nav {
         <div class="gallery-panel active" id="panel-01">
           <div class="video-wrap paused" id="vw-site">
             <video id="v-site" preload="metadata" playsinline>
-              <source src="https://landingpage-video.oss-cn-beijing.aliyuncs.com/landing%20page.mov" type="video/mp4">
+              <source src="resource/imgs/landing-pages/landing page.mov" type="video/mp4">
             </video>
             <div class="video-play-overlay" id="vpo-site">
               <div class="video-play-btn"></div>
@@ -621,36 +635,43 @@ nav {
         <div class="gallery-panel" id="panel-02">
           <div class="gallery-grid-2">
             <div class="gallery-img-wrap">
-              <img src="landing page/02_SP x Walmart Landing.jpg" alt="SP x Walmart">
+              <img src="resource/imgs/landing-pages/screens/02_SP x Walmart Landing.jpg" alt="SP x Walmart">
             </div>
             <div class="gallery-img-wrap">
-              <img src="landing page/03_SP x Amazon Landing.jpg" alt="SP x Amazon">
+              <img src="resource/imgs/landing-pages/screens/03_SP x Amazon Landing.jpg" alt="SP x Amazon">
             </div>
           </div>
           <div class="gallery-grid-2">
             <div class="gallery-img-wrap">
-              <img src="landing page/04_SP x eBay.jpg" alt="SP x eBay">
+              <img src="resource/imgs/landing-pages/screens/04_SP x eBay.jpg" alt="SP x eBay">
             </div>
             <div class="gallery-img-wrap">
-              <img src="landing page/05_SP x Newegg Landing.jpg" alt="SP x Newegg">
+              <img src="resource/imgs/landing-pages/screens/05_SP x Newegg Landing.jpg" alt="SP x Newegg">
             </div>
           </div>
           <div class="gallery-grid-2">
             <div class="gallery-img-wrap">
-              <img src="landing page/06_SP x Shopify.jpg" alt="SP x Shopify">
+              <img src="resource/imgs/landing-pages/screens/06_SP x Shopify.jpg" alt="SP x Shopify">
             </div>
             <div class="gallery-img-wrap">
-              <img src="landing page/07_SP x TikTok Landing.jpg" alt="SP x TikTok">
+              <img src="resource/imgs/landing-pages/screens/07_SP x TikTok Landing.jpg" alt="SP x TikTok">
             </div>
           </div>
           <div class="gallery-grid-2">
             <div class="gallery-img-wrap">
-              <img src="landing page/08_SP x Temu.jpg" alt="SP x Temu">
+              <img src="resource/imgs/landing-pages/screens/08_SP x Temu.jpg" alt="SP x Temu">
             </div>
             <div class="gallery-img-wrap">
-              <img src="landing page/09_SP x SHEIN.jpg" alt="SP x SHEIN">
+              <img src="resource/imgs/landing-pages/screens/09_SP x SHEIN.jpg" alt="SP x SHEIN">
             </div>
           </div>
+        </div>
+
+        <div class="gallery-panel" id="panel-03">
+          <section class="niceggie-demo-shell" aria-label="Niceggie Home 交互演示">
+            <div class="niceggie-demo-bar"><h3>Niceggie Home · 交互演示</h3><button type="button" class="niceggie-demo-toggle" aria-expanded="false">放大演示</button></div>
+            <div class="niceggie-demo-viewport"><iframe data-src="resource/scripts/niceggie/pages/index.html" title="Niceggie Home interactive demo" loading="lazy" tabindex="0" allow="fullscreen"></iframe></div>
+          </section>
         </div>
 
       </div>
@@ -663,9 +684,9 @@ nav {
 <section class="footer-section">
   <div>
     <p class="footer-label">Back to</p>
-    <a href="index.html" class="footer-next-title">All Works →</a>
+    <a href="index.html#works" class="footer-next-title">All Works →</a>
   </div>
-  <a href="index.html" class="footer-back">← All Works</a>
+  <a href="index.html#works" class="footer-back">← All Works</a>
 </section>
 
 <script>
@@ -740,5 +761,6 @@ nav {
   });
 })();
 </script>
+<script src="resource/scripts/niceggie/niceggie-demo-embed.js"></script>
 </body>
 </html>

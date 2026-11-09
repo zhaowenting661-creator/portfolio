@@ -1,0 +1,7 @@
+/* Native visual recreation from the supplied Rising Lines video. */
+body.page-my-ai-team{position:relative;background:#100f14}
+.page-my-ai-team .page::before{content:none}
+.team-rising-background{position:absolute;z-index:0;inset:0 0 auto;width:100%;height:780px;overflow:hidden;pointer-events:none;background:linear-gradient(#0a0a0a 65%,#100f14);isolation:isolate}
+.team-rising-background canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.team-rising-background::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 550px 230px at 50% 28%,rgba(10,10,10,.22),transparent);pointer-events:none}
+@media(max-width:700px){.team-rising-background::after{background:none}}

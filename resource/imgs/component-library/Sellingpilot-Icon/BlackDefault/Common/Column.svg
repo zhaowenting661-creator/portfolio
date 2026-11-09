@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Common/Column</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Icon/Common/Column" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M16.75,2 C17.9910152,2 19,3.02321407 19,4.28571429 L19,15.7142857 C19,16.9767859 17.9927737,18 16.75,18 L3.25,18 C2.00722635,18 1,16.9767859 1,15.7142857 L1,4.28571429 C1,3.02321407 2.00722688,2 3.25000054,2 Z M6.87282378,5 L2.6,5 L2.6,15.3636364 C2.6,15.9360042 3.00651428,16.4 3.50797505,16.4 L6.87282378,16.4 L6.87282378,5 Z M12.2364119,5 L7.96358811,5 L7.96358811,16.4 L12.2364119,16.4 L12.2364119,5 Z M17.6,5 L13.3271762,5 L13.3271762,16.4 L16.6920249,16.4 C17.1934857,16.4 17.6,15.9360042 17.6,15.3636364 L17.6,5 Z" id="形状结合" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+        <g id="编组" mask="url(#mask-2)">
+            <g transform="translate(2.6, 5)"></g>
+        </g>
+    </g>
+</svg>

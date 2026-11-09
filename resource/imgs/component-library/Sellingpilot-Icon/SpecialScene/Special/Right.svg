@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Special/Right</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#4496FF" offset="0%"></stop>
+            <stop stop-color="#8C54FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="0_Icon/Special/Right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <polygon id="路径" fill="url(#linearGradient-3)" fill-rule="nonzero" mask="url(#mask-2)" points="16.4557004 2 19 4.13348067 7.96021391 17.4638941 6.68806425 19 5.41591444 17.4638942 1 12.13173 3.54429936 9.99824902 6.68806412 13.7932797"></polygon>
+    </g>
+</svg>

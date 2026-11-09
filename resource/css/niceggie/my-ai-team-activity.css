@@ -1,0 +1,85 @@
+/* Figma 80:5420; 1920px design adapted to the shared 1440px demo. */
+#team-demo .demo-activity-view[hidden]{display:none!important}
+#team-demo .demo-activity-view{display:flex;flex-direction:column;gap:23.6px;color:#fff;text-align:left;width:100%;min-width:0;font-family:'Open Sans',sans-serif}
+.page-my-ai-team #team-demo.activity-page-active .demo-main{height:726px;min-height:0;padding:23.6px;overflow:hidden;display:block;background:radial-gradient(ellipse at bottom right,rgba(152,77,56,.23),transparent 50%),radial-gradient(ellipse at top right,rgba(37,40,148,.2),transparent 75%),#070709;margin-right:0}
+#team-demo.activity-page-active .demo-main>:not(.demo-activity-view){display:none!important}
+#team-demo.activity-page-active .demo-activity-view{height:100%}
+#team-demo.activity-page-active .demo-activity{background:rgba(255,255,255,.08);box-shadow:inset 1.475px 0 #724bc1;border-radius:8.85px}
+#team-demo.activity-page-active .sidebar-activity-icon img{content:url('../../imgs/niceggie/activity-active.svg')}
+#team-demo .activity-icon{display:inline-block;position:relative;width:var(--icon-size,11.8px);height:var(--icon-size,11.8px);flex-shrink:0;vertical-align:middle}
+#team-demo .activity-icon img{display:block;width:auto;height:auto;max-width:none;border-radius:0;transform:scale(.7375);transform-origin:top left;position:absolute;top:0;left:0}
+#team-demo .activity-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17.7px;flex-shrink:0}
+#team-demo .activity-stat{height:61.95px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.55);border-radius:8.85px;text-align:left;display:flex;align-items:center;justify-content:space-between;padding:7.4px 23.6px 7.4px 31.7px;background:transparent;color:#fff;cursor:pointer}
+#team-demo .activity-stat-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;border-radius:0;pointer-events:none}
+#team-demo .activity-stat>span{position:relative;display:flex;flex-direction:column}
+#team-demo .activity-stat small{font-size:8.85px;line-height:11.8px;font-weight:700}
+#team-demo .activity-stat strong{font-family:Montserrat,sans-serif;font-size:23.6px;line-height:32.45px;font-weight:800}
+#team-demo .activity-stat i{position:relative;width:32.45px;height:32.45px;display:grid;place-items:center;border-radius:8.85px;background:rgba(255,255,255,.16)}
+#team-demo .activity-filter{display:flex;gap:8.85px;flex-shrink:0;margin:0;align-items:center;height:32.45px}
+#team-demo .activity-search,#team-demo .activity-team-filter,#team-demo .activity-date-button{height:32.45px;display:flex;align-items:center;gap:8.85px;background:#121212;border:1px solid rgba(255,255,255,.16);border-radius:10.325px;color:rgba(188,213,250,.5);padding:0 12px;min-width:0}
+#team-demo .activity-search{flex:1;gap:8.85px}
+#team-demo .activity-search input{border:0;outline:0;color:#bcd5fa;background:transparent;font-size:11.8px;line-height:16.225px;width:100%;min-width:0;padding:0;height:100%;font-family:inherit}
+#team-demo .activity-search input::placeholder{color:rgba(188,213,250,.5)}
+#team-demo .activity-team-filter{position:relative;width:118px;flex-shrink:0;padding-right:11.8px}
+#team-demo .activity-team-filter select{appearance:none;border:0;background:transparent;color:inherit;width:100%;font-family:inherit;outline:0;font-size:10.325px;cursor:pointer;padding:0}
+#team-demo .activity-team-filter option{background:#121212;color:#bcd5fa}
+#team-demo .activity-date-filter{position:relative;flex-shrink:0}
+#team-demo .activity-date-button{width:118px;font-size:10.325px;gap:5.9px;cursor:pointer;padding:0 10px}
+#team-demo .activity-date-button>span:not(.activity-icon){white-space:nowrap;font-size:9.5px;flex:1}
+#team-demo .activity-search-submit{height:32.45px;min-width:83px;border:0;border-radius:100px;background:linear-gradient(140deg,#7734f6,#4932cc);font-family:inherit;font-size:10.325px;font-weight:700;color:#fff;cursor:pointer}
+#team-demo .activity-date-popover{position:absolute;right:0;top:38px;z-index:10;border:1px solid #645080;border-radius:10px;background:#191720;padding:12px;box-shadow:0 8px 20px #000;min-width:190px}
+#team-demo .activity-date-popover[hidden]{display:none}
+#team-demo .activity-date-popover label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:10px;margin-bottom:8px}
+#team-demo .activity-date-popover input{color-scheme:dark;color:#ddd;background:#121212;border:1px solid #494050;font-size:10px;padding:5px;border-radius:4px;width:125px}
+#team-demo .activity-date-popover button{color:#d4c8ff;border:1px solid #7c5fd6;background:#281f3a;border-radius:30px;font:700 10px inherit;padding:5px 10px;cursor:pointer}
+#team-demo .activity-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17.7px;min-height:0;flex:1}
+#team-demo .activity-panel{min-width:0;min-height:0;border:1px solid rgba(255,255,255,.16);border-top:2.95px solid #f06c00;border-radius:8.85px;background:#100f14;display:flex;flex-direction:column;overflow:hidden}
+#team-demo .activity-panel-review{border-top-color:#00b33d}
+#team-demo .activity-panel>header{display:flex;align-items:center;gap:8.85px;padding:17.7px 17.7px 16.225px;flex-shrink:0;height:51.625px}
+#team-demo .activity-panel>header>strong{font-size:11.8px;line-height:16.225px;color:#fff;font-weight:700}
+#team-demo .activity-panel>header>b{font-size:8.85px;line-height:11.8px;padding:1.475px 5.9px;border-radius:100px;background:rgba(255,255,255,.1);color:#f06c00}
+#team-demo .activity-panel-review>header>b{color:#00b33d}
+#team-demo .activity-panel>header>button{margin-left:auto;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.05);border-radius:100px;padding:2px;width:17.7px;height:17.7px;display:grid;place-items:center;cursor:pointer}
+#team-demo .activity-panel-scroll{overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#493761 transparent;min-height:0;position:relative;flex:1;padding:0 17.7px 17.7px 37.6px}
+#team-demo .activity-timeline{position:absolute;top:-14px;left:20.65px;width:auto;height:auto;max-width:none;transform:scale(.7375);transform-origin:top left;border-radius:0;pointer-events:none}
+#team-demo .activity-cards{display:flex;flex-direction:column;gap:8.85px;position:relative}
+#team-demo .activity-card{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);border-bottom:0;border-radius:11.8px;padding:11.8px;display:flex;flex-direction:column;gap:8.85px;min-width:0}
+#team-demo .activity-card-body{display:flex;gap:11.8px;align-items:flex-start;min-width:0}
+#team-demo .activity-avatar{position:relative;width:29.5px;height:29.5px;flex-shrink:0;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#5f3ecd,#7c5fd6)}
+#team-demo .activity-avatar-mira{background:linear-gradient(135deg,#1e852c,#5fa664)}
+#team-demo .activity-avatar-max{background:linear-gradient(135deg,#ff8500,#fa9d28)}
+#team-demo .activity-avatar-leo{background:linear-gradient(135deg,#1061cd,#4d86e5)}
+#team-demo .activity-avatar img{position:absolute;top:.7375px;left:-2.95px;width:34.66px;height:34.66px;max-width:none;border-radius:0;object-fit:cover}
+#team-demo .activity-card-copy{min-width:0;flex:1;display:flex;flex-direction:column;gap:8.85px}
+#team-demo .activity-author{display:flex;align-items:center;gap:5.9px;min-width:0}
+#team-demo .activity-author strong{font-size:11.8px;line-height:16.225px;color:#fff;font-weight:700}
+#team-demo .activity-author small{font-size:8.85px;line-height:11.8px;color:rgba(188,213,250,.5)}
+#team-demo .activity-author .activity-icon{margin-left:auto}
+#team-demo .activity-card p{font-size:10.325px;line-height:14.75px;color:rgba(255,255,255,.9);margin:0;font-weight:400;overflow-wrap:anywhere}
+#team-demo .activity-card em{font-style:normal;font-weight:700;color:#f06c00}
+#team-demo .activity-card ul{list-style:disc;margin:0;padding:0 0 0 15px;display:flex;flex-direction:column;gap:5.9px;color:#bcd5fa;font-size:10.325px;line-height:14.75px}
+#team-demo .activity-card-actions{display:flex;align-items:center;gap:8.85px;border-top:1px solid rgba(255,255,255,.1);padding-top:8.85px;flex-wrap:wrap}
+#team-demo .activity-card-actions button{height:23.6px;display:flex;align-items:center;gap:5.9px;padding:0 11.8px;border-radius:100px;border:1px solid rgba(255,255,255,.05);color:#bcd5fa;background:rgba(255,255,255,.05);font-family:inherit;font-size:8.85px;font-weight:700;cursor:pointer;white-space:nowrap}
+#team-demo .activity-card-actions button.activity-primary{border-color:rgba(124,90,213,.8);background:rgba(124,90,213,.1);color:#d4c8ff}
+#team-demo .activity-action-divider{height:11.8px;width:1px;background:rgba(255,255,255,.1)}
+#team-demo .activity-card-actions button[aria-pressed=true]{background:#4d349a;border-color:#d4c8ff;color:white}
+#team-demo .activity-detail{padding:10px;background:#0d0c12;border:1px solid #554271;border-radius:7px;color:#bcd5fa;font-size:10px;line-height:16px}
+#team-demo .activity-detail[hidden],#team-demo .activity-decision[hidden]{display:none}
+#team-demo p.activity-decision{color:#9fcba4;font-size:9px}
+#team-demo .activity-empty{color:#bcd5fa;font-size:11px;padding:15px}
+#team-demo .activity-live{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0}
+#team-demo .demo-activity-view button:focus-visible,#team-demo .demo-activity-view input:focus-visible,#team-demo .demo-activity-view select:focus-visible{outline:2px solid #cbbbff;outline-offset:2px}
+@media(max-width:1000px){.page-my-ai-team #team-demo.activity-page-active .demo-main{padding:17px}.demo-activity-view .activity-filter{flex-wrap:wrap;height:auto!important}#team-demo .activity-search{flex-basis:100%;height:32px}#team-demo .activity-columns{gap:12px}#team-demo .activity-stat{padding:8px 10px}#team-demo .activity-author{flex-wrap:wrap}#team-demo .activity-author small{font-size:8px}#team-demo .activity-stat i{width:26px;height:26px}}
+@media(max-width:700px){.page-my-ai-team #team-demo.activity-page-active .demo-main{padding:12px;overflow-y:auto}#team-demo.activity-page-active .demo-activity-view{height:auto;min-height:100%;gap:16px}#team-demo .activity-stats{gap:6px}#team-demo .activity-stat{height:72px;padding:8px 7px}#team-demo .activity-stat small{font-size:7px;line-height:11px}#team-demo .activity-stat strong{font-size:20px;line-height:26px}#team-demo .activity-stat i{display:none}#team-demo .activity-columns{display:flex;flex-direction:column}#team-demo .activity-panel{height:430px;flex-shrink:0}#team-demo .activity-team-filter{width:100px}#team-demo .activity-date-button{width:112px}#team-demo .activity-search-submit{min-width:62px;flex:1}#team-demo .activity-panel>header{padding:14px;height:44px}#team-demo .activity-panel-scroll{padding:0 12px 12px 27px}#team-demo .activity-timeline{left:12px}#team-demo .activity-card{padding:10px}#team-demo .activity-card-body{gap:8px}#team-demo .activity-author small{font-size:7px}#team-demo .activity-card-actions{gap:6px}#team-demo .activity-card-actions button{padding:0 9px;font-size:8px}}
+#team-demo .activity-sidebar-label{display:none;position:absolute;top:187.325px;left:11.8px;right:11.8px;text-align:center;font-size:11.8px;line-height:16.225px;color:#fff}
+#team-demo.activity-page-active .activity-sidebar-label{display:block}
+#team-demo.activity-page-active .sidebar-recruited{top:224.2px}
+#team-demo.activity-page-active .sidebar-upcoming{top:314.175px}
+#team-demo.activity-page-active .demo-layout.collapsed .activity-sidebar-label{display:none}
+#team-demo.activity-page-active .demo-layout.collapsed .sidebar-recruited{top:215.35px}
+#team-demo.activity-page-active .demo-layout.collapsed .sidebar-upcoming{top:305.325px}
+#team-demo .activity-card-actions{position:relative;border-top:0}
+#team-demo .activity-card-rule{position:absolute;top:0;left:0;right:0;height:1px;overflow:hidden;pointer-events:none}
+#team-demo .activity-card-rule img{display:block;width:auto;height:auto;max-width:none;transform:scale(.7375);transform-origin:top left;border-radius:0}
+#team-demo .activity-timeline-end{position:absolute;top:464.625px;left:20.65px;display:block;width:auto;height:auto;max-width:none;transform:scale(.7375);transform-origin:top left;border-radius:0;pointer-events:none}
+@media(max-width:700px){#team-demo .activity-timeline-end{left:12px}}

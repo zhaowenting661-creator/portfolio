@@ -1,0 +1,19 @@
+/* Moving side fog only; the center artwork remains undistorted. */
+.page-ai-cs .ai-cs-side-mist {
+  position:absolute;top:0;left:0;width:100%;height:1138px;
+  object-fit:cover;transform:scaleX(-1);opacity:1;
+  z-index:0;pointer-events:none;
+  /* Cover the baked-in dark strip in the old hero bitmap, while retaining its lower central ring. */
+  mask-image:linear-gradient(to bottom,#000 0%,#000 23%,transparent 42%),linear-gradient(to right,#000 0%,#000 16%,transparent 40%,transparent 60%,#000 84%,#000 100%);
+  mask-composite:add;
+}
+.page-ai-cs .hero-h1 .line1 {background:transparent;box-shadow:none;}
+.page-ai-cs .btn-hero {box-shadow:0 4px 12px rgba(32,32,60,.25);}
+.page-ai-cs .metric-num {font-variant-numeric:tabular-nums;}
+.page-ai-cs .char-card {
+  background:linear-gradient(125deg,rgba(40,25,81,.22),rgba(19,17,31,.45));
+  backdrop-filter:blur(30px) saturate(115%);
+  -webkit-backdrop-filter:blur(30px) saturate(115%);
+}
+.page-ai-cs .char-divider {background:rgba(203,187,255,.15);}
+@media(max-width:640px){.page-ai-cs .ai-cs-side-mist{height:1138px;}}

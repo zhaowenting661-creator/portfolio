@@ -403,7 +403,7 @@ nav {
 #robot-avatar-v2 {
   position: fixed;
   z-index: 500;
-  width: 170px;
+  width: clamp(80px, 10vw, 128px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -434,6 +434,10 @@ nav {
 }
 #robot-avatar-v2:hover .v2-img { opacity: 0; }
 #robot-avatar-v2:hover .v2-hover-img { opacity: 1; }
+</style>
+<style id="ip-gallery-display-size">
+.stack-right .gallery-img-wrap{width:75%;margin-inline:auto}
+@media(max-width:768px){.stack-right .gallery-img-wrap{width:100%}}
 </style>
 </head>
 <body>
@@ -479,7 +483,7 @@ nav {
 <div id="cursor-trail"></div>
 
 <nav>
-  <a href="transition-b-rise可.html" class="nav-back">← Back</a>
+  <a href="index.html" class="nav-back">← Back</a>
   <span class="nav-tag">IP设计 &nbsp;·&nbsp; 2025</span>
 </nav>
 
@@ -520,7 +524,7 @@ nav {
         </div>
         <div class="meta-item">
           <p class="meta-label">Tools</p>
-          <p class="meta-value">Figma &nbsp;·&nbsp; Blender &nbsp;·&nbsp; Photoshop</p>
+          <p class="meta-value">Gemini &nbsp;·&nbsp; Figma &nbsp;·&nbsp; Sketch &nbsp;·&nbsp; After Effects（AE）</p>
         </div>
         <div class="meta-item">
           <p class="meta-label">Scope</p>
@@ -599,12 +603,12 @@ nav {
       <div class="stack-right">
         <div class="gallery-panel active" id="panel-01">
           <div class="gallery-img-wrap">
-            <img src="ip/IP1.png" alt="Neo Pilot V1.0 — IP角色形象设计">
+            <img src="resource/imgs/ip-design/boards/IP1-20261106.png" alt="Neo Pilot V1.0 — IP角色形象设计">
           </div>
         </div>
         <div class="gallery-panel" id="panel-02">
           <div class="gallery-img-wrap">
-            <img src="ip/ip2.png" alt="Neo Pilot V2.0 — IP角色形象设计">
+            <img src="resource/imgs/ip-design/boards/ip2.png" alt="Neo Pilot V2.0 — IP角色形象设计">
           </div>
         </div>
       </div>
@@ -619,20 +623,20 @@ nav {
     <p class="footer-label">Next Project</p>
     <a href="project-5.html" class="footer-next-title">官网设计 →</a>
   </div>
-  <a href="transition-b-rise可.html" class="footer-back">← All Works</a>
+  <a href="index.html#works" class="footer-back">← All Works</a>
 </section>
 
 <div id="robot-widget">
-  <img src="ip-gifs/收起侧边.gif" alt="AI助手机器人">
+  <img src="resource/imgs/ip-design/gifs/收起侧边.gif" alt="AI助手机器人">
 </div>
 
 <div id="robot-avatar-v2">
-  <img class="v2-img" src="ip-gifs/AI Assistant Default.gif" alt="AI助手2.0默认">
-  <img class="v2-hover-img" src="ip-gifs/hover&chat .gif" alt="AI助手2.0 hover">
+  <img class="v2-img" src="resource/imgs/ip-design/gifs/AI Assistant Default.gif" alt="AI助手2.0默认">
+  <img class="v2-hover-img" src="resource/imgs/ip-design/gifs/hover&chat .gif" alt="AI助手2.0 hover">
 </div>
 
 <div id="robot-avatar">
-  <img src="ip-gifs/头像gif_.gif" alt="AI助手头像">
+  <img src="resource/imgs/ip-design/gifs/头像gif_.gif" alt="AI助手头像">
 </div>
 
 
@@ -706,12 +710,14 @@ nav {
     });
   });
 
-  function updateAvatarV2Pos() {
-    const panel02 = document.getElementById('panel-02');
-    if (!panel02 || !avatarV2.classList.contains('show')) return;
+  const panel02 = document.getElementById('panel-02');
+  const previewV2 = panel02.querySelector('.gallery-img-wrap');
 
-    const r      = panel02.getBoundingClientRect();
-    const elH    = avatarV2.offsetHeight || 170;
+  function updateAvatarV2Pos() {
+    if (!avatarV2.classList.contains('show')) return;
+
+    const r      = previewV2.getBoundingClientRect();
+    const elH    = avatarV2.offsetHeight || avatarV2.offsetWidth;
     const margin = 24;
 
     // Try to sit at viewport bottom (like fixed bottom:24px)
@@ -719,7 +725,7 @@ nav {
     // Clamp: no higher than panel top+margin, no lower than panel bottom-elH-margin
     const topPx = Math.max(r.top + margin, Math.min(r.bottom - elH - margin, preferred));
 
-    // Right: margin inside panel's right edge
+    // Right: margin inside the preview's right edge
     const rightPx = window.innerWidth - r.right + margin;
 
     avatarV2.style.top    = topPx + 'px';
@@ -731,6 +737,7 @@ nav {
     avatarV2.classList.toggle('out-of-view', !inView);
   }
 
+  panel02.addEventListener('animationend', updateAvatarV2Pos);
   window.addEventListener('scroll', updateAvatarV2Pos, { passive: true });
   window.addEventListener('resize', updateAvatarV2Pos);
 })();

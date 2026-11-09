@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/logo/Sellingpilot</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="19.8142415" height="19.8142415"></rect>
+    </defs>
+    <g id="0_Icon/logo/Sellingpilot" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="编组-13" mask="url(#mask-2)">
+            <g transform="translate(1, 3)">
+                <ellipse id="Oval" fill="#1061CD" cx="7.2" cy="7" rx="7.2" ry="7"></ellipse>
+                <ellipse id="Oval" fill="#FF8500" cx="12.6" cy="8.75" rx="5.4" ry="5.25"></ellipse>
+                <path d="M12.6,3.5 C12.8985838,3.5 13.1915076,3.52356026 13.4769118,3.56887291 C14.0646618,4.58232496 14.4,5.75308907 14.4,7 C14.4,9.86136099 12.634135,12.3217388 10.1041237,13.4072401 C8.37776637,12.5300334 7.2,10.7737372 7.2,8.75 C7.2,5.85050506 9.61766235,3.5 12.6,3.5 Z" id="Combined-Shape" fill="#FEECA8" opacity="0.400000006"></path>
+            </g>
+        </g>
+    </g>
+</svg>

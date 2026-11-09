@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Status/Time</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Icon/Status/Time" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M10,1 C14.9710935,1 19,5.02890646 19,10 C19,14.9710935 14.9710935,19 10,19 C5.02890646,19 1,14.9710935 1,10 C1,5.02890646 5.02890646,1 10,1 Z M10.0401824,6 L9.14859748,6 C9.06686887,6 9,6.06577694 9,6.14617097 L9,11.1159839 C9,11.1963779 9.06686887,11.2621548 9.14859748,11.2621548 L9.656,11.262 L13.6721469,11.9980749 C13.7415211,12.0107859 13.8110473,11.9591937 13.8266494,11.8834255 L13.996864,11.0568651 C14.0124568,10.9810951 13.9684615,10.908703 13.8990885,10.8959852 L10.188,10.216 L10.1887799,6.14617097 C10.1887799,6.06577694 10.121911,6 10.0401824,6 Z" id="形状结合" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+    </g>
+</svg>

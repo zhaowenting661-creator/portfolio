@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Common/Print</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Icon/Common/Print" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="07_Icons/XS-12/Fill/Font_Icon" mask="url(#mask-2)" fill="#000000" fill-rule="nonzero">
+            <g transform="translate(2, 2)" id="形状">
+                <path d="M14,6 L2,6 C0.895312309,6 0,6.8968749 0,8 L0,11 C0,11.5521879 0.447812557,12 1,12 L2,12 L2,15 C2,15.5521879 2.44781256,16 3,16 L13,16 C13.5521879,16 14,15.5521879 14,15 L14,12 L15,12 C15.5521879,12 16,11.5521879 16,11 L16,8 C16,6.8968749 15.1031246,6 14,6 Z M12,14 L4,14 L4,11 L12,11 L12,14 Z M13.5,9.25 C13.0859375,9.25 12.75,8.9140625 12.75,8.5 C12.75,8.08531284 13.0859375,7.75 13.5,7.75 C13.9140625,7.75 14.25,8.08531284 14.25,8.5 C14.25,8.91562462 13.9156246,9.25 13.5,9.25 Z M4,2 L11.171875,2 L12,2.82843781 L12,5 L14,5 L14,2.4140625 C14,2.14893723 13.8945312,1.89468765 13.7070312,1.70718765 L12.2929688,0.293125153 C12.1062498,0.10546875 11.8500004,0 11.5874996,0 L3,0 C2.44812489,0 2,0.44781208 2,1 L2,5 L4,5 L4,2 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

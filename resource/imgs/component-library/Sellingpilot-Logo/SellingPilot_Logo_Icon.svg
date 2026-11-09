@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="378px" height="378px" viewBox="0 0 378 378" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>SellingPilot_Logo  Icon</title>
+    <defs>
+        <path d="M0,0 L378,0 L378,378 L0,378 L0,0 Z" id="path-1"></path>
+        <path d="M0,0 L342,0 L342,274 L0,274 L0,0 Z" id="path-2"></path>
+    </defs>
+    <g id="SellingPilot_Logo--Icon" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <g id="图形-2" transform="translate(20, 55)" xlink:href="#path-2">
+            <ellipse id="Oval" fill="#1061CD" cx="136.8" cy="137" rx="136.8" ry="137"></ellipse>
+            <ellipse id="Oval" fill="#FF8500" cx="239.4" cy="171.25" rx="102.6" ry="102.75"></ellipse>
+            <path d="M239.4,68.5 C245.073787,68.5 250.640007,68.9612209 256.063317,69.848267 C267.230742,89.6904427 273.6,112.600324 273.6,137 C273.6,192.99643 240.053947,241.146305 191.989917,262.393729 C159.189586,245.249122 136.8,210.868068 136.8,171.25 C136.8,114.502742 182.735585,68.5 239.4,68.5 Z" id="Combined-Shape" fill="#FEECA8" opacity="0.400000006"></path>
+        </g>
+    </g>
+</svg>

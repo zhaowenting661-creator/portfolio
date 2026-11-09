@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Number/Blue01</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/Number/Blue01" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M10,1 C14.9705627,1 19,5.02943725 19,10 C19,14.9705627 14.9705627,19 10,19 C5.02943725,19 1,14.9705627 1,10 C1,5.02943725 5.02943725,1 10,1 Z" id="形状结合" stroke="#BCD5FA" fill="#1061CD" fill-rule="nonzero" mask="url(#mask-2)"></path>
+        <path d="M10.292,6 C10.004,6.312 9.644,6.588 9.212,6.852 C8.78,7.092 8.384,7.26 8,7.356 L8,8.652 C8.792,8.424 9.452,8.064 9.968,7.572 L9.968,14.568 L11.276,14.568 L11.276,6 L10.292,6 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+    </g>
+</svg>

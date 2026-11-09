@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/logo/Newegg</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="19.8142415" height="19.8142415"></rect>
+        <radialGradient cx="62.2251215%" cy="42.9150391%" fx="62.2251215%" fy="42.9150391%" r="79.38843%" gradientTransform="translate(0.6223, 0.4292), scale(1, 0.8889), rotate(126.0074), scale(1, 0.8422), translate(-0.6223, -0.4292)" id="radialGradient-3">
+            <stop stop-color="#FAF0B5" offset="0%"></stop>
+            <stop stop-color="#FAEFB3" offset="15%"></stop>
+            <stop stop-color="#FAEFAC" offset="20%"></stop>
+            <stop stop-color="#FAEEA0" offset="24%"></stop>
+            <stop stop-color="#FBED8F" offset="27%"></stop>
+            <stop stop-color="#FCEC79" offset="29%"></stop>
+            <stop stop-color="#FDEA5E" offset="32%"></stop>
+            <stop stop-color="#FEE83E" offset="34%"></stop>
+            <stop stop-color="#FFE72E" offset="35%"></stop>
+            <stop stop-color="#FEE32D" offset="44%"></stop>
+            <stop stop-color="#FDDA2C" offset="51%"></stop>
+            <stop stop-color="#FCC92B" offset="57%"></stop>
+            <stop stop-color="#F9B129" offset="63%"></stop>
+            <stop stop-color="#F69327" offset="69%"></stop>
+            <stop stop-color="#F26E24" offset="75%"></stop>
+            <stop stop-color="#F15C23" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="0_Icon/logo/Newegg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="23423" mask="url(#mask-2)" fill="url(#radialGradient-3)" fill-rule="nonzero">
+            <g transform="translate(2, 1)" id="路径">
+                <path d="M13.4743567,0.699092394 C12.5938595,0.134459773 11.5513509,-0.0607218735 10.4384025,0.0159566306 C9.34658597,0.0856643615 8.19137368,0.427232243 7.0643373,0.957010999 C5.38082671,1.75167913 3.76775589,2.97156442 2.54210383,4.35874827 C2.12650916,4.82579007 1.76022234,5.31374419 1.45028734,5.80866908 C-0.240267233,8.49241672 -0.416366667,11.6501769 0.731801644,14.0969183 C1.2741879,15.2610374 2.11946519,16.2578579 3.23945759,16.9688768 C3.38033714,17.0594969 3.52121668,17.1361754 3.66209623,17.2128539 C4.57076931,17.700808 5.54988216,17.9517558 6.55717093,17.9935805 C9.35362994,18.1120836 12.2839245,16.5854843 14.0449189,13.7832335 C16.5384869,9.82383438 16.9540815,2.89488592 13.4743567,0.692121621 L13.4743567,0.699092394 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

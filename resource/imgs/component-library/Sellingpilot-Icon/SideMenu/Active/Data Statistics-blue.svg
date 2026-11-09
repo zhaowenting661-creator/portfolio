@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/SideMenu/Active/Data Statistics-blue</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/SideMenu/Active/Data-Statistics-blue" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M17.7138337,11.24988 L9.34335082,11.24988 L9.34335082,2.90998209 C9.34335082,2.5716475 9.04892498,2.29933428 8.71512535,2.34327844 C4.56292945,2.93634859 1.35954108,6.58828383 1.50453587,10.9721532 C1.64955159,15.2997738 5.29076418,18.9735052 9.65002437,19.1176411 C14.0338927,19.2626569 17.6865317,16.0907675 18.2806565,11.9072839 C18.3255361,11.5451845 18.051324,11.24988 17.7138337,11.24988 Z" id="路径" fill="#1061CD" opacity="0.4" mask="url(#mask-2)"></path>
+        <path d="M11.653055,1.12609615 C11.332298,1.10412729 11.0631487,1.37650703 11.0631487,1.69737017 L11.0630575,9.56162948 L18.9273039,9.56162948 C19.2480609,9.56162948 19.5203741,9.28822678 19.4985779,8.97172319 C19.207935,4.77075422 15.8506015,1.41609217 11.653055,1.12609615 Z" id="路径" fill="#1061CD" mask="url(#mask-2)"></path>
+    </g>
+</svg>

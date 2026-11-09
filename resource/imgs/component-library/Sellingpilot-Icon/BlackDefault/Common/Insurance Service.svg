@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Common/Insurance Service</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Icon/Common/Insurance-Service" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M9.38611009,2.11622308 C9.92111037,1.90766765 10.3930545,2.02572321 10.6222212,2.11622308 L17.016666,4.61677833 C17.6111111,4.84455645 18,5.39455611 18,5.95011167 C18,12.916778 13.466668,16.7723332 10.6194441,17.8334447 C10.383333,17.9237224 9.91805522,18.041778 9.38333299,17.8334447 C5.81944444,16.4390016 2,12.150112 2,5.95011167 C2,5.39455611 2.38888889,4.84455645 2.98888821,4.61677833 Z M9.98611111,3.31115591 L9.98611111,16.906033 C12.2404434,15.8273394 16.7545048,12.4239576 17.0356988,6.09168837 L9.98611111,3.31115591 Z" id="形状结合" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+    </g>
+</svg>

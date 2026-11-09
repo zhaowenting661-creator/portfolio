@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Title/Account Name</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Icon/Title/Account-Name" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="编组-2" mask="url(#mask-2)" fill="#293651">
+            <g transform="translate(2, 1)" id="路径">
+                <path d="M8,11.4482474 C3.68526162,11.4482474 0,12.1013785 0,14.7118583 C0,17.3243825 3.66182932,18 8,18 C12.3147384,18 16,17.346869 16,14.7363891 C16,12.123865 12.3381707,11.4482474 8,11.4482474 Z"></path>
+                <path d="M8.0000225,10.159816 C10.9386459,10.159816 13.2935919,7.8999213 13.2935919,5.07990799 C13.2935919,2.25989468 10.9386459,0 8.0000225,0 C5.06246426,0 2.70645307,2.25989468 2.70645307,5.07990799 C2.70645307,7.8999213 5.06246426,10.159816 8.0000225,10.159816 Z" opacity="0.4"></path>
+            </g>
+        </g>
+    </g>
+</svg>

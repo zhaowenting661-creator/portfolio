@@ -1,0 +1,19 @@
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  
+  <g transform="translate(90,90) scale(1.087)" stroke="white" stroke-width="1" fill="none">
+    <line x1="0" y1="48" x2="0" y2="-30"/>
+    <line x1="0" y1="-30" x2="-26" y2="-4"/>
+    <line x1="0" y1="-30" x2="26" y2="-4"/>
+    <line x1="-26" y1="-4" x2="-46" y2="-28"/>
+    <line x1="26" y1="-4" x2="46" y2="-28"/>
+    <line x1="-22" y1="48" x2="22" y2="48"/>
+    <circle cx="0" cy="-30" r="4.5" fill="white"/>
+    <circle cx="-26" cy="-4" r="3" fill="white"/>
+    <circle cx="26" cy="-4" r="3" fill="white"/>
+    <circle cx="0" cy="48" r="3" fill="white"/>
+    <circle cx="-46" cy="-28" r="2.5" fill="white"/>
+    <circle cx="46" cy="-28" r="2.5" fill="white"/>
+    <circle cx="-22" cy="48" r="2.5" fill="white"/>
+    <circle cx="22" cy="48" r="2.5" fill="white"/>
+  </g>
+</svg>

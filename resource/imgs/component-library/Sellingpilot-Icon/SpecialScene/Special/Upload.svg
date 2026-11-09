@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Special/Upload</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/Special/Upload" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="编组" mask="url(#mask-2)">
+            <g transform="translate(-0, 3)">
+                <polygon id="三角形" fill="#FFFFFF" fill-rule="evenodd" points="10.2 2 16.4 14.4 4 14.4"></polygon>
+                <path d="M10.7582614,14.4444444 L10.7582614,10.3571656 L13.5687248,10.3571656 L10.0543681,6.14528662 L6.41481796,10.3571656 L9.22528137,10.3571656 L9.22528137,14.4444444 L4.17922206,14.4444444 C4.12505676,14.4444444 3.33046211,14.1194438 3.17537563,14.055286 C-1.82750475,11.9816731 -0.616706009,4.87377132 4.69430335,4.16828222 C6.23954724,-1.38447191 13.7491055,-1.39413275 15.2900059,4.16753908 C19.5514349,4.76205237 21.5800785,9.7980754 18.5544869,12.8997007 C18.050903,13.4159365 16.3794437,14.4444444 15.6765724,14.4444444 L10.7582614,14.4444444 Z" id="Fill-3" fill="#1061CD" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

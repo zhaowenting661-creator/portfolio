@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Common/Play</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="0_Icon/Common/Play" stroke="none" fill="none">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M11.8,5.06666667 L18.8,14.4 C19.1313708,14.8418278 19.0418278,15.4686292 18.6,15.8 C18.4269038,15.9298221 18.2163702,16 18,16 L4,16 C3.44771525,16 3,15.5522847 3,15 C3,14.7836298 3.07017787,14.5730962 3.2,14.4 L10.2,5.06666667 C10.5313708,4.62483887 11.1581722,4.53529582 11.6,4.86666667 C11.6758057,4.92352092 11.7431458,4.990861 11.8,5.06666667 Z" id="三角形" fill="#000000" fill-rule="evenodd" mask="url(#mask-2)" transform="translate(11, 10) rotate(90) translate(-11, -10)"></path>
+    </g>
+</svg>

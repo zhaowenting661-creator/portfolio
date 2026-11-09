@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0_Icon/Special/Image</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+        <linearGradient x1="100%" y1="106.355287%" x2="-133.70769%" y2="-101.508824%" id="linearGradient-3">
+            <stop stop-color="#2F70C8" offset="0%"></stop>
+            <stop stop-color="#8C72F6" offset="38.3389084%"></stop>
+            <stop stop-color="#B3A0FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="0_Icon/Special/Image" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <g id="编组" mask="url(#mask-2)">
+            <g transform="translate(1, 1)">
+                <rect id="矩形" fill="url(#linearGradient-3)" fill-rule="nonzero" x="0" y="0" width="18" height="18" rx="3.375"></rect>
+                <path d="M11.9850262,5 C11.4298209,5 10.9822135,5.45740603 10.9822135,6.02371826 C10.9822135,6.59003051 11.4298209,7.04743654 11.9850262,7.04743654 C12.5402315,7.04743654 12.9878388,6.59003051 12.9878388,6.02371826 C12.9878388,5.45740603 12.5402315,5 11.9850262,5 Z M9.21132392,13.2547414 L3.43107749,13.2547414 C3.09333364,13.2547414 2.88719711,12.8789714 3.06574854,12.5888017 L6.91811954,6.32821566 C7.08390212,6.05879914 7.46944269,6.053576 7.64211583,6.31854914 C8.24505154,7.2439338 9.48001743,9.14270469 10.5423532,10.7975126 L11.6583159,8.97335554 C11.8203583,8.70851309 12.1966928,8.69640271 12.3750041,8.95029357 L14.9196519,12.5732499 C15.1211182,12.8601089 14.9208139,13.2577907 14.5731005,13.2612757 L12.1082043,13.2857143 L9.21132392,13.2547414 Z" id="Mountains" fill="#1C263F" fill-rule="evenodd"></path>
+            </g>
+        </g>
+    </g>
+</svg>

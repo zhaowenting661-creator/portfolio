@@ -1,0 +1,37 @@
+.sp-shared-navigation-host:not(.sp-assistant-navigation-host)>*:not(.sp-shared-nav){display:none!important}
+.sp-assistant-navigation-host>.sp-cn-nav,.sp-assistant-navigation-host>.sp-language-trigger{display:none!important}
+.sp-shared-nav{position:absolute;inset:0;z-index:40;background:white;box-shadow:0 2px 6px #2632530c;font-family:Poppins,Arial,'PingFang SC',sans-serif;color:#09245a;isolation:isolate}
+.sp-assistant-navigation-host>.sp-shared-nav{bottom:auto;height:5.925926%}
+.sp-shared-nav button{position:absolute;top:0;height:100%;box-sizing:border-box;border:0!important;background:transparent!important;color:#18366a;padding:0;cursor:pointer;font:400 calc(14px * var(--sp-nav-scale))/1 Poppins,Arial,'PingFang SC',sans-serif;border-radius:0;white-space:nowrap}
+.sp-shared-nav button:hover{color:#1061cd;background:#1061cd09!important}.sp-shared-nav button:focus-visible{outline:1px solid #1061cd!important;outline-offset:-2px}
+.sp-shared-nav .sp-nav-logo{left:0;width:12.5%}.sp-nav-logo img,.sp-nav-account img{display:block;width:100%;height:100%;object-fit:contain}
+.sp-shared-nav .sp-nav-link.is-active{font-weight:600;color:#08265e}.sp-nav-link.is-active:after{content:'';position:absolute;left:0;right:0;bottom:0;height:calc(4px * var(--sp-nav-scale));background:#ff8500;border-radius:2px}
+.sp-shared-nav .sp-nav-assistant{left:75%;top:12.5%;width:2.708333%;height:81.25%;border-radius:50%;background:white!important}
+.sp-nav-assistant img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}.sp-nav-assistant .sp-hover{visibility:hidden}.sp-nav-assistant:hover .sp-hover,.sp-nav-assistant:focus-visible .sp-hover{visibility:visible}.sp-nav-assistant:hover .sp-default,.sp-nav-assistant:focus-visible .sp-default{visibility:hidden}
+.sp-nav-divider{position:absolute;left:78.4375%;top:31.25%;height:37.5%;width:calc(1px * var(--sp-nav-scale));background:#e8e8eb}
+.sp-shared-nav .sp-nav-action{width:1.458333%}.sp-nav-action img{display:block;width:100%;height:100%;object-fit:contain}.sp-shared-nav .sp-nav-account{width:12.5%}
+.sp-shared-nav .sp-nav-menu{position:absolute;top:100%;z-index:100;width:max-content;min-width:calc(150px * var(--sp-nav-scale));padding:calc(6px * var(--sp-nav-scale));background:white;border:1px solid #e4e6ed;border-radius:calc(6px * var(--sp-nav-scale));box-shadow:0 4px 16px #18366a22}
+.sp-shared-nav .sp-nav-menu[hidden]{display:none!important}.sp-shared-nav .sp-nav-menu button{position:static;display:block;width:100%;height:auto;text-align:left;padding:calc(10px * var(--sp-nav-scale)) calc(12px * var(--sp-nav-scale));line-height:1.3}.sp-shared-nav .sp-nav-menu:has([aria-label=English]){transform:translateX(-30%)}
+
+/* Source header is 64 px high on a 1920 px artboard, independent of content height. */
+.sp-shared-nav,.sp-assistant-navigation-host>.sp-shared-nav{bottom:auto!important;height:calc(64px * var(--sp-nav-scale))!important}
+.sp-shared-nav .sp-nav-links{position:absolute;left:13.333333%;top:0;height:100%;display:flex;align-items:center;gap:calc(28px * var(--sp-nav-scale));width:max-content;max-width:60%}
+.sp-shared-nav .sp-nav-links>.sp-nav-link{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:100%;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+/* Isolate the component from portfolio-wide nav minimum heights and padding. */
+.sp-shared-navigation-host>.sp-shared-nav{min-height:0!important;max-height:none!important;padding:0!important;margin:0!important;border:0!important;box-sizing:border-box!important}
+
+/* Keep shared navigation dropdowns above page controls and native content. */
+.sp-shared-navigation-host:not(.sp-assistant-navigation-host){z-index:200!important;overflow:visible!important}
+.sp-shared-nav{overflow:visible!important}
+
+/* The footer control points in the direction the sidebar will move. */
+.sp-sidebar-toggle::before {
+  content: "";
+  display: block;
+  width: 1.25cqw;
+  height: 1.25cqw;
+  flex: 0 0 auto;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 4h12M9 8h8M9 12h8M5 16h12M6 7l-3 3 3 3' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.sp-sidebar-toggle[aria-expanded="false"]::before { transform: scaleX(-1); }

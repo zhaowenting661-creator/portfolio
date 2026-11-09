@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Common/Subduction Number</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="16"></rect>
+    </defs>
+    <g id="Icon/Common/Subduction-Number" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M12.7057213,12.7083872 C12.511986,12.9036845 12.2557566,13.0005521 11.9995263,13.0005521 C11.7432959,13.0005521 11.4876911,12.9029035 11.2927066,12.7076062 L7.99983867,9.41645666 L6.5866676,7.9993806 L3.29317456,4.70745003 C2.90258006,4.31685554 2.90258006,3.68409246 3.29317456,3.29349797 C3.68376905,2.90290348 4.31653213,2.90290348 4.70712662,3.29349797 L7.99983819,6.58855301 L9.41379025,8.0025046 L12.7057208,11.2944352 C13.0963158,11.6850297 13.0963158,12.3177927 12.7057213,12.7083872 Z" id="路径" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(7.9994, 8.0006) rotate(-45) translate(-7.9994, -8.0006)"></path>
+    </g>
+</svg>

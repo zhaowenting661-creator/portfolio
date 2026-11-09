@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 710 318" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="background" clip-path="url(#clip0_0_6)">
+<path id="Subtract" d="M698 0C704.627 9.59942e-06 710 5.37259 710 12V306C710 312.627 704.627 318 698 318H12C5.37259 318 9.66418e-08 312.627 0 306V218.665C0 205.92 10.9725 195.925 20.8244 187.84C28.8684 181.238 34 171.219 34 160C34 148.781 28.8683 138.762 20.8243 132.16C10.9726 124.074 0 114.079 0 101.334V12C0 5.37258 5.37258 3.08035e-07 12 0H698Z" fill="url(#paint0_linear_0_6)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_6" x1="-5.65288" y1="134.423" x2="289.446" y2="489.225" gradientUnits="userSpaceOnUse">
+<stop stop-color="#25274D"/>
+<stop offset="0.586538" stop-color="#20203C"/>
+<stop offset="0.990385" stop-color="#20203C"/>
+</linearGradient>
+<clipPath id="clip0_0_6">
+<rect width="710" height="318" fill="white"/>
+</clipPath>
+</defs>
+</svg>

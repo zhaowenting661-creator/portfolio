@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Common/Unfold-Right</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="16"></rect>
+    </defs>
+    <g id="Icon/Common/Unfold-Right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="蒙版"></g>
+        <path d="M7.99968753,11 C7.829113,11 7.65845519,10.9302455 7.52846216,10.7907366 L4.19530233,7.21930804 C3.93489922,6.94029018 3.93489922,6.48828125 4.19530233,6.20926339 C4.45570545,5.93024554 4.87755849,5.93024554 5.1379616,6.20926339 L7.99968753,9.27678544 L10.8620384,6.20982129 C11.1224415,5.93080344 11.5442946,5.93080344 11.8046977,6.20982129 C12.0651008,6.48883915 12.0651008,6.94084808 11.8046977,7.21986594 L8.47153784,10.7912945 C8.34133628,10.9308034 8.17051191,11 7.99968753,11 Z" id="路径" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(8, 8.5) scale(-1, 1) rotate(90) translate(-8, -8.5)"></path>
+    </g>
+</svg>

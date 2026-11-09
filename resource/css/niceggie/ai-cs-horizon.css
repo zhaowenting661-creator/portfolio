@@ -1,0 +1,11 @@
+/* Background-only recreation of the supplied moving sunrise reference. */
+.page-ai-cs .blob-section .ai-cs-horizon {
+  position:absolute;top:-320px;bottom:-240px;left:50%;
+  width:100vw;transform:translateX(-50%);
+  overflow:hidden;pointer-events:none;z-index:0;
+  mask-image:linear-gradient(to bottom,transparent,#000 6%,#000 90%,transparent);
+}
+.page-ai-cs .ai-cs-horizon canvas {display:block;width:100%;height:100%;}
+@media(max-width:1439px){
+ .page-ai-cs .blob-section .ai-cs-horizon {top:-180px;bottom:-100px;}
+}

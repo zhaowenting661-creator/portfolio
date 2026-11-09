@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon" clip-path="url(#clip0_0_4)">
+<rect id="Rectangle 434" width="60" height="60" rx="8" fill="#100F14"/>
+<path id="Union" d="M31.499 12C35.6417 12 38.9997 14.9825 39 18.6641V19.9971H44.999C45.0209 19.9971 45.0427 19.9996 45.0645 20H48V48H12V20H14.9346C14.9563 19.9996 14.9781 19.9971 15 19.9971H21V18.6641C21.0003 14.9825 24.3588 12 28.5 12H31.499ZM15 45.5996H45V40H15V45.5996ZM15 37H45V22.5996H39V28H36V22.5996H24V28H21V22.5996H15V37ZM28.5 14.666C26.0154 14.666 24.0003 16.4568 24 18.6641V19.9971H35.999V18.6641C35.9987 16.4566 33.9849 14.666 31.499 14.666H28.5Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="60" height="60" fill="white"/>
+</clipPath>
+</defs>
+</svg>
