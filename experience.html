@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工作经历 — 赵文婷</title>
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -43,6 +42,7 @@
 
     /* ─── TIMELINE WRAPPER ─── */
     .timeline {
+      --timeline-axis: 50%;
       position: relative;
     }
 
@@ -50,7 +50,7 @@
     .timeline::before {
       content: '';
       position: absolute;
-      left: 50%;
+      left: var(--timeline-axis);
       transform: translateX(-50%);
       top: 0;
       bottom: 0;
@@ -263,7 +263,7 @@
     #entry-hanshiman::after {
       content: '';
       position: absolute;
-      left: 50%;
+      left: var(--timeline-axis);
       transform: translateX(-50%);
       width: 4px;
       background: #0d0d0d;
@@ -275,7 +275,7 @@
     /* ─── SCROLL PROGRESS LINE ─── */
     .timeline-progress {
       position: absolute;
-      left: 50%;
+      left: var(--timeline-axis);
       transform: translateX(-50%);
       width: 2px;
       height: 0;
@@ -386,8 +386,16 @@
         margin-bottom: 56px;
       }
 
-      .timeline::before {
-        left: 24px;
+      .timeline {
+        --timeline-axis: 24px;
+      }
+
+      #entry-hanshiman .entry-node {
+        position: absolute;
+      }
+
+      #entry-hanshiman::after {
+        top: 20px;
       }
 
       .entry {
@@ -474,6 +482,27 @@
     background: rgba(255,255,255,0.1);
   }
 
+  .motion-toggle {
+    position: fixed;
+    right: max(24px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 600;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 99px;
+    background: #191919;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+  }
+  .motion-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  body.motion-paused :is(.anim-left,.anim-right,.anim-fade) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  body.motion-paused .loader { animation-play-state: paused; }
+
   /* ── CROSSHAIR CURSOR ── */
   #cursor-trail {
     position: fixed; pointer-events: none; z-index: 9999;
@@ -527,6 +556,7 @@
 <div id="cursor-ring"></div>
 
 <a class="back-btn" href="index.html">← 返回</a>
+<button class="motion-toggle" id="experience-motion" type="button" aria-pressed="false">暂停动效 Ⅱ</button>
 
 <!-- Spline 3D fixed panel — replace URL with your scene link -->
 <div class="spline-fixed" id="spline-panel">
@@ -743,7 +773,7 @@
   const splineViewer = document.querySelector('spline-viewer');
   const splineLoader = document.getElementById('spline-loader');
   if (splineViewer) {
-    splineViewer.addEventListener('load', () => {
+    splineViewer.addEventListener('load-complete', () => {
       if (splineLoader) splineLoader.style.display = 'none';
     });
 
@@ -770,8 +800,6 @@
     function update() {
       const z         = zoom();
       const tRect     = timeline.getBoundingClientRect();
-      const lastEntry = timeline.querySelector('.entry:last-child');
-      const lastRect  = lastEntry.getBoundingClientRect();
       const vh        = window.innerHeight;
 
       // 白线止于最后一个 logo 中心点
@@ -789,22 +817,62 @@
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     update();
     window.addEventListener('load', update);
   })();
 
-  /* ── Film Grain ── */
-  (function(){
-    const turb=document.getElementById('grain-turb');
-    if(!turb)return;
-    let t=0;
-    function tick(){
-      t+=0.012;
-      const f=(0.68+Math.sin(t)*0.04).toFixed(4);
-      turb.setAttribute('baseFrequency',f+' '+f);
-      requestAnimationFrame(tick);
+  /* ── Pause decorative motion ── */
+  (function () {
+    const button = document.getElementById('experience-motion');
+    const grain = document.getElementById('grain-turb');
+    const mobile = matchMedia('(max-width: 800px)');
+    let sceneReady = false;
+    let paused = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let grainFrame = 0;
+    let grainTime = 0;
+
+    function drawGrain() {
+      grainTime += 0.012;
+      const frequency = (0.68 + Math.sin(grainTime) * 0.04).toFixed(4);
+      grain.setAttribute('baseFrequency', frequency + ' ' + frequency);
+      grainFrame = requestAnimationFrame(drawGrain);
     }
-    requestAnimationFrame(tick);
+
+    function updateSpline() {
+      if (!sceneReady) return;
+      // The pinned Spline Viewer 1.9.82 stores its player in _spline.
+      const player = splineViewer._spline;
+      if (paused) player?.stop?.();
+      else player?.play?.();
+    }
+
+    function updateMotion() {
+      document.body.classList.toggle('motion-paused', paused);
+      button.setAttribute('aria-pressed', String(paused));
+      button.textContent = paused ? '播放动效 ↗' : '暂停动效 Ⅱ';
+      cancelAnimationFrame(grainFrame);
+      if (!paused && grain) grainFrame = requestAnimationFrame(drawGrain);
+      updateSpline();
+    }
+
+    button.addEventListener('click', () => {
+      paused = !paused;
+      updateMotion();
+    });
+    splineViewer.addEventListener('load-complete', () => {
+      sceneReady = true;
+      updateSpline();
+    });
+    function loadDesktopScene() {
+      if (mobile.matches) return;
+      mobile.removeEventListener('change', loadDesktopScene);
+      import('https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js')
+        .catch(() => { splineLoader.hidden = true; });
+    }
+    mobile.addEventListener('change', loadDesktopScene);
+    loadDesktopScene();
+    updateMotion();
   })();
 
   /* ── Vignette on Scroll ── */
@@ -851,6 +919,10 @@
   }catch(e){}
 
   window.stairNav=function(href){
+    if (document.body.classList.contains('motion-paused')) {
+      window.location.href = href;
+      return;
+    }
     var rows=overlay.querySelectorAll('.stair-row');
     overlay.style.pointerEvents='all';
     rows.forEach(function(row){row.style.transition='none';row.style.transform='translateX(-100%)';});
