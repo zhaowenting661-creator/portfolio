@@ -345,6 +345,7 @@
 }
 .bauble-pointer span { margin-top: 22px; font-size: 10px; }
 .bauble-bottom {
+  z-index: 4; pointer-events: none;
   bottom: 36px; left: 3.2rem; right: 3.2rem;
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 20px;
 }
@@ -353,6 +354,7 @@
 .bauble-scope p { font-size: 10px; color: #46464d; }
 .bauble-portfolio { font: 900 clamp(18px, 1.9vw, 30px)/1 'Barlow', Arial, sans-serif; letter-spacing: -.035em; }
 #baubles-pause {
+  pointer-events: auto;
   justify-self: end; border: 0; background: none; padding: 7px 0;
   color: #323238; font: 10px/1 Arial, sans-serif; letter-spacing: .05em;
 }
